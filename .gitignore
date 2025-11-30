@@ -1,0 +1,5 @@
+node_modules/
+.DS_Store
+public_html/assets/css/main.css.map
+*.log
+
