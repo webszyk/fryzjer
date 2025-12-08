@@ -11,244 +11,602 @@
     <link rel="stylesheet" href="./assets/css/main.css">
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+        // Video fallback handler
+        document.addEventListener('DOMContentLoaded', function () {
+            const video = document.querySelector('#hero video');
+            const fallback = document.getElementById('video-fallback');
+            if (video && fallback) {
+                video.addEventListener('error', function () {
+                    video.style.display = 'none';
+                    fallback.classList.remove('hidden');
+                });
+            }
+        });
+    </script>
 </head>
 
-<body class="bg-white text-gray-900">
+<body class="min-h-screen bg-ivory text-espresso font-body">
+    <!-- Logo Section - Centralne -->
+    <div class="w-full text-center py-6">
+        <img src="./assets/img/logo-handwritten.svg" class="mx-auto h-14 opacity-90 logo-glow" alt="Salonik u Agi"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <div class="text-3xl font-display font-bold tracking-wide text-espresso" style="display: none;">
+            Salonik u Agi
+        </div>
+    </div>
 
-    <header class="fixed top-0 left-0 right-0 z-50 bg-[#0e0e0e] text-white shadow-lg"
-        x-data="{ mobileMenuOpen: false }">
-        <nav class="container mx-auto px-4 py-4">
-            <div class="flex items-center justify-between">
-                <div class="text-2xl font-bold tracking-wide">
-                    Salonik u Agi
-                </div>
+    <!-- Navigation - Pod Logo, Centralne -->
+    <header class="w-full transition-all duration-300" x-data="{ 
+            mobileMenuOpen: false,
+            scrolled: false,
+            init() {
+                window.addEventListener('scroll', () => {
+                    this.scrolled = window.scrollY > 400;
+                });
+            }
+        }"
+        :class="scrolled ? 'fixed top-0 left-0 right-0 z-50 bg-ivory/95 backdrop-blur-sm shadow-lg py-3' : 'relative'">
+        <nav class="w-full text-center mb-6" aria-label="Główne menu nawigacyjne">
+            <ul
+                class="inline-flex flex-wrap justify-center gap-6 md:gap-8 text-[17px] tracking-wide font-light text-espresso/80">
+                <li><a href="#o-nas" class="hover:text-burgundy transition-colors">O nas</a></li>
+                <li><a href="#uslugi" class="hover:text-burgundy transition-colors">Usługi</a></li>
+                <li><a href="#galeria" class="hover:text-burgundy transition-colors">Galeria</a></li>
+                <li><a href="#cennik" class="hover:text-burgundy transition-colors">Cennik</a></li>
+                <li><a href="#kontakt" class="hover:text-burgundy transition-colors">Kontakt</a></li>
+            </ul>
 
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#oferta" class="hover:text-gold transition-colors">Oferta</a>
-                    <a href="#galeria" class="hover:text-gold transition-colors">Galeria</a>
-                    <a href="#o-nas" class="hover:text-gold transition-colors">O nas</a>
-                    <a href="#kontakt" class="hover:text-gold transition-colors">Kontakt</a>
-                    <a href="tel:+48123456789"
-                        class="bg-burgundy px-6 py-2 rounded-lg hover:bg-opacity-90 transition-colors">
-                        Zadzwoń
-                    </a>
-                </div>
+            <!-- Mobile Menu Button -->
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden mt-4 text-espresso focus:outline-none"
+                aria-label="Otwórz menu mobilne" aria-expanded="false" :aria-expanded="mobileMenuOpen">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16"></path>
+                    <path x-show="mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
 
-                <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-white focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16"></path>
-                        <path x-show="mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-
+            <!-- Mobile Menu Dropdown -->
             <div x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-200"
                 x-transition:enter-start="opacity-0 transform -translate-y-2"
                 x-transition:enter-end="opacity-100 transform translate-y-0"
                 x-transition:leave="transition ease-in duration-150"
                 x-transition:leave-start="opacity-100 transform translate-y-0"
-                x-transition:leave-end="opacity-0 transform -translate-y-2" class="md:hidden mt-4 pb-4 space-y-4">
-                <a href="#oferta" @click="mobileMenuOpen = false"
-                    class="block hover:text-gold transition-colors">Oferta</a>
+                x-transition:leave-end="opacity-0 transform -translate-y-2" class="md:hidden mt-4 pb-4 space-y-3">
+                <a href="#o-nas" @click="mobileMenuOpen = false"
+                    class="block hover:text-burgundy transition-colors text-center">O nas</a>
+                <a href="#uslugi" @click="mobileMenuOpen = false"
+                    class="block hover:text-burgundy transition-colors text-center">Usługi</a>
                 <a href="#galeria" @click="mobileMenuOpen = false"
-                    class="block hover:text-gold transition-colors">Galeria</a>
-                <a href="#o-nas" @click="mobileMenuOpen = false" class="block hover:text-gold transition-colors">O
-                    nas</a>
+                    class="block hover:text-burgundy transition-colors text-center">Galeria</a>
+                <a href="#cennik" @click="mobileMenuOpen = false"
+                    class="block hover:text-burgundy transition-colors text-center">Cennik</a>
                 <a href="#kontakt" @click="mobileMenuOpen = false"
-                    class="block hover:text-gold transition-colors">Kontakt</a>
-                <a href="tel:+48123456789"
-                    class="block bg-burgundy px-6 py-2 rounded-lg hover:bg-opacity-90 transition-colors text-center">
-                    Zadzwoń
-                </a>
+                    class="block hover:text-burgundy transition-colors text-center">Kontakt</a>
             </div>
         </nav>
     </header>
 
-    <section id="hero" class="min-h-screen bg-[#0e0e0e] text-white flex items-center pt-20">
-        <div class="container mx-auto px-4 py-20">
+    <main>
+        <!-- Hero Section (Lookbook Style) -->
+        <section id="hero" class="text-center mx-auto max-w-3xl px-6 py-16 space-y-8">
+            <!-- Main Headline with Fade-in -->
+            <h1 class="font-display text-4xl md:text-6xl text-espresso leading-tight fade-in">
+                Twoje Włosy,<br>Nasza Pasja.
+            </h1>
+
+            <!-- Subheadline with Fade-in -->
+            <p class="text-lg text-espresso/70 font-light max-w-xl mx-auto fade-in"
+                style="animation-delay: 0.2s; opacity: 0;">
+                Profesjonalna koloryzacja, strzyżenie i pielęgnacja – w sercu Wrocławia.
+            </p>
+
+            <!-- CTA Buttons with Fade-in -->
+            <div class="flex flex-col sm:flex-row justify-center gap-4 fade-in"
+                style="animation-delay: 0.4s; opacity: 0;">
+                <a href="#kontakt" class="btn-primary">
+                    Umów wizytę
+                </a>
+                <a href="https://m.me/salonikuagi" target="_blank" rel="noopener noreferrer" class="btn-outline-cream">
+                    Messenger
+                </a>
+            </div>
+
+            <!-- Hero Video Container (16:9) -->
+            <div class="rounded-2xl overflow-hidden shadow-2xl border border-warmgray/60 mt-10 group cursor-pointer fade-in"
+                style="animation-delay: 0.6s; opacity: 0;">
+                <div class="aspect-video overflow-hidden">
+                    <video autoplay muted loop playsinline
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <source src="./assets/video/salon-lookbook.mp4" type="video/mp4">
+                    </video>
+                    <!-- Fallback image if video not available -->
+                    <img src="./assets/img/lookbook/look1.jpg" alt="Salon lookbook"
+                        class="w-full h-full object-cover hidden" id="video-fallback">
+                </div>
+            </div>
+        </section>
+
+        <!-- O Nas Section -->
+        <section id="o-nas" class="container mx-auto px-6 py-20 bg-ivory">
             <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-8">
-                    <h1 class="text-5xl md:text-6xl font-bold leading-tight">
-                        Nowoczesne koloryzacje i strzyżenia we Wrocławiu
-                    </h1>
-                    <p class="text-xl text-gray-300 leading-relaxed">
-                        Profesjonalne usługi fryzjerskie w eleganckiej atmosferze. Doświadczenie, pasja i indywidualne
-                        podejście do każdego klienta.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#kontakt"
-                            class="bg-gold text-[#0e0e0e] px-8 py-4 rounded-lg font-semibold hover:bg-opacity-90 transition-colors text-center">
-                            Umów wizytę
-                        </a>
-                        <a href="tel:+48123456789"
-                            class="bg-burgundy px-8 py-4 rounded-lg font-semibold hover:bg-opacity-90 transition-colors text-center">
-                            Zadzwoń
-                        </a>
-                    </div>
+                <div class="relative">
+                    <img src="./assets/img/hero/hero-salon.jpg" alt="Salon fryzjerski"
+                        class="rounded-xl shadow-lg w-full object-cover">
                 </div>
-
-                <div class="hidden md:block">
-                    <div class="bg-cover bg-center h-96 rounded-lg shadow-2xl"
-                        style="background-image: url('/assets/img/hero/placeholder.jpg'); background-color: #1a1a1a;">
-                        <div
-                            class="w-full h-full bg-gradient-to-br from-[#0e0e0e] to-transparent rounded-lg flex items-center justify-center">
-                            <p class="text-gray-500 text-sm">Zdjęcie hero</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="oferta" class="py-20 bg-[#0e0e0e] text-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-5xl font-bold text-center mb-16">Oferta</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div
-                    class="bg-white text-[#0e0e0e] rounded-lg p-8 border-2 border-gold hover:shadow-2xl transition-shadow">
-                    <h3 class="text-2xl font-bold mb-4">Koloryzacje blond</h3>
-                    <p class="text-gray-700 leading-relaxed">
-                        Profesjonalne koloryzacje w odcieniach blond. Balayage, ombre, babylights – tworzymy naturalne,
-                        świetliste efekty.
-                    </p>
-                </div>
-
-                <div
-                    class="bg-white text-[#0e0e0e] rounded-lg p-8 border-2 border-gold hover:shadow-2xl transition-shadow">
-                    <h3 class="text-2xl font-bold mb-4">Strzyżenia damskie</h3>
-                    <p class="text-gray-700 leading-relaxed">
-                        Nowoczesne fryzury dopasowane do Twojego typu twarzy i stylu życia. Od klasycznych cięć po
-                        awangardowe kształty.
-                    </p>
-                </div>
-
-                <div
-                    class="bg-white text-[#0e0e0e] rounded-lg p-8 border-2 border-gold hover:shadow-2xl transition-shadow">
-                    <h3 class="text-2xl font-bold mb-4">Strzyżenia męskie</h3>
-                    <p class="text-gray-700 leading-relaxed">
-                        Precyzyjne strzyżenia męskie w stylu klasycznym i nowoczesnym. Fade, undercut, pompadour – każdy
-                        styl na najwyższym poziomie.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="galeria" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-5xl font-bold text-center mb-16 text-[#0e0e0e]">Galeria</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                <div class="aspect-square bg-gray-200 rounded-lg overflow-hidden hover:opacity-90 transition-opacity">
-                    <div
-                        class="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
-                        <p class="text-gray-600 text-sm">Zdjęcie 1</p>
-                    </div>
-                </div>
-                <div class="aspect-square bg-gray-200 rounded-lg overflow-hidden hover:opacity-90 transition-opacity">
-                    <div
-                        class="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
-                        <p class="text-gray-600 text-sm">Zdjęcie 2</p>
-                    </div>
-                </div>
-                <div class="aspect-square bg-gray-200 rounded-lg overflow-hidden hover:opacity-90 transition-opacity">
-                    <div
-                        class="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
-                        <p class="text-gray-600 text-sm">Zdjęcie 3</p>
-                    </div>
-                </div>
-                <div class="aspect-square bg-gray-200 rounded-lg overflow-hidden hover:opacity-90 transition-opacity">
-                    <div
-                        class="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
-                        <p class="text-gray-600 text-sm">Zdjęcie 4</p>
-                    </div>
-                </div>
-                <div class="aspect-square bg-gray-200 rounded-lg overflow-hidden hover:opacity-90 transition-opacity">
-                    <div
-                        class="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
-                        <p class="text-gray-600 text-sm">Zdjęcie 5</p>
-                    </div>
-                </div>
-                <div class="aspect-square bg-gray-200 rounded-lg overflow-hidden hover:opacity-90 transition-opacity">
-                    <div
-                        class="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
-                        <p class="text-gray-600 text-sm">Zdjęcie 6</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="o-nas" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6">
-                    <h2 class="text-5xl font-bold text-[#0e0e0e]">O nas</h2>
-                    <p class="text-lg text-gray-700 leading-relaxed">
-                        Salonik u Agi to miejsce, gdzie pasja spotyka się z profesjonalizmem. Od lat tworzymy fryzury,
-                        które podkreślają indywidualność i dodają pewności siebie.
+                    <h2 class="text-4xl md:text-5xl font-display font-bold tracking-tight text-espresso">
+                        O nas
+                    </h2>
+                    <div class="w-24 h-1 bg-gold mb-6"></div>
+                    <p class="text-base font-body text-espresso/70 leading-relaxed">
+                        Salonik u Agi to miejsce, gdzie pasja spotyka się z profesjonalizmem. Od lat tworzymy
+                        fryzury, które podkreślają indywidualność i dodają pewności siebie.
                     </p>
-                    <p class="text-lg text-gray-700 leading-relaxed">
-                        Nasz zespół to doświadczeni stylisti, którzy nieustannie podnoszą swoje kwalifikacje, śledząc
-                        najnowsze trendy w branży fryzjerskiej. Każda wizyta to czas poświęcony wyłącznie Tobie.
+                    <p class="text-base font-body text-espresso/70 leading-relaxed">
+                        Nasz zespół to doświadczeni stylisti, którzy nieustannie podnoszą swoje kwalifikacje,
+                        śledząc najnowsze trendy w branży fryzjerskiej. Każda wizyta to czas poświęcony wyłącznie
+                        Tobie.
                     </p>
-                    <p class="text-lg text-gray-700 leading-relaxed">
-                        Wierzymy, że piękno zaczyna się od dobrego samopoczucia. Dlatego w naszym salonie stawiamy na
-                        komfort, relaks i indywidualne podejście do każdego klienta.
+                    <p class="text-base font-body text-espresso/70 leading-relaxed">
+                        Wierzymy, że piękno zaczyna się od dobrego samopoczucia. Dlatego w naszym salonie stawiamy
+                        na komfort, relaks i indywidualne podejście do każdego klienta.
                     </p>
                 </div>
+            </div>
+        </section>
 
-                <div class="hidden md:block">
-                    <div class="bg-cover bg-center h-96 rounded-lg shadow-xl" style="background-color: #f3f4f6;">
+        <!-- Usługi Section -->
+        <section id="uslugi" class="container mx-auto px-6 py-20">
+            <h2 class="text-4xl md:text-5xl font-display font-bold tracking-tight text-center mb-16 text-espresso">
+                Usługi
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service Card 1: Scissors -->
+                <div class="bg-white border border-gold/50 rounded-xl p-8 shadow-lg hover:shadow-xl transition">
+                    <div class="mb-6">
+                        <svg class="w-12 h-12 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-display font-bold mb-4 text-espresso">Strzyżenia</h3>
+                    <p class="text-sm font-body text-espresso/70 leading-relaxed mb-6">
+                        Profesjonalne strzyżenia damskie i męskie. Od klasycznych cięć po nowoczesne kształty.
+                    </p>
+                    <p class="text-lg font-display font-semibold text-gold">od 80 zł</p>
+                </div>
+
+                <!-- Service Card 2: Brush -->
+                <div class="bg-white border border-gold/50 rounded-xl p-8 shadow-lg hover:shadow-xl transition">
+                    <div class="mb-6">
+                        <svg class="w-12 h-12 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-display font-bold mb-4 text-espresso">Stylizacja</h3>
+                    <p class="text-sm font-body text-espresso/70 leading-relaxed mb-6">
+                        Profesjonalna stylizacja włosów na każdą okazję. Upięcia, loki, prostowanie.
+                    </p>
+                    <p class="text-lg font-display font-semibold text-gold">od 100 zł</p>
+                </div>
+
+                <!-- Service Card 3: Dryer -->
+                <div class="bg-white border border-gold/50 rounded-xl p-8 shadow-lg hover:shadow-xl transition">
+                    <div class="mb-6">
+                        <svg class="w-12 h-12 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-display font-bold mb-4 text-espresso">Farbowanie</h3>
+                    <p class="text-sm font-body text-espresso/70 leading-relaxed mb-6">
+                        Koloryzacje w odcieniach blond, balayage, ombre. Naturalne i świetliste efekty.
+                    </p>
+                    <p class="text-lg font-display font-semibold text-gold">od 250 zł</p>
+                </div>
+
+                <!-- Service Card 4: Palette -->
+                <div class="bg-white border border-gold/50 rounded-xl p-8 shadow-lg hover:shadow-xl transition">
+                    <div class="mb-6">
+                        <svg class="w-12 h-12 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-display font-bold mb-4 text-espresso">Koloryzacja</h3>
+                    <p class="text-sm font-body text-espresso/70 leading-relaxed mb-6">
+                        Pełna paleta kolorów. Tworzymy unikalne odcienie dopasowane do Twojego typu urody.
+                    </p>
+                    <p class="text-lg font-display font-semibold text-gold">od 200 zł</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cennik Section -->
+        <section id="cennik" class="container mx-auto px-6 py-20">
+            <h2 class="text-4xl md:text-5xl font-display font-bold tracking-tight text-center mb-16 text-espresso">
+                Cennik
+            </h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-lg border border-gold/50 overflow-hidden">
+                    <!-- Price Row 1 -->
+                    <div class="flex items-center justify-between p-6 border-b border-gold/50">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-display font-semibold text-espresso mb-1">Strzyżenie damskie</h3>
+                            <p class="text-sm font-body text-espresso/70">Krótkie, średnie, długie</p>
+                        </div>
+                        <p class="text-2xl font-display font-bold text-gold ml-4">120 zł</p>
+                    </div>
+                    <!-- Price Row 2 -->
+                    <div class="flex items-center justify-between p-6 border-b border-gold/50">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-display font-semibold text-espresso mb-1">Strzyżenie męskie</h3>
+                            <p class="text-sm font-body text-espresso/70">Klasyczne i nowoczesne</p>
+                        </div>
+                        <p class="text-2xl font-display font-bold text-gold ml-4">80 zł</p>
+                    </div>
+                    <!-- Price Row 3 -->
+                    <div class="flex items-center justify-between p-6 border-b border-gold/50">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-display font-semibold text-espresso mb-1">Koloryzacja</h3>
+                            <p class="text-sm font-body text-espresso/70">Pełna koloryzacja</p>
+                        </div>
+                        <p class="text-2xl font-display font-bold text-gold ml-4">od 200 zł</p>
+                    </div>
+                    <!-- Price Row 4 -->
+                    <div class="flex items-center justify-between p-6 border-b border-gold/50">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-display font-semibold text-espresso mb-1">Balayage / Ombre</h3>
+                            <p class="text-sm font-body text-espresso/70">Techniki koloryzacji</p>
+                        </div>
+                        <p class="text-2xl font-display font-bold text-gold ml-4">od 250 zł</p>
+                    </div>
+                    <!-- Price Row 5 -->
+                    <div class="flex items-center justify-between p-6">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-display font-semibold text-espresso mb-1">Stylizacja</h3>
+                            <p class="text-sm font-body text-espresso/70">Upięcia, loki, prostowanie</p>
+                        </div>
+                        <p class="text-2xl font-display font-bold text-gold ml-4">od 100 zł</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galeria Section (iPhone Photos Style) -->
+        <section id="galeria" class="container mx-auto px-6 py-20">
+            <h2 class="text-4xl md:text-5xl font-display font-bold tracking-tight text-center mb-16 text-espresso">
+                Galeria
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
+                <!-- Gallery Item 1 -->
+                <a href="#"
+                    class="group relative aspect-square rounded-3xl overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.12)] ring-1 ring-black/5 hover:shadow-[0_4px_16px_rgba(0,0,0,0.16)] transition-all duration-300">
+                    <img src="./assets/img/gallery/g1.jpg" alt="Blonde balayage" class="w-full h-full object-cover">
+                    <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="bg-white/90 backdrop-blur-sm rounded-full p-1.5 shadow-sm">
+                            <svg class="w-4 h-4 text-espresso" fill="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path
+                                    d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Gallery Item 2 -->
+                <a href="#"
+                    class="group relative aspect-square rounded-3xl overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.12)] ring-1 ring-black/5 hover:shadow-[0_4px_16px_rgba(0,0,0,0.16)] transition-all duration-300">
+                    <img src="./assets/img/gallery/g2.jpg" alt="Brunette waves" class="w-full h-full object-cover">
+                    <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="bg-white/90 backdrop-blur-sm rounded-full p-1.5 shadow-sm">
+                            <svg class="w-4 h-4 text-espresso" fill="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path
+                                    d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Gallery Item 3 -->
+                <a href="#"
+                    class="group relative aspect-square rounded-3xl overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.12)] ring-1 ring-black/5 hover:shadow-[0_4px_16px_rgba(0,0,0,0.16)] transition-all duration-300">
+                    <img src="./assets/img/gallery/g3.jpg" alt="Balayage highlights" class="w-full h-full object-cover">
+                    <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="bg-white/90 backdrop-blur-sm rounded-full p-1.5 shadow-sm">
+                            <svg class="w-4 h-4 text-espresso" fill="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path
+                                    d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Gallery Item 4 -->
+                <a href="#"
+                    class="group relative aspect-square rounded-3xl overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.12)] ring-1 ring-black/5 hover:shadow-[0_4px_16px_rgba(0,0,0,0.16)] transition-all duration-300">
+                    <img src="./assets/img/gallery/g4.jpg" alt="Bob cut" class="w-full h-full object-cover">
+                    <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="bg-white/90 backdrop-blur-sm rounded-full p-1.5 shadow-sm">
+                            <svg class="w-4 h-4 text-espresso" fill="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path
+                                    d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Gallery Item 5 -->
+                <a href="#"
+                    class="group relative aspect-square rounded-3xl overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.12)] ring-1 ring-black/5 hover:shadow-[0_4px_16px_rgba(0,0,0,0.16)] transition-all duration-300">
+                    <img src="./assets/img/gallery/g5.jpg" alt="Gloss hair" class="w-full h-full object-cover">
+                    <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="bg-white/90 backdrop-blur-sm rounded-full p-1.5 shadow-sm">
+                            <svg class="w-4 h-4 text-espresso" fill="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path
+                                    d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Gallery Item 6 -->
+                <a href="#"
+                    class="group relative aspect-square rounded-3xl overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.12)] ring-1 ring-black/5 hover:shadow-[0_4px_16px_rgba(0,0,0,0.16)] transition-all duration-300">
+                    <img src="./assets/img/gallery/g6.jpg" alt="Long waves" class="w-full h-full object-cover">
+                    <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="bg-white/90 backdrop-blur-sm rounded-full p-1.5 shadow-sm">
+                            <svg class="w-4 h-4 text-espresso" fill="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path
+                                    d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Gallery Item 7 -->
+                <a href="#"
+                    class="group relative aspect-square rounded-3xl overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.12)] ring-1 ring-black/5 hover:shadow-[0_4px_16px_rgba(0,0,0,0.16)] transition-all duration-300">
+                    <img src="./assets/img/gallery/g7.jpg" alt="Blonde ombre" class="w-full h-full object-cover">
+                    <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="bg-white/90 backdrop-blur-sm rounded-full p-1.5 shadow-sm">
+                            <svg class="w-4 h-4 text-espresso" fill="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path
+                                    d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Gallery Item 8 -->
+                <a href="#"
+                    class="group relative aspect-square rounded-3xl overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.12)] ring-1 ring-black/5 hover:shadow-[0_4px_16px_rgba(0,0,0,0.16)] transition-all duration-300">
+                    <img src="./assets/img/gallery/g8.jpg" alt="Stylized updo" class="w-full h-full object-cover">
+                    <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="bg-white/90 backdrop-blur-sm rounded-full p-1.5 shadow-sm">
+                            <svg class="w-4 h-4 text-espresso" fill="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path
+                                    d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Gallery Item 9 -->
+                <a href="#"
+                    class="group relative aspect-square rounded-3xl overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.12)] ring-1 ring-black/5 hover:shadow-[0_4px_16px_rgba(0,0,0,0.16)] transition-all duration-300">
+                    <img src="./assets/img/gallery/g9.jpg" alt="Color gloss" class="w-full h-full object-cover">
+                    <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="bg-white/90 backdrop-blur-sm rounded-full p-1.5 shadow-sm">
+                            <svg class="w-4 h-4 text-espresso" fill="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path
+                                    d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Before / After Section -->
+        <section id="przed-po" class="container mx-auto px-6 py-20">
+            <h2 class="text-4xl md:text-5xl font-display font-bold tracking-tight text-center mb-16 text-espresso">
+                Przed i Po
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Before Card -->
+                <div class="rounded-xl overflow-hidden border border-gold/50 shadow-lg">
+                    <img src="./assets/img/before-after/before.jpg" alt="Przed" class="w-full h-96 object-cover">
+                    <div class="bg-white p-6">
+                        <h3 class="text-2xl font-display font-semibold text-espresso text-center">Przed</h3>
+                    </div>
+                </div>
+
+                <!-- After Card -->
+                <div class="rounded-xl overflow-hidden border border-gold/50 shadow-lg">
+                    <img src="./assets/img/before-after/after.jpg" alt="Po" class="w-full h-96 object-cover">
+                    <div class="bg-white p-6">
+                        <h3 class="text-2xl font-display font-semibold text-espresso text-center">Po</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section id="video" class="container mx-auto px-6 py-20">
+            <h2 class="text-4xl md:text-5xl font-display font-bold tracking-tight text-center mb-16 text-espresso">
+                Zobacz nas w akcji
+            </h2>
+            <div class="max-w-4xl mx-auto">
+                <div
+                    class="aspect-video rounded-xl overflow-hidden shadow-xl border border-gold/50 relative group cursor-pointer">
+                    <img src="./assets/img/video/video-thumb.jpg" alt="Video salonu" class="w-full h-full object-cover">
+                    <div
+                        class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition">
                         <div
-                            class="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg flex items-center justify-center">
-                            <p class="text-gray-500 text-sm">Zdjęcie salonu</p>
+                            class="w-20 h-20 bg-gold/90 rounded-full flex items-center justify-center group-hover:bg-gold transition">
+                            <svg class="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="kontakt" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-5xl font-bold text-center mb-16 text-[#0e0e0e]">Kontakt</h2>
-            <div class="max-w-2xl mx-auto text-center space-y-8">
-                <div class="space-y-4">
-                    <p class="text-xl text-gray-700">
-                        <strong class="text-[#0e0e0e]">Adres:</strong><br>
+        <!-- Sklep (Cybersalon) Section -->
+        <section id="sklep" class="container mx-auto px-6 py-20">
+            <div class="bg-white rounded-2xl shadow-xl border border-gold/50 p-12 text-center">
+                <div class="inline-block bg-gold/10 text-gold px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                    Cybersalon
+                </div>
+                <h2 class="text-4xl md:text-5xl font-display font-bold tracking-tight mb-6 text-espresso">
+                    Sklep Online
+                </h2>
+                <p class="text-lg font-body text-espresso/70 leading-relaxed max-w-2xl mx-auto mb-8">
+                    Odkryj naszą kolekcję profesjonalnych produktów do pielęgnacji włosów. Wysokiej jakości kosmetyki
+                    i akcesoria fryzjerskie dostępne online.
+                </p>
+                <a href="#" class="btn-outline inline-block">
+                    Przejdź do sklepu
+                </a>
+            </div>
+        </section>
+
+        <!-- Voucher Section -->
+        <section id="voucher" class="container mx-auto px-6 py-20">
+            <div class="bg-burgundy rounded-2xl shadow-xl border border-gold/30 p-12 text-center">
+                <h2 class="text-4xl md:text-5xl font-display font-bold tracking-tight mb-6 text-white">
+                    Voucher Podarunkowy
+                </h2>
+                <p class="text-lg font-body text-white/90 leading-relaxed max-w-2xl mx-auto mb-8">
+                    Podaruj bliskiej osobie wizytę w naszym salonie. Voucher można wykorzystać na dowolną usługę.
+                </p>
+                <a href="#"
+                    class="bg-gold text-espresso px-8 py-4 rounded-xl font-semibold hover:bg-gold/90 transition inline-block">
+                    Kup Voucher
+                </a>
+            </div>
+        </section>
+
+        <!-- Mapa + Kontakt Section -->
+        <section id="kontakt" class="container mx-auto px-6 py-20">
+            <h2 class="text-4xl md:text-5xl font-display font-bold tracking-tight text-center mb-16 text-espresso">
+                Kontakt
+            </h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Map -->
+                <div class="rounded-xl overflow-hidden shadow-lg border border-gold/50 aspect-[4/3]">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2504.1234567890123!2d17.0385!3d51.1079!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDA2JzI4LjQiTiAxN8KwMDInMTguNiJF!5e0!3m2!1spl!2spl!4v1234567890123!5m2!1spl!2spl"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" class="w-full h-full"></iframe>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-display font-semibold text-espresso mb-4">Adres</h3>
+                        <p class="text-lg font-body text-espresso/70">
+                            ul. Przykładowa 123<br>
+                            50-000 Wrocław
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-display font-semibold text-espresso mb-4">Telefon</h3>
+                        <p class="text-lg font-body text-espresso/70">
+                            <a href="tel:+48123456789" class="text-gold hover:underline">+48 123 456 789</a>
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-display font-semibold text-espresso mb-4">Godziny otwarcia</h3>
+                        <p class="text-lg font-body text-espresso/70">
+                            Poniedziałek - Piątek: 9:00 - 19:00<br>
+                            Sobota: 9:00 - 17:00<br>
+                            Niedziela: Zamknięte
+                        </p>
+                    </div>
+                    <a href="tel:+48123456789" class="inline-block btn-primary">
+                        Zadzwoń
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-espresso text-ivory py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12 mb-8">
+                <!-- Contact Column -->
+                <div>
+                    <h3 class="text-lg font-display font-semibold text-ivory mb-4">Kontakt</h3>
+                    <p class="text-sm font-body text-ivory/80 mb-2">
                         ul. Przykładowa 123<br>
                         50-000 Wrocław
                     </p>
-                    <p class="text-xl text-gray-700">
-                        <strong class="text-[#0e0e0e]">Telefon:</strong><br>
-                        <a href="tel:+48123456789" class="text-burgundy hover:underline">+48 123 456 789</a>
-                    </p>
-                    <p class="text-xl text-gray-700">
-                        <strong class="text-[#0e0e0e]">Godziny otwarcia:</strong><br>
-                        Poniedziałek - Piątek: 9:00 - 19:00<br>
-                        Sobota: 9:00 - 17:00<br>
-                        Niedziela: Zamknięte
+                    <p class="text-sm font-body text-ivory/80">
+                        <a href="tel:+48123456789" class="text-gold hover:underline">+48 123 456 789</a>
                     </p>
                 </div>
-                <a href="tel:+48123456789"
-                    class="inline-block bg-burgundy text-white px-8 py-4 rounded-lg font-semibold hover:bg-opacity-90 transition-colors">
-                    Zadzwoń
-                </a>
-            </div>
-        </div>
-    </section>
 
-    <footer class="bg-[#0e0e0e] text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-sm text-gray-400">
-                &copy; 2024 Salonik u Agi. Wszystkie prawa zastrzeżone.
-            </p>
+                <!-- Social Icons Column -->
+                <div>
+                    <h3 class="text-lg font-display font-semibold text-ivory mb-4">Śledź nas</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://instagram.com/salonikuagi" target="_blank" rel="noopener noreferrer"
+                            class="text-gold hover:text-gold/80 transition" aria-label="Instagram">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <a href="https://facebook.com/salonikuagi" target="_blank" rel="noopener noreferrer"
+                            class="text-gold hover:text-gold/80 transition" aria-label="Facebook">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Copyright Column -->
+                <div>
+                    <h3 class="text-lg font-display font-semibold text-ivory mb-4">Informacje</h3>
+                    <p class="text-sm font-body text-ivory/80">
+                        &copy; 2024 Salonik u Agi. Wszystkie prawa zastrzeżone.
+                    </p>
+                    <p class="text-sm font-body text-ivory/80 mt-2">
+                        Projekt Webszyk
+                    </p>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <script src="/assets/js/site.js"></script>
+    <script src="./assets/js/site.js"></script>
 </body>
 
 </html>

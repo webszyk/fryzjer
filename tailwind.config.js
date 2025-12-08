@@ -7,12 +7,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        gold: "#d4af37",
-        burgundy: "#b91c1c"
+        ivory: "#F7F5F2",
+        espresso: "#1A1A1A",
+        burgundy: "#6A2E35",
+        gold: "#D2B48C",
+        warmgray: "#EDEAE7"
       },
       fontFamily: {
-        display: ['"Playfair Display"', "serif"],
-        body: ['Inter', "system-ui", "sans-serif"],
+        display: ["Playfair Display", "serif"],
+        body: ["Inter", "sans-serif"]
       }
     }
   },

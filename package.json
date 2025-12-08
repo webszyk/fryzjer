@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "Strona fryzjerska Salonik u Agi - TailwindCSS build mode",
   "scripts": {
+    "build": "tailwindcss -i ./public_html/assets/css/input.css -o ./public_html/assets/css/main.css --minify",
     "build-css": "tailwindcss -i ./public_html/assets/css/input.css -o ./public_html/assets/css/main.css --watch",
-    "build-css-prod": "tailwindcss -i ./public_html/assets/css/input.css -o ./public_html/assets/css/main.css --minify"
+    "build-css-prod": "tailwindcss -i ./public_html/assets/css/input.css -o ./public_html/assets/css/main.css --minify",
+    "dev": "tailwindcss -i ./public_html/assets/css/input.css -o ./public_html/assets/css/main.css --watch"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.22",
