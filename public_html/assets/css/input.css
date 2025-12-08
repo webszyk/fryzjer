@@ -103,3 +103,18 @@
 }
 
 @tailwind utilities;
+
+@layer utilities {
+  .shadow-soft-gold {
+    box-shadow: 0 18px 50px rgba(212, 175, 55, 0.18);
+  }
+
+  .shadow-soft-panel {
+    box-shadow: 0 18px 40px rgba(15, 15, 15, 0.12);
+  }
+}
+
+/* Alpine.js x-cloak - hide elements until Alpine is loaded */
+[x-cloak] {
+  display: none !important;
+}

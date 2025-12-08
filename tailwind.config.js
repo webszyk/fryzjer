@@ -10,12 +10,12 @@ module.exports = {
         ivory: "#F7F5F2",
         espresso: "#1A1A1A",
         burgundy: "#6A2E35",
-        gold: "#D2B48C",
+        gold: "#D4AF37",
         warmgray: "#EDEAE7"
       },
       fontFamily: {
         display: ["Playfair Display", "serif"],
-        body: ["Inter", "sans-serif"]
+        body: ["Inter", "system-ui", "sans-serif"]
       }
     }
   },
