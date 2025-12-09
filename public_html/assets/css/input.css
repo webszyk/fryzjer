@@ -1,5 +1,5 @@
-/* === Google Fonts: Playfair Display + Manrope === */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Manrope:wght@300;400;500;600;700&display=swap');
+/* === Google Fonts: Playfair Display + Inter === */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 
@@ -9,12 +9,12 @@
   }
 
   body {
-    @apply bg-white text-deepblack antialiased;
+    @apply bg-white text-black antialiased;
   }
 
   h1, h2, h3, h4 {
     font-family: theme("fontFamily.display");
-    @apply text-deepblack font-light;
+    @apply text-black font-light;
   }
 }
 
@@ -22,17 +22,17 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-[#5D001E] text-white px-10 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl hover:bg-[#4A0018] transition-all duration-300;
+    @apply bg-burgundy text-white px-10 py-4 rounded-full font-bold shadow-sm hover:shadow-md hover:bg-[#6A1A25] transition-all duration-300;
     letter-spacing: 0.05em;
   }
 
   .btn-secondary {
-    @apply bg-white border border-yellow-600 text-[#0A0A0A] px-10 py-4 rounded-full font-semibold hover:bg-yellow-600/5 hover:border-yellow-500 transition-all duration-300;
+    @apply bg-white border border-gold text-black px-10 py-4 rounded-full font-semibold hover:bg-gold/5 hover:border-gold/80 transition-all duration-300;
     letter-spacing: 0.05em;
   }
 
   .btn-outline {
-    @apply border border-gray-200 text-deepblack px-8 py-4 rounded-xl font-semibold hover:border-gold hover:shadow-md transition-all duration-300;
+    @apply border border-gray-200 text-black px-8 py-4 rounded-xl font-semibold hover:border-gold hover:shadow-sm transition-all duration-300;
   }
 
   .container {
@@ -68,15 +68,57 @@
 
 @layer utilities {
   .shadow-soft-gold {
-    box-shadow: 0 20px 60px rgba(212, 175, 55, 0.25);
+    box-shadow: 0 4px 20px rgba(212, 167, 92, 0.15);
   }
 
   .shadow-soft-panel {
-    box-shadow: 0 10px 30px rgba(10, 10, 10, 0.08);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   }
 
   .shadow-luxury {
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  .shadow-apple {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Spotlight animation overlay */
+  .spotlight-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(212, 167, 92, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: spotlight 8s ease-in-out infinite;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Parallax background - only in hero section */
+  #hero .parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    filter: blur(2px) brightness(1.1);
+    opacity: 0.25;
+  }
+
+  /* Auto-scroll lookbook */
+  .lookbook-scroll {
+    animation: scroll-up 20s linear infinite;
+  }
+
+  .lookbook-scroll:hover {
+    animation-play-state: paused;
   }
 
   .text-gold-gradient {

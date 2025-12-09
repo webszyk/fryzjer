@@ -4,692 +4,632 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salonik u Agi – Ultra-Premium Salon Fryzjerski | Wrocław</title>
+    <title>Salonik u Agi – Premium Salon Fryzjerski | Wrocław</title>
     <meta name="description"
         content="Profesjonalne usługi fryzjerskie we Wrocławiu. Koloryzacje, strzyżenia damskie i męskie. Umów wizytę już dziś!">
 
     <link rel="stylesheet" href="./assets/css/main.css">
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script>
-        // Video fallback handler
-        document.addEventListener('DOMContentLoaded', function () {
-            const video = document.querySelector('#hero video');
-            const fallback = document.getElementById('video-fallback');
-            if (video && fallback) {
-                video.addEventListener('error', function () {
-                    video.style.display = 'none';
-                    fallback.classList.remove('hidden');
-                });
-            }
-        });
-    </script>
 </head>
 
-<body class="min-h-screen bg-white text-deepblack font-body">
-    <!-- Header: Logo + Navigation -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100" x-data="{ 
-        mobileMenuOpen: false,
-        scrolled: false
-    }" @scroll.window="scrolled = window.scrollY > 50">
-        <!-- Logo Section - Centered -->
-        <div class="w-full text-center py-12">
-            <h1 class="text-4xl md:text-5xl font-display font-light tracking-wide text-[#0A0A0A]">
-                Salonik u Agi
-            </h1>
-        </div>
+<body class="min-h-screen bg-white text-black font-body" x-data="{ 
+    mobileMenuOpen: false,
+    scrolled: false,
+    lightboxOpen: false,
+    lightboxImage: '',
+    videoPlaying: false
+}" @scroll.window="scrolled = window.scrollY > window.innerHeight * 0.8">
 
-        <!-- Gold Divider Line -->
-        <div class="w-full border-t border-yellow-600/40"></div>
+    <!-- Sticky Navigation (appears after scrolling past hero) -->
+    <header x-show="scrolled" x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0"
+        class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-apple"
+        x-cloak>
+        <nav class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="#hero" class="text-2xl font-display font-light text-black">Salonik u Agi</a>
 
-        <!-- Navigation -->
-        <nav class="w-full text-center py-8" aria-label="Główne menu nawigacyjne">
-            <!-- Desktop Menu -->
-            <ul
-                class="hidden md:inline-flex flex-wrap justify-center gap-10 lg:gap-12 text-xs uppercase tracking-widest font-medium text-[#0A0A0A]">
-                <li>
-                    <a href="#o-nas"
-                        class="relative after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 hover:after:w-full after:bg-yellow-600 after:transition-all transition-colors duration-300 hover:text-yellow-600">
-                        O nas
-                    </a>
-                </li>
-                <li>
-                    <a href="#uslugi"
-                        class="relative after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 hover:after:w-full after:bg-gold after:transition-all transition-colors duration-300">
-                        Usługi
-                    </a>
-                </li>
-                <li>
-                    <a href="#cennik"
-                        class="relative after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 hover:after:w-full after:bg-gold after:transition-all transition-colors duration-300">
-                        Cennik
-                    </a>
-                </li>
-                <li>
-                    <a href="#galeria"
-                        class="relative after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 hover:after:w-full after:bg-gold after:transition-all transition-colors duration-300">
-                        Galeria
-                    </a>
-                </li>
-                <li>
-                    <a href="#przed-po"
-                        class="relative after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 hover:after:w-full after:bg-gold after:transition-all transition-colors duration-300">
-                        Przed i Po
-                    </a>
-                </li>
-                <li>
-                    <a href="#sklep"
-                        class="relative after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 hover:after:w-full after:bg-gold after:transition-all transition-colors duration-300">
-                        Sklep
-                    </a>
-                </li>
-                <li>
-                    <a href="#voucher"
-                        class="relative after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 hover:after:w-full after:bg-gold after:transition-all transition-colors duration-300">
-                        Voucher
-                    </a>
-                </li>
-                <li>
-                    <a href="#kontakt"
-                        class="relative after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 hover:after:w-full after:bg-gold after:transition-all transition-colors duration-300">
-                        Kontakt
-                    </a>
-                </li>
-            </ul>
+                <!-- Desktop Menu -->
+                <ul class="hidden md:flex items-center gap-8 text-sm uppercase tracking-widest font-medium">
+                    <li><a href="#o-nas" class="hover:text-gold transition-colors">O nas</a></li>
+                    <li><a href="#uslugi" class="hover:text-gold transition-colors">Usługi</a></li>
+                    <li><a href="#lookbook" class="hover:text-gold transition-colors">Lookbook</a></li>
+                    <li><a href="#cennik" class="hover:text-gold transition-colors">Cennik</a></li>
+                    <li><a href="#galeria" class="hover:text-gold transition-colors">Galeria</a></li>
+                    <li><a href="#video" class="hover:text-gold transition-colors">Video</a></li>
+                    <li><a href="#kontakt" class="hover:text-gold transition-colors">Kontakt</a></li>
+                </ul>
 
-            <!-- Mobile Menu Button -->
-            <button @click="mobileMenuOpen = !mobileMenuOpen"
-                class="md:hidden absolute right-6 top-8 text-deepblack focus:outline-none"
-                aria-label="Otwórz menu mobilne" aria-expanded="false" :aria-expanded="mobileMenuOpen">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M4 6h16M4 12h16M4 18h16"></path>
-                    <path x-show="mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
+                <!-- Mobile Menu Button -->
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-black" aria-label="Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                        <path x-show="mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
 
-            <!-- Mobile Menu Dropdown -->
-            <div x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 transform -translate-y-2"
-                x-transition:enter-end="opacity-100 transform translate-y-0"
-                x-transition:leave="transition ease-in duration-150"
-                x-transition:leave-start="opacity-100 transform translate-y-0"
-                x-transition:leave-end="opacity-0 transform -translate-y-2"
-                class="md:hidden mt-4 pb-4 space-y-3 bg-white">
-                <a href="#o-nas" @click="mobileMenuOpen = false"
-                    class="block hover:text-gold transition-colors text-center py-2">O nas</a>
-                <a href="#uslugi" @click="mobileMenuOpen = false"
-                    class="block hover:text-gold transition-colors text-center py-2">Usługi</a>
-                <a href="#cennik" @click="mobileMenuOpen = false"
-                    class="block hover:text-gold transition-colors text-center py-2">Cennik</a>
-                <a href="#galeria" @click="mobileMenuOpen = false"
-                    class="block hover:text-gold transition-colors text-center py-2">Galeria</a>
-                <a href="#przed-po" @click="mobileMenuOpen = false"
-                    class="block hover:text-gold transition-colors text-center py-2">Przed i Po</a>
-                <a href="#sklep" @click="mobileMenuOpen = false"
-                    class="block hover:text-gold transition-colors text-center py-2">Sklep</a>
-                <a href="#voucher" @click="mobileMenuOpen = false"
-                    class="block hover:text-gold transition-colors text-center py-2">Voucher</a>
-                <a href="#kontakt" @click="mobileMenuOpen = false"
-                    class="block hover:text-gold transition-colors text-center py-2">Kontakt</a>
+            <!-- Mobile Menu -->
+            <div x-show="mobileMenuOpen" x-transition class="md:hidden mt-4 pb-4 space-y-3">
+                <a href="#o-nas" @click="mobileMenuOpen = false" class="block hover:text-gold">O nas</a>
+                <a href="#uslugi" @click="mobileMenuOpen = false" class="block hover:text-gold">Usługi</a>
+                <a href="#lookbook" @click="mobileMenuOpen = false" class="block hover:text-gold">Lookbook</a>
+                <a href="#cennik" @click="mobileMenuOpen = false" class="block hover:text-gold">Cennik</a>
+                <a href="#galeria" @click="mobileMenuOpen = false" class="block hover:text-gold">Galeria</a>
+                <a href="#video" @click="mobileMenuOpen = false" class="block hover:text-gold">Video</a>
+                <a href="#kontakt" @click="mobileMenuOpen = false" class="block hover:text-gold">Kontakt</a>
             </div>
         </nav>
     </header>
 
     <main>
-        <!-- Hero Section - Ultra-Premium Cinematic -->
-        <section id="hero" class="max-w-7xl mx-auto px-6 py-24 md:py-40">
-            <!-- Centered Text Content -->
-            <div class="text-center space-y-8 mb-16">
-                <!-- Eyebrow Text -->
-                <p class="text-xs tracking-[0.3em] uppercase text-gray-500 font-body font-medium">
-                    nowoczesny salon fryzjerski we Wrocławiu
-                </p>
+        <!-- Hero Section - 3 Column Layout -->
+        <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+            <!-- Parallax Background (only in hero) -->
+            <!-- TODO: Wstaw panoramiczne zdjęcie salonu w tle -->
+            <div class="parallax-bg" style="background-image: url('./assets/img/hero/salon-panorama.jpg');"></div>
 
-                <!-- Main Headline -->
-                <h2
-                    class="font-display text-6xl md:text-8xl lg:text-9xl text-[#0A0A0A] leading-[0.95] font-light tracking-tight">
-                    Twoje Włosy,<br>Nasza Pasja.
-                </h2>
+            <!-- Spotlight Animation -->
+            <div class="spotlight-overlay"></div>
 
-                <!-- Subheadline -->
-                <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto font-body font-light leading-relaxed">
-                    Profesjonalna koloryzacja, strzyżenie i pielęgnacja – w sercu Wrocławia.
-                </p>
+            <!-- Main Navigation (centered, only visible in hero) -->
+            <div class="absolute top-8 left-0 right-0 z-30" x-show="!scrolled" x-cloak>
+                <div class="max-w-7xl mx-auto px-6">
+                    <!-- Logo -->
+                    <div class="text-center mb-8">
+                        <!-- TODO: Wstaw ręczne logo (SVG lub PNG) -->
+                        <h1 class="text-5xl md:text-6xl font-display font-light text-black mb-4">Salonik u Agi</h1>
+                    </div>
+
+                    <!-- Anchor Menu -->
+                    <nav class="text-center">
+                        <ul
+                            class="inline-flex flex-wrap justify-center gap-6 md:gap-10 text-xs uppercase tracking-widest font-medium text-black">
+                            <li><a href="#o-nas" class="hover:text-gold transition-colors">O nas</a></li>
+                            <li><a href="#uslugi" class="hover:text-gold transition-colors">Usługi</a></li>
+                            <li><a href="#lookbook" class="hover:text-gold transition-colors">Lookbook</a></li>
+                            <li><a href="#cennik" class="hover:text-gold transition-colors">Cennik</a></li>
+                            <li><a href="#galeria" class="hover:text-gold transition-colors">Galeria</a></li>
+                            <li><a href="#video" class="hover:text-gold transition-colors">Video</a></li>
+                            <li><a href="#kontakt" class="hover:text-gold transition-colors">Kontakt</a></li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
 
-            <!-- CTA Buttons -->
-            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
-                <a href="#kontakt" class="btn-primary">
-                    Umów wizytę
-                </a>
-                <a href="https://m.me/salonikuagi" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-                    Napisz na Messengerze
-                </a>
-            </div>
+            <!-- 3 Column Layout -->
+            <div class="relative z-20 max-w-7xl mx-auto px-6 py-32 grid md:grid-cols-3 gap-8 md:gap-12 items-center">
+                <!-- LEFT: Vertical Headline + Description + CTA -->
+                <div class="space-y-8">
+                    <div class="space-y-6">
+                        <h2 class="text-5xl md:text-6xl font-display font-light text-black leading-tight">
+                            Twoje<br>Włosy,<br>Nasza<br>Pasja.
+                        </h2>
+                        <p class="text-base md:text-lg font-body text-gray-700 leading-relaxed">
+                            Profesjonalna koloryzacja, strzyżenie i pielęgnacja – w sercu Wrocławia. Tworzymy fryzury,
+                            które podkreślają indywidualność.
+                        </p>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <a href="#kontakt" class="btn-primary text-center">Umów wizytę</a>
+                        <a href="https://m.me/salonikuagi" target="_blank" rel="noopener noreferrer"
+                            class="btn-secondary text-center">Napisz na Messengerze</a>
+                    </div>
+                </div>
 
-            <!-- Cinematic Video Container -->
-            <div class="relative max-w-6xl mx-auto">
-                <div
-                    class="relative rounded-xl overflow-hidden bg-black border border-[#0A0A0A] shadow-luxury group cursor-pointer transition-all duration-500 hover:scale-[1.01]">
-                    <div class="aspect-video relative">
-                        <!-- Video/Image Background -->
-                        <img src="./assets/img/lookbook/look1.jpg" alt="Salon lookbook"
-                            class="w-full h-full object-cover" id="video-fallback">
-                        <video autoplay muted loop playsinline class="w-full h-full object-cover hidden"
-                            id="hero-video">
-                            <source src="./assets/video/salon-lookbook.mp4" type="video/mp4">
-                        </video>
-
-                        <!-- Gradient Overlay -->
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-
-                        <!-- Play Button with Gold Glow -->
-                        <div class="absolute inset-0 flex items-center justify-center">
+                <!-- CENTER: Elegant Video Card -->
+                <div class="relative">
+                    <div
+                        class="bg-white rounded-2xl border-2 border-gold shadow-soft-gold overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-[1.02]">
+                        <div class="aspect-video relative">
+                            <!-- TODO: Wstaw video salonu -->
+                            <img src="./assets/img/hero/video-thumb.jpg" alt="Video salonu"
+                                class="w-full h-full object-cover" loading="lazy">
                             <div
-                                class="w-24 h-24 rounded-full border-2 border-gold bg-black/50 backdrop-blur-sm flex items-center justify-center group-hover:bg-black/70 group-hover:border-goldlight transition-all duration-300 shadow-soft-gold">
+                                class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition">
                                 <div
-                                    class="w-0 h-0 border-l-[16px] border-l-gold border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent ml-1 group-hover:border-l-goldlight">
+                                    class="w-20 h-20 bg-gold/90 rounded-full flex items-center justify-center group-hover:bg-gold transition shadow-apple">
+                                    <div
+                                        class="w-0 h-0 border-l-[16px] border-l-white border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent ml-1">
+                                    </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Vertical Lookbook Auto-Scroll -->
+                <div class="relative h-[600px] overflow-hidden rounded-xl">
+                    <div class="lookbook-scroll space-y-4">
+                        <!-- TODO: Wstaw 6 zdjęć fryzur (portrait) -->
+                        <div
+                            class="aspect-[3/4] rounded-lg overflow-hidden border border-gold/30 hover:border-gold transition">
+                            <img src="./assets/img/lookbook/look1.jpg" alt="Lookbook 1"
+                                class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div
+                            class="aspect-[3/4] rounded-lg overflow-hidden border border-gold/30 hover:border-gold transition">
+                            <img src="./assets/img/lookbook/look2.jpg" alt="Lookbook 2"
+                                class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div
+                            class="aspect-[3/4] rounded-lg overflow-hidden border border-gold/30 hover:border-gold transition">
+                            <img src="./assets/img/lookbook/look3.jpg" alt="Lookbook 3"
+                                class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div
+                            class="aspect-[3/4] rounded-lg overflow-hidden border border-gold/30 hover:border-gold transition">
+                            <img src="./assets/img/lookbook/look4.jpg" alt="Lookbook 4"
+                                class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div
+                            class="aspect-[3/4] rounded-lg overflow-hidden border border-gold/30 hover:border-gold transition">
+                            <img src="./assets/img/lookbook/look5.jpg" alt="Lookbook 5"
+                                class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div
+                            class="aspect-[3/4] rounded-lg overflow-hidden border border-gold/30 hover:border-gold transition">
+                            <img src="./assets/img/lookbook/look6.jpg" alt="Lookbook 6"
+                                class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <!-- Duplicate for seamless scroll -->
+                        <div
+                            class="aspect-[3/4] rounded-lg overflow-hidden border border-gold/30 hover:border-gold transition">
+                            <img src="./assets/img/lookbook/look1.jpg" alt="Lookbook 1"
+                                class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div
+                            class="aspect-[3/4] rounded-lg overflow-hidden border border-gold/30 hover:border-gold transition">
+                            <img src="./assets/img/lookbook/look2.jpg" alt="Lookbook 2"
+                                class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div
+                            class="aspect-[3/4] rounded-lg overflow-hidden border border-gold/30 hover:border-gold transition">
+                            <img src="./assets/img/lookbook/look3.jpg" alt="Lookbook 3"
+                                class="w-full h-full object-cover" loading="lazy">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Lookbook Strip - 3 Portrait Images -->
-        <section class="max-w-7xl mx-auto px-6 py-16 -mt-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
-                <!-- Portrait 1: Blonde -->
-                <div
-                    class="group relative overflow-hidden rounded-lg border border-yellow-600/30 hover:border-yellow-600 transition-all duration-300 hover:scale-105">
-                    <div class="aspect-[3/4] relative">
-                        <img src="./assets/img/lookbook/look1.jpg" alt="Blonde lookbook"
-                            class="w-full h-full object-cover">
-                    </div>
-                </div>
-
-                <!-- Portrait 2: Brunette -->
-                <div
-                    class="group relative overflow-hidden rounded-lg border border-yellow-600/30 hover:border-yellow-600 transition-all duration-300 hover:scale-105">
-                    <div class="aspect-[3/4] relative">
-                        <img src="./assets/img/lookbook/look2.jpg" alt="Brunette lookbook"
-                            class="w-full h-full object-cover">
-                    </div>
-                </div>
-
-                <!-- Portrait 3: Bob -->
-                <div
-                    class="group relative overflow-hidden rounded-lg border border-yellow-600/30 hover:border-yellow-600 transition-all duration-300 hover:scale-105">
-                    <div class="aspect-[3/4] relative">
-                        <img src="./assets/img/lookbook/look3.jpg" alt="Bob cut lookbook"
-                            class="w-full h-full object-cover">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section (O Nas) - High-Contrast Editorial -->
+        <!-- About Section (O Nas) -->
         <section id="o-nas" class="max-w-7xl mx-auto px-6 py-32 md:py-40">
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <!-- Left: Large Editorial Photo -->
                 <div class="relative group">
+                    <!-- TODO: Wstaw zdjęcie salonu -->
                     <img src="./assets/img/hero/hero-salon.jpg" alt="Salon fryzjerski"
-                        class="rounded-xl shadow-luxury w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]">
+                        class="rounded-2xl shadow-luxury w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                        loading="lazy">
                 </div>
 
                 <!-- Right: Story Text -->
                 <div class="space-y-8">
                     <div>
-                        <h2 class="text-5xl md:text-6xl font-display font-light tracking-tight text-yellow-600 mb-6">
+                        <h2 class="text-5xl md:text-6xl font-display font-light tracking-tight text-gold mb-6">
                             O nas
                         </h2>
-                        <div class="w-20 h-[1px] bg-yellow-600 mb-10"></div>
+                        <div class="w-20 h-[1px] bg-gold mb-10"></div>
                     </div>
 
-                    <div class="space-y-8 font-body text-[#333] leading-relaxed text-lg">
+                    <div class="space-y-6 font-body text-gray-700 leading-relaxed text-lg">
                         <p>
-                            Salonik u Agi to miejsce, gdzie <strong class="text-deepblack font-semibold">pasja</strong>
-                            spotyka się z <strong class="text-deepblack font-semibold">profesjonalizmem</strong>. Od lat
+                            Salonik u Agi to miejsce, gdzie <strong class="text-black font-semibold">pasja</strong>
+                            spotyka się z <strong class="text-black font-semibold">profesjonalizmem</strong>. Od lat
                             tworzymy fryzury, które podkreślają indywidualność i dodają pewności siebie.
                         </p>
                         <p>
-                            Nasz zespół to <strong class="text-deepblack font-semibold">doświadczeni stylisti</strong>,
+                            Nasz zespół to <strong class="text-black font-semibold">doświadczeni stylisti</strong>,
                             którzy nieustannie podnoszą swoje kwalifikacje, śledząc najnowsze trendy w branży
                             fryzjerskiej. Każda wizyta to czas poświęcony wyłącznie Tobie.
                         </p>
-                        <p>
-                            Wierzymy, że piękno zaczyna się od dobrego samopoczucia. Dlatego w naszym salonie stawiamy
-                            na <strong class="text-deepblack font-semibold">komfort, relaks</strong> i indywidualne
-                            podejście do każdego klienta.
-                        </p>
-                    </div>
-
-                    <!-- Dlaczego warto - Gold Icons -->
-                    <div class="mt-12 space-y-6">
-                        <h3 class="text-2xl font-display font-light text-[#0A0A0A] mb-8">Dlaczego warto</h3>
-                        <div class="space-y-6">
-                            <div class="flex items-start gap-5">
-                                <div
-                                    class="w-12 h-12 rounded-full border border-yellow-600 flex items-center justify-center flex-shrink-0">
-                                    <span class="text-yellow-600 text-xl">✂</span>
-                                </div>
-                                <div>
-                                    <p class="font-body text-[#0A0A0A] font-semibold text-lg mb-2">Profesjonalne
-                                        narzędzia</p>
-                                    <p class="text-sm text-[#333]">Najwyższej jakości produkty i sprzęt</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-5">
-                                <div
-                                    class="w-12 h-12 rounded-full border border-yellow-600 flex items-center justify-center flex-shrink-0">
-                                    <span class="text-yellow-600 text-xl">🎨</span>
-                                </div>
-                                <div>
-                                    <p class="font-body text-[#0A0A0A] font-semibold text-lg mb-2">Indywidualne
-                                        podejście</p>
-                                    <p class="text-sm text-[#333]">Każda fryzura dopasowana do Ciebie</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-5">
-                                <div
-                                    class="w-12 h-12 rounded-full border border-yellow-600 flex items-center justify-center flex-shrink-0">
-                                    <span class="text-yellow-600 text-xl">⏰</span>
-                                </div>
-                                <div>
-                                    <p class="font-body text-[#0A0A0A] font-semibold text-lg mb-2">Elastyczne terminy
-                                    </p>
-                                    <p class="text-sm text-[#333]">Dopasowujemy się do Twojego harmonogramu</p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Services Section (Usługi) - Luxury Grid -->
+        <!-- Services Section -->
         <section id="uslugi" class="max-w-7xl mx-auto px-6 py-32 md:py-40 bg-white">
             <div class="text-center mb-24">
-                <h2 class="text-5xl md:text-6xl font-display font-light tracking-tight text-[#0A0A0A] mb-6">
+                <h2 class="text-5xl md:text-6xl font-display font-light tracking-tight text-black mb-6">
                     Nasze Usługi
                 </h2>
-                <div class="w-24 h-[1px] bg-yellow-600 mx-auto"></div>
+                <div class="w-24 h-[1px] bg-gold mx-auto"></div>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
-                <!-- Service Card 1: Strzyżenie Damskie -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service Card 1 -->
                 <div
-                    class="bg-white border border-gray-200 rounded-lg p-10 shadow-soft-panel transition-all duration-300 hover:-translate-y-2 hover:border-yellow-600 hover:shadow-luxury text-center">
+                    class="bg-white border border-gray-200 rounded-xl p-8 shadow-apple transition-all duration-300 hover:-translate-y-2 hover:border-gold hover:shadow-soft-gold text-center">
                     <div
-                        class="w-16 h-16 rounded-full border border-yellow-600 flex items-center justify-center mb-8 mx-auto">
-                        <span class="text-2xl text-yellow-600">✂</span>
+                        class="w-16 h-16 rounded-full border border-gold flex items-center justify-center mb-6 mx-auto">
+                        <span class="text-2xl text-gold">✂</span>
                     </div>
-                    <h3 class="text-xl font-display font-light mb-6 text-[#0A0A0A]">Strzyżenie Damskie</h3>
-                    <ul class="text-sm font-body text-[#333] space-y-2 mb-8">
+                    <h3 class="text-xl font-display font-light mb-4 text-black">Strzyżenie Damskie</h3>
+                    <ul class="text-sm font-body text-gray-600 space-y-2 mb-6">
                         <li>• Krótkie, średnie, długie</li>
                         <li>• Nowoczesne kształty</li>
                     </ul>
-                    <p class="text-2xl font-display font-light text-yellow-600">od 120 zł</p>
+                    <p class="text-2xl font-display font-light text-gold">od 120 zł</p>
                 </div>
 
-                <!-- Service Card 2: Koloryzacja -->
+                <!-- Service Card 2 -->
                 <div
-                    class="bg-white border border-gray-200 rounded-xl p-8 shadow-soft-panel transition-all duration-300 hover:-translate-y-2 hover:border-gold hover:shadow-luxury text-center">
+                    class="bg-white border border-gray-200 rounded-xl p-8 shadow-apple transition-all duration-300 hover:-translate-y-2 hover:border-gold hover:shadow-soft-gold text-center">
                     <div
-                        class="w-20 h-20 rounded-full border-2 border-gold flex items-center justify-center mb-6 mx-auto">
-                        <span class="text-3xl">🎨</span>
+                        class="w-16 h-16 rounded-full border border-gold flex items-center justify-center mb-6 mx-auto">
+                        <span class="text-2xl text-gold">🎨</span>
                     </div>
-                    <h3 class="text-xl font-display font-bold mb-4 text-deepblack">Koloryzacja</h3>
+                    <h3 class="text-xl font-display font-light mb-4 text-black">Koloryzacja</h3>
                     <ul class="text-sm font-body text-gray-600 space-y-2 mb-6">
                         <li>• Pełna koloryzacja</li>
                         <li>• Unikalne odcienie</li>
                     </ul>
-                    <p class="text-2xl font-display font-bold text-gold">od 200 zł</p>
+                    <p class="text-2xl font-display font-light text-gold">od 200 zł</p>
                 </div>
 
-                <!-- Service Card 3: Balayage/Ombre -->
+                <!-- Service Card 3 -->
                 <div
-                    class="bg-white border border-gray-200 rounded-xl p-8 shadow-soft-panel transition-all duration-300 hover:-translate-y-2 hover:border-gold hover:shadow-luxury text-center">
+                    class="bg-white border border-gray-200 rounded-xl p-8 shadow-apple transition-all duration-300 hover:-translate-y-2 hover:border-gold hover:shadow-soft-gold text-center">
                     <div
-                        class="w-20 h-20 rounded-full border-2 border-gold flex items-center justify-center mb-6 mx-auto">
-                        <span class="text-3xl">✨</span>
+                        class="w-16 h-16 rounded-full border border-gold flex items-center justify-center mb-6 mx-auto">
+                        <span class="text-2xl text-gold">✨</span>
                     </div>
-                    <h3 class="text-xl font-display font-bold mb-4 text-deepblack">Balayage / Ombre</h3>
+                    <h3 class="text-xl font-display font-light mb-4 text-black">Balayage / Ombre</h3>
                     <ul class="text-sm font-body text-gray-600 space-y-2 mb-6">
                         <li>• Techniki koloryzacji</li>
                         <li>• Naturalne efekty</li>
                     </ul>
-                    <p class="text-2xl font-display font-bold text-gold">od 250 zł</p>
+                    <p class="text-2xl font-display font-light text-gold">od 250 zł</p>
                 </div>
 
-                <!-- Service Card 4: Stylizacja -->
+                <!-- Service Card 4 -->
                 <div
-                    class="bg-white border border-gray-200 rounded-xl p-8 shadow-soft-panel transition-all duration-300 hover:-translate-y-2 hover:border-gold hover:shadow-luxury text-center">
+                    class="bg-white border border-gray-200 rounded-xl p-8 shadow-apple transition-all duration-300 hover:-translate-y-2 hover:border-gold hover:shadow-soft-gold text-center">
                     <div
-                        class="w-20 h-20 rounded-full border-2 border-gold flex items-center justify-center mb-6 mx-auto">
-                        <span class="text-3xl">💇</span>
+                        class="w-16 h-16 rounded-full border border-gold flex items-center justify-center mb-6 mx-auto">
+                        <span class="text-2xl text-gold">💇</span>
                     </div>
-                    <h3 class="text-xl font-display font-bold mb-4 text-deepblack">Stylizacja</h3>
+                    <h3 class="text-xl font-display font-light mb-4 text-black">Stylizacja</h3>
                     <ul class="text-sm font-body text-gray-600 space-y-2 mb-6">
                         <li>• Upięcia, loki</li>
                         <li>• Prostowanie</li>
                     </ul>
-                    <p class="text-2xl font-display font-bold text-gold">od 100 zł</p>
+                    <p class="text-2xl font-display font-light text-gold">od 100 zł</p>
                 </div>
             </div>
         </section>
 
-        <!-- Cennik Section - Elegant Table -->
-        <section id="cennik" class="max-w-4xl mx-auto px-6 py-32 md:py-40">
-            <div class="text-center mb-20">
-                <h2 class="text-5xl md:text-6xl font-display font-light tracking-tight text-[#0A0A0A] mb-6">
-                    Cennik
+        <!-- NEW: Lookbook Section - 3×2 Grid -->
+        <section id="lookbook" class="max-w-7xl mx-auto px-6 py-32 md:py-40">
+            <div class="text-center mb-24">
+                <h2 class="text-5xl md:text-6xl font-display font-light tracking-tight text-black mb-6">
+                    Lookbook
                 </h2>
-                <div class="w-24 h-[1px] bg-yellow-600 mx-auto"></div>
+                <div class="w-24 h-[1px] bg-gold mx-auto"></div>
             </div>
 
-            <div class="bg-white border border-gray-200 rounded-lg shadow-soft-panel overflow-hidden">
-                <!-- Price Row 1 -->
-                <div
-                    class="flex items-center justify-between p-10 border-b border-yellow-600/30 hover:bg-gray-50/30 transition-colors">
-                    <div class="flex-1">
-                        <h3 class="text-xl font-display font-light text-[#0A0A0A]">Strzyżenie damskie</h3>
-                        <p class="text-sm font-body text-[#333] mt-2">Krótkie, średnie, długie</p>
-                    </div>
-                    <p class="text-3xl font-display font-light text-yellow-600 ml-8">120 zł</p>
-                </div>
-                <!-- Price Row 2 -->
-                <div
-                    class="flex items-center justify-between p-10 border-b border-yellow-600/30 hover:bg-gray-50/30 transition-colors">
-                    <div class="flex-1">
-                        <h3 class="text-xl font-display font-light text-[#0A0A0A]">Strzyżenie męskie</h3>
-                        <p class="text-sm font-body text-[#333] mt-2">Klasyczne i nowoczesne</p>
-                    </div>
-                    <p class="text-3xl font-display font-light text-yellow-600 ml-8">80 zł</p>
-                </div>
-                <!-- Price Row 3 -->
-                <div
-                    class="flex items-center justify-between p-10 border-b border-yellow-600/30 hover:bg-gray-50/30 transition-colors">
-                    <div class="flex-1">
-                        <h3 class="text-xl font-display font-light text-[#0A0A0A]">Koloryzacja</h3>
-                        <p class="text-sm font-body text-[#333] mt-2">Pełna koloryzacja</p>
-                    </div>
-                    <p class="text-3xl font-display font-light text-yellow-600 ml-8">od 200 zł</p>
-                </div>
-                <!-- Price Row 4 -->
-                <div
-                    class="flex items-center justify-between p-10 border-b border-yellow-600/30 hover:bg-gray-50/30 transition-colors">
-                    <div class="flex-1">
-                        <h3 class="text-xl font-display font-light text-[#0A0A0A]">Balayage / Ombre</h3>
-                        <p class="text-sm font-body text-[#333] mt-2">Techniki koloryzacji</p>
-                    </div>
-                    <p class="text-3xl font-display font-light text-yellow-600 ml-8">od 250 zł</p>
-                </div>
-                <!-- Price Row 5 -->
-                <div class="flex items-center justify-between p-10 hover:bg-gray-50/30 transition-colors">
-                    <div class="flex-1">
-                        <h3 class="text-xl font-display font-light text-[#0A0A0A]">Stylizacja</h3>
-                        <p class="text-sm font-body text-[#333] mt-2">Upięcia, loki, prostowanie</p>
-                    </div>
-                    <p class="text-3xl font-display font-light text-yellow-600 ml-8">od 100 zł</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Gallery Section - iPhone/Instagram Aesthetic -->
-        <section id="galeria" class="max-w-7xl mx-auto px-6 py-32 md:py-40">
-            <div class="text-center mb-20">
-                <h2 class="text-5xl md:text-6xl font-display font-light tracking-tight text-[#0A0A0A] mb-6">
-                    Galeria
-                </h2>
-                <p class="text-lg text-[#333] font-body font-light">
-                    Realne stylizacje, które wyszły z naszego salonu
-                </p>
-            </div>
-
-            <!-- Masonry/Grid Layout -->
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <!-- Gallery Image 1 -->
-                <a href="#"
-                    class="group relative aspect-square rounded-xl overflow-hidden shadow-soft-panel transition-all duration-300 hover:scale-105">
-                    <img src="./assets/img/gallery/g1.jpg" alt="Blonde balayage" class="w-full h-full object-cover">
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Lookbook Item 1 -->
+                <div class="group relative aspect-[3/4] rounded-xl overflow-hidden cursor-pointer"
+                    @click="lightboxOpen = true; lightboxImage = './assets/img/lookbook/look1.jpg'">
+                    <!-- TODO: Wstaw 6 zdjęć fryzur -->
+                    <img src="./assets/img/lookbook/look1.jpg" alt="Balayage Blonde"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        loading="lazy">
                     <div
-                        class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                        <svg class="w-12 h-12 text-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
-                        </svg>
-                    </div>
-                </a>
-
-                <!-- Gallery Image 2 -->
-                <a href="#"
-                    class="group relative aspect-square rounded-xl overflow-hidden shadow-soft-panel transition-all duration-300 hover:scale-105">
-                    <img src="./assets/img/gallery/g2.jpg" alt="Brunette waves" class="w-full h-full object-cover">
-                    <div
-                        class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                        <svg class="w-12 h-12 text-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
-                        </svg>
-                    </div>
-                </a>
-
-                <!-- Gallery Image 3 -->
-                <a href="#"
-                    class="group relative aspect-square rounded-xl overflow-hidden shadow-soft-panel transition-all duration-300 hover:scale-105">
-                    <img src="./assets/img/gallery/g3.jpg" alt="Balayage highlights" class="w-full h-full object-cover">
-                    <div
-                        class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                        <svg class="w-12 h-12 text-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
-                        </svg>
-                    </div>
-                </a>
-
-                <!-- Gallery Image 4 -->
-                <a href="#"
-                    class="group relative aspect-square rounded-xl overflow-hidden shadow-soft-panel transition-all duration-300 hover:scale-105">
-                    <img src="./assets/img/gallery/g4.jpg" alt="Bob cut" class="w-full h-full object-cover">
-                    <div
-                        class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                        <svg class="w-12 h-12 text-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
-                        </svg>
-                    </div>
-                </a>
-
-                <!-- Gallery Image 5 -->
-                <a href="#"
-                    class="group relative aspect-square rounded-xl overflow-hidden shadow-soft-panel transition-all duration-300 hover:scale-105">
-                    <img src="./assets/img/gallery/g5.jpg" alt="Galeria 5" class="w-full h-full object-cover">
-                    <div
-                        class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                        <svg class="w-12 h-12 text-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
-                        </svg>
-                    </div>
-                </a>
-
-                <!-- Gallery Image 6 -->
-                <a href="#"
-                    class="group relative aspect-square rounded-xl overflow-hidden shadow-soft-panel transition-all duration-300 hover:scale-105">
-                    <img src="./assets/img/gallery/g6.jpg" alt="Galeria 6" class="w-full h-full object-cover">
-                    <div
-                        class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                        <svg class="w-12 h-12 text-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
-                        </svg>
-                    </div>
-                </a>
-
-                <!-- Gallery Image 7 -->
-                <a href="#"
-                    class="group relative aspect-square rounded-xl overflow-hidden shadow-soft-panel transition-all duration-300 hover:scale-105">
-                    <img src="./assets/img/gallery/g7.jpg" alt="Galeria 7" class="w-full h-full object-cover">
-                    <div
-                        class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                        <svg class="w-12 h-12 text-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
-                        </svg>
-                    </div>
-                </a>
-
-                <!-- Gallery Image 8 -->
-                <a href="#"
-                    class="group relative aspect-square rounded-xl overflow-hidden shadow-soft-panel transition-all duration-300 hover:scale-105">
-                    <img src="./assets/img/gallery/g8.jpg" alt="Galeria 8" class="w-full h-full object-cover">
-                    <div
-                        class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                        <svg class="w-12 h-12 text-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
-                        </svg>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <!-- Before / After Section -->
-        <section id="przed-po" class="max-w-6xl mx-auto px-6 py-32 md:py-40">
-            <div class="text-center mb-20">
-                <h2 class="text-5xl md:text-6xl font-display font-light tracking-tight text-[#0A0A0A] mb-6">
-                    Przed i Po
-                </h2>
-                <div class="w-24 h-[1px] bg-yellow-600 mx-auto"></div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-10">
-                <!-- Before Card -->
-                <div
-                    class="bg-white border border-gray-200 rounded-lg shadow-soft-panel overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-luxury">
-                    <img src="./assets/img/before-after/before.jpg" alt="Przed" class="w-full h-96 object-cover">
-                    <div class="p-8">
-                        <span
-                            class="inline-block bg-[#0A0A0A] text-white text-sm rounded-full px-5 py-2.5 font-semibold">
-                            Przed
-                        </span>
+                        class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-end justify-center pb-8">
+                        <p
+                            class="text-white opacity-0 group-hover:opacity-100 transition-opacity font-body font-medium text-lg">
+                            Balayage Blonde
+                        </p>
                     </div>
                 </div>
 
-                <!-- After Card -->
-                <div
-                    class="bg-white border border-gray-200 rounded-lg shadow-soft-panel overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-luxury">
-                    <img src="./assets/img/before-after/after.jpg" alt="Po" class="w-full h-96 object-cover">
-                    <div class="p-8">
-                        <span
-                            class="inline-block bg-[#0A0A0A] text-white text-sm rounded-full px-5 py-2.5 font-semibold">
-                            Po
-                        </span>
+                <!-- Lookbook Item 2 -->
+                <div class="group relative aspect-[3/4] rounded-xl overflow-hidden cursor-pointer"
+                    @click="lightboxOpen = true; lightboxImage = './assets/img/lookbook/look2.jpg'">
+                    <img src="./assets/img/lookbook/look2.jpg" alt="Brunette Waves"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        loading="lazy">
+                    <div
+                        class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-end justify-center pb-8">
+                        <p
+                            class="text-white opacity-0 group-hover:opacity-100 transition-opacity font-body font-medium text-lg">
+                            Brunette Waves
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Lookbook Item 3 -->
+                <div class="group relative aspect-[3/4] rounded-xl overflow-hidden cursor-pointer"
+                    @click="lightboxOpen = true; lightboxImage = './assets/img/lookbook/look3.jpg'">
+                    <img src="./assets/img/lookbook/look3.jpg" alt="Bob Cut"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        loading="lazy">
+                    <div
+                        class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-end justify-center pb-8">
+                        <p
+                            class="text-white opacity-0 group-hover:opacity-100 transition-opacity font-body font-medium text-lg">
+                            Bob Cut
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Lookbook Item 4 -->
+                <div class="group relative aspect-[3/4] rounded-xl overflow-hidden cursor-pointer"
+                    @click="lightboxOpen = true; lightboxImage = './assets/img/lookbook/look4.jpg'">
+                    <img src="./assets/img/lookbook/look4.jpg" alt="Ombre Highlights"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        loading="lazy">
+                    <div
+                        class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-end justify-center pb-8">
+                        <p
+                            class="text-white opacity-0 group-hover:opacity-100 transition-opacity font-body font-medium text-lg">
+                            Ombre Highlights
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Lookbook Item 5 -->
+                <div class="group relative aspect-[3/4] rounded-xl overflow-hidden cursor-pointer"
+                    @click="lightboxOpen = true; lightboxImage = './assets/img/lookbook/look5.jpg'">
+                    <img src="./assets/img/lookbook/look5.jpg" alt="Long Layers"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        loading="lazy">
+                    <div
+                        class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-end justify-center pb-8">
+                        <p
+                            class="text-white opacity-0 group-hover:opacity-100 transition-opacity font-body font-medium text-lg">
+                            Long Layers
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Lookbook Item 6 -->
+                <div class="group relative aspect-[3/4] rounded-xl overflow-hidden cursor-pointer"
+                    @click="lightboxOpen = true; lightboxImage = './assets/img/lookbook/look6.jpg'">
+                    <img src="./assets/img/lookbook/look6.jpg" alt="Pixie Cut"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        loading="lazy">
+                    <div
+                        class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-end justify-center pb-8">
+                        <p
+                            class="text-white opacity-0 group-hover:opacity-100 transition-opacity font-body font-medium text-lg">
+                            Pixie Cut
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Video Section -->
-        <section id="video" class="max-w-6xl mx-auto px-6 py-32 md:py-40">
-            <div class="text-center mb-20">
-                <h2 class="text-5xl md:text-6xl font-display font-light tracking-tight text-[#0A0A0A] mb-6">
-                    Zobacz nas w akcji
-                </h2>
-                <div class="w-24 h-[1px] bg-yellow-600 mx-auto"></div>
-            </div>
+        <!-- Lightbox Modal -->
+        <div x-show="lightboxOpen" x-transition @click.self="lightboxOpen = false"
+            class="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-6" x-cloak>
+            <button @click="lightboxOpen = false" class="absolute top-6 right-6 text-white text-4xl">×</button>
+            <img :src="lightboxImage" alt="Lookbook" class="max-w-4xl max-h-[90vh] rounded-lg object-contain">
+        </div>
 
-            <div
-                class="bg-black rounded-xl border border-[#0A0A0A] shadow-luxury relative overflow-hidden group cursor-pointer">
-                <div class="aspect-video relative">
-                    <img src="./assets/img/video/video-thumb.jpg" alt="Video salonu" class="w-full h-full object-cover">
-                    <div
-                        class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition">
-                        <div
-                            class="w-28 h-28 bg-yellow-600/90 rounded-full flex items-center justify-center group-hover:bg-yellow-600 transition shadow-soft-gold">
+        <!-- NEW: Video Section - iPhone Mockup + Large Video -->
+        <section id="video" class="max-w-7xl mx-auto px-6 py-32 md:py-40">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left: iPhone-style Mockup with Thumbnails -->
+                <div class="space-y-6">
+                    <div class="bg-white rounded-3xl p-4 shadow-luxury border border-gray-200">
+                        <!-- iPhone Frame -->
+                        <div class="bg-black rounded-2xl p-2">
+                            <div class="bg-white rounded-xl overflow-hidden">
+                                <!-- TODO: Wstaw miniatury video -->
+                                <div class="grid grid-cols-2 gap-2 p-2">
+                                    <div class="aspect-video rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition"
+                                        @click="videoPlaying = true">
+                                        <img src="./assets/img/video/thumb1.jpg" alt="Video 1"
+                                            class="w-full h-full object-cover" loading="lazy">
+                                    </div>
+                                    <div class="aspect-video rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition"
+                                        @click="videoPlaying = true">
+                                        <img src="./assets/img/video/thumb2.jpg" alt="Video 2"
+                                            class="w-full h-full object-cover" loading="lazy">
+                                    </div>
+                                    <div class="aspect-video rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition"
+                                        @click="videoPlaying = true">
+                                        <img src="./assets/img/video/thumb3.jpg" alt="Video 3"
+                                            class="w-full h-full object-cover" loading="lazy">
+                                    </div>
+                                    <div class="aspect-video rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition"
+                                        @click="videoPlaying = true">
+                                        <img src="./assets/img/video/thumb4.jpg" alt="Video 4"
+                                            class="w-full h-full object-cover" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Large Video in Elegant Frame -->
+                <div class="space-y-6">
+                    <h2 class="text-5xl md:text-6xl font-display font-light tracking-tight text-black mb-6">
+                        Zobacz nas w akcji
+                    </h2>
+                    <div class="w-24 h-[1px] bg-gold mb-8"></div>
+                    <p class="text-lg font-body text-gray-700 leading-relaxed mb-8">
+                        Krótki film z salonu – zobacz atmosferę na żywo i poznaj nasz zespół.
+                    </p>
+                    <div class="relative rounded-2xl border-2 border-gold shadow-soft-gold overflow-hidden group cursor-pointer"
+                        @click="videoPlaying = true">
+                        <div class="aspect-video relative">
+                            <!-- TODO: Wstaw główne video -->
+                            <img src="./assets/img/video/video-main.jpg" alt="Video salonu"
+                                class="w-full h-full object-cover" loading="lazy">
                             <div
-                                class="w-0 h-0 border-l-[20px] border-l-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent ml-1">
+                                class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition">
+                                <div
+                                    class="w-24 h-24 bg-gold/90 rounded-full flex items-center justify-center group-hover:bg-gold transition shadow-apple">
+                                    <div
+                                        class="w-0 h-0 border-l-[20px] border-l-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent ml-1">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <p class="text-center text-sm text-[#333] font-body font-light mt-8">
-                Krótki film z salonu – zobacz atmosferę na żywo.
-            </p>
         </section>
 
-        <!-- Shop + Voucher Section - Two Luxury Cards -->
-        <section class="max-w-6xl mx-auto px-6 py-32 md:py-40">
-            <div class="grid md:grid-cols-2 gap-10">
-                <!-- Left: Sklep Online -->
-                <div id="sklep"
-                    class="bg-white border border-yellow-600 rounded-lg shadow-soft-panel p-12 text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-luxury">
-                    <div
-                        class="w-20 h-20 rounded-full border border-yellow-600 flex items-center justify-center mx-auto mb-8">
-                        <span class="text-4xl">🛍️</span>
-                    </div>
-                    <div
-                        class="inline-block bg-yellow-600/10 text-yellow-600 px-4 py-2 rounded-full text-xs font-semibold mb-8">
-                        Certyfikowany partner
-                    </div>
-                    <h2 class="text-4xl font-display font-light tracking-tight mb-8 text-[#0A0A0A]">
-                        Sklep Online
-                    </h2>
-                    <p class="text-base font-body text-[#333] leading-relaxed mb-10">
-                        Odkryj naszą kolekcję profesjonalnych produktów do pielęgnacji włosów.
-                    </p>
-                    <a href="#" class="btn-secondary inline-block">
-                        Kup w Sklepie
-                    </a>
-                </div>
+        <!-- Video Modal -->
+        <div x-show="videoPlaying" x-transition @click.self="videoPlaying = false"
+            class="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-6" x-cloak>
+            <button @click="videoPlaying = false" class="absolute top-6 right-6 text-white text-4xl">×</button>
+            <!-- TODO: Wstaw iframe z YouTube/Vimeo lub video element -->
+            <div class="aspect-video w-full max-w-4xl">
+                <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
 
-                <!-- Right: Voucher -->
-                <div id="voucher"
-                    class="bg-[#5D001E] rounded-lg shadow-luxury p-12 text-center transition-all duration-300 hover:-translate-y-2">
+        <!-- Price List - Transparent Card with Gradient Border -->
+        <section id="cennik" class="max-w-4xl mx-auto px-6 py-32 md:py-40">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl md:text-6xl font-display font-light tracking-tight text-black mb-6">
+                    Cennik
+                </h2>
+                <div class="w-24 h-[1px] bg-gold mx-auto"></div>
+            </div>
+
+            <!-- Transparent Card with Gradient Border -->
+            <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-1"
+                style="background: linear-gradient(135deg, #D4A75C 0%, #7A1F2A 100%);">
+                <div class="bg-white rounded-2xl p-10 shadow-apple">
+                    <!-- Price Row 1 -->
                     <div
-                        class="w-20 h-20 rounded-full border border-yellow-600 flex items-center justify-center mx-auto mb-8">
-                        <span class="text-4xl text-yellow-600">🎁</span>
+                        class="flex items-center justify-between py-8 border-b border-gray-200 hover:bg-gray-50/50 transition-colors">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-display font-light text-black">Strzyżenie damskie</h3>
+                            <p class="text-sm font-body text-gray-600 mt-2">Krótkie, średnie, długie</p>
+                        </div>
+                        <p class="text-3xl font-display font-light text-gold ml-8">120 zł</p>
                     </div>
-                    <h2 class="text-4xl font-display font-light tracking-tight mb-8 text-white">
-                        Voucher Podarunkowy
-                    </h2>
-                    <p class="text-base font-body text-white/90 leading-relaxed mb-10">
-                        Podaruj bliskiej osobie wizytę w naszym salonie. Voucher można wykorzystać na dowolną usługę.
-                    </p>
-                    <a href="#"
-                        class="bg-yellow-600 text-[#0A0A0A] px-10 py-4 rounded-full font-semibold hover:bg-yellow-500 transition inline-block">
-                        Kup Voucher Online
-                    </a>
+                    <!-- Price Row 2 -->
+                    <div
+                        class="flex items-center justify-between py-8 border-b border-gray-200 hover:bg-gray-50/50 transition-colors">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-display font-light text-black">Strzyżenie męskie</h3>
+                            <p class="text-sm font-body text-gray-600 mt-2">Klasyczne i nowoczesne</p>
+                        </div>
+                        <p class="text-3xl font-display font-light text-gold ml-8">80 zł</p>
+                    </div>
+                    <!-- Price Row 3 -->
+                    <div
+                        class="flex items-center justify-between py-8 border-b border-gray-200 hover:bg-gray-50/50 transition-colors">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-display font-light text-black">Koloryzacja</h3>
+                            <p class="text-sm font-body text-gray-600 mt-2">Pełna koloryzacja</p>
+                        </div>
+                        <p class="text-3xl font-display font-light text-gold ml-8">od 200 zł</p>
+                    </div>
+                    <!-- Price Row 4 -->
+                    <div
+                        class="flex items-center justify-between py-8 border-b border-gray-200 hover:bg-gray-50/50 transition-colors">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-display font-light text-black">Balayage / Ombre</h3>
+                            <p class="text-sm font-body text-gray-600 mt-2">Techniki koloryzacji</p>
+                        </div>
+                        <p class="text-3xl font-display font-light text-gold ml-8">od 250 zł</p>
+                    </div>
+                    <!-- Price Row 5 -->
+                    <div class="flex items-center justify-between py-8 hover:bg-gray-50/50 transition-colors">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-display font-light text-black">Stylizacja</h3>
+                            <p class="text-sm font-body text-gray-600 mt-2">Upięcia, loki, prostowanie</p>
+                        </div>
+                        <p class="text-3xl font-display font-light text-gold ml-8">od 100 zł</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Kontakt + Mapa Section -->
+        <!-- Gallery Section - iPhone Style -->
+        <section id="galeria" class="max-w-7xl mx-auto px-6 py-32 md:py-40">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl md:text-6xl font-display font-light tracking-tight text-black mb-6">
+                    Galeria
+                </h2>
+                <div class="w-24 h-[1px] bg-gold mx-auto"></div>
+            </div>
+
+            <!-- iPhone Gallery Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- TODO: Wstaw zdjęcia galerii -->
+                <div class="group relative aspect-square rounded-2xl overflow-hidden shadow-apple cursor-pointer"
+                    @click="lightboxOpen = true; lightboxImage = './assets/img/gallery/g1.jpg'">
+                    <img src="./assets/img/gallery/g1.jpg" alt="Galeria 1"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-125"
+                        loading="lazy">
+                </div>
+                <div class="group relative aspect-square rounded-2xl overflow-hidden shadow-apple cursor-pointer"
+                    @click="lightboxOpen = true; lightboxImage = './assets/img/gallery/g2.jpg'">
+                    <img src="./assets/img/gallery/g2.jpg" alt="Galeria 2"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-125"
+                        loading="lazy">
+                </div>
+                <div class="group relative aspect-square rounded-2xl overflow-hidden shadow-apple cursor-pointer"
+                    @click="lightboxOpen = true; lightboxImage = './assets/img/gallery/g3.jpg'">
+                    <img src="./assets/img/gallery/g3.jpg" alt="Galeria 3"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-125"
+                        loading="lazy">
+                </div>
+                <div class="group relative aspect-square rounded-2xl overflow-hidden shadow-apple cursor-pointer"
+                    @click="lightboxOpen = true; lightboxImage = './assets/img/gallery/g4.jpg'">
+                    <img src="./assets/img/gallery/g4.jpg" alt="Galeria 4"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-125"
+                        loading="lazy">
+                </div>
+                <div class="group relative aspect-square rounded-2xl overflow-hidden shadow-apple cursor-pointer"
+                    @click="lightboxOpen = true; lightboxImage = './assets/img/gallery/g5.jpg'">
+                    <img src="./assets/img/gallery/g5.jpg" alt="Galeria 5"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-125"
+                        loading="lazy">
+                </div>
+                <div class="group relative aspect-square rounded-2xl overflow-hidden shadow-apple cursor-pointer"
+                    @click="lightboxOpen = true; lightboxImage = './assets/img/gallery/g6.jpg'">
+                    <img src="./assets/img/gallery/g6.jpg" alt="Galeria 6"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-125"
+                        loading="lazy">
+                </div>
+                <div class="group relative aspect-square rounded-2xl overflow-hidden shadow-apple cursor-pointer"
+                    @click="lightboxOpen = true; lightboxImage = './assets/img/gallery/g7.jpg'">
+                    <img src="./assets/img/gallery/g7.jpg" alt="Galeria 7"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-125"
+                        loading="lazy">
+                </div>
+                <div class="group relative aspect-square rounded-2xl overflow-hidden shadow-apple cursor-pointer"
+                    @click="lightboxOpen = true; lightboxImage = './assets/img/gallery/g8.jpg'">
+                    <img src="./assets/img/gallery/g8.jpg" alt="Galeria 8"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-125"
+                        loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
         <section id="kontakt" class="max-w-6xl mx-auto px-6 py-32 md:py-40">
             <div class="text-center mb-20">
-                <h2 class="text-5xl md:text-6xl font-display font-light tracking-tight text-[#0A0A0A] mb-6">
+                <h2 class="text-5xl md:text-6xl font-display font-light tracking-tight text-black mb-6">
                     Kontakt
                 </h2>
-                <div class="w-24 h-[1px] bg-yellow-600 mx-auto"></div>
+                <div class="w-24 h-[1px] bg-gold mx-auto"></div>
             </div>
 
             <div class="grid md:grid-cols-2 gap-12">
                 <!-- Map -->
-                <div class="bg-white border border-gray-200 rounded-lg shadow-soft-panel overflow-hidden">
-                    <h3 class="text-xl font-display font-light text-[#0A0A0A] mb-6 p-8 pb-0">Tu nas znajdziesz</h3>
+                <div class="bg-white border border-gray-200 rounded-2xl shadow-apple overflow-hidden">
+                    <h3 class="text-xl font-display font-light text-black mb-6 p-8 pb-0">Tu nas znajdziesz</h3>
                     <div class="aspect-[4/3]">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2504.1234567890123!2d17.0385!3d51.1079!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDA2JzI4LjQiTiAxN8KwMDInMTguNiJF!5e0!3m2!1spl!2spl!4v1234567890123!5m2!1spl!2spl"
@@ -701,72 +641,66 @@
                 <!-- Contact Info -->
                 <div class="space-y-10">
                     <div>
-                        <h3 class="text-2xl font-display font-light text-[#0A0A0A] mb-4">Adres</h3>
-                        <p class="text-lg font-body text-[#333]">
+                        <h3 class="text-2xl font-display font-light text-black mb-4">Adres</h3>
+                        <p class="text-lg font-body text-gray-700">
                             ul. Przykładowa 123<br>
                             50-000 Wrocław
                         </p>
                     </div>
                     <div>
-                        <h3 class="text-2xl font-display font-light text-[#0A0A0A] mb-4">Telefon</h3>
-                        <p class="text-lg font-body text-[#333]">
+                        <h3 class="text-2xl font-display font-light text-black mb-4">Telefon</h3>
+                        <p class="text-lg font-body text-gray-700">
                             <a href="tel:+48123456789"
-                                class="text-yellow-600 hover:text-yellow-500 transition-colors font-semibold">+48 123
-                                456
+                                class="text-gold hover:text-burgundy transition-colors font-semibold">+48 123 456
                                 789</a>
                         </p>
                     </div>
                     <div>
-                        <h3 class="text-2xl font-display font-light text-[#0A0A0A] mb-4">Godziny otwarcia</h3>
-                        <p class="text-lg font-body text-[#333]">
+                        <h3 class="text-2xl font-display font-light text-black mb-4">Godziny otwarcia</h3>
+                        <p class="text-lg font-body text-gray-700">
                             Poniedziałek - Piątek: 9:00 - 19:00<br>
                             Sobota: 9:00 - 17:00<br>
                             Niedziela: Zamknięte
                         </p>
                     </div>
+                    <div>
+                        <a href="tel:+48123456789" class="btn-primary inline-block">Zadzwoń</a>
+                    </div>
                 </div>
-            </div>
-
-            <!-- CTA Button -->
-            <div class="text-center mt-12">
-                <a href="tel:+48123456789" class="btn-primary">
-                    Zadzwoń
-                </a>
             </div>
         </section>
     </main>
 
-    <!-- Footer - Deep Black Background -->
-    <footer class="bg-[#000000] text-white py-24">
+    <!-- Footer - Premium 3 Columns -->
+    <footer class="bg-black/95 text-white py-24">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-3 gap-16 mb-12">
                 <!-- Contact Column -->
                 <div>
-                    <h3 class="text-xl font-display font-light text-yellow-600 mb-8">Kontakt</h3>
+                    <h3 class="text-xl font-display font-light text-gold mb-8">Kontakt</h3>
                     <p class="text-sm font-body text-white/70 mb-3 leading-relaxed">
                         ul. Przykładowa 123<br>
                         50-000 Wrocław
                     </p>
                     <p class="text-sm font-body text-white/70">
-                        <a href="tel:+48123456789" class="text-yellow-600 hover:text-yellow-500 transition-colors">+48
-                            123 456
+                        <a href="tel:+48123456789" class="text-gold hover:text-gold/80 transition-colors">+48 123 456
                             789</a>
                     </p>
                 </div>
 
                 <!-- Social Icons Column -->
                 <div>
-                    <h3 class="text-xl font-display font-light text-yellow-600 mb-8">Śledź nas</h3>
+                    <h3 class="text-xl font-display font-light text-gold mb-8">Śledź nas</h3>
                     <div class="flex space-x-6">
                         <a href="https://instagram.com/salonikuagi" target="_blank" rel="noopener noreferrer"
-                            class="text-yellow-600 hover:text-yellow-500 transition-colors" aria-label="Instagram">
+                            class="text-gold hover:text-gold/80 transition-colors" aria-label="Instagram">
                             <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path
                                     d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                             </svg>
                         </a>
                         <a href="https://facebook.com/salonikuagi" target="_blank" rel="noopener noreferrer"
-                            class="text-yellow-600 hover:text-yellow-500 transition-colors" aria-label="Facebook">
+                            class="text-gold hover:text-gold/80 transition-colors" aria-label="Facebook">
                             <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path
                                     d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
@@ -775,14 +709,15 @@
                     </div>
                 </div>
 
-                <!-- Copyright Column -->
+                <!-- Policy Column -->
                 <div>
-                    <h3 class="text-xl font-display font-light text-yellow-600 mb-8">Informacje</h3>
-                    <p class="text-sm font-body text-white/70">
+                    <h3 class="text-xl font-display font-light text-gold mb-8">Informacje</h3>
+                    <p class="text-sm font-body text-white/70 mb-4">
                         &copy; 2024 Salonik u Agi. Wszystkie prawa zastrzeżone.
                     </p>
-                    <p class="text-sm font-body text-white/70 mt-4">
-                        Projekt Webszyk
+                    <p class="text-sm font-body text-white/70">
+                        <a href="./polityka.html" class="text-gold hover:text-gold/80 transition-colors">Polityka
+                            prywatności</a>
                     </p>
                 </div>
             </div>
