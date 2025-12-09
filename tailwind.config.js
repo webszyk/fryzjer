@@ -7,19 +7,22 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "warm-white": "#faf9f7",
-        "wood": "#8b7355",
-        "wood-light": "#a68b6f",
-        "accent-gold": "#c8a46d",
-        "accent-burgundy": "#7A1E21",
-        "text-dark": "#2c2c2c"
+        "white": "#ffffff",
+        "black": "#0d0d0d",
+        "gold": "#c8a45d",
+        "burgundy": "#7a1f29",
+        "graphite": "#2a2a2a",
+        "soft-gray": "#f5f5f5"
       },
       fontFamily: {
-        display: ["Playfair Display", "serif"],
-        body: ["Inter", "system-ui", "sans-serif"]
+        serif: ["Playfair Display", "Georgia", "serif"],
+        sans: ["Inter", "system-ui", "-apple-system", "sans-serif"]
       },
-      backgroundImage: {
-        'parallax-hero': "url('/assets/img/hero/bg-salon-full.jpg')"
+      borderWidth: {
+        'hairline': '1px'
+      },
+      boxShadow: {
+        'soft': '0 4px 20px rgba(0,0,0,0.05)'
       }
     }
   },
