@@ -7,15 +7,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ivory: "#F7F5F2",
-        espresso: "#1A1A1A",
-        burgundy: "#6A2E35",
+        // Ultra-Premium Luxury Palette
+        deepblack: "#0A0A0A",
+        deepburgundy: "#5D001E",
         gold: "#D4AF37",
-        warmgray: "#EDEAE7"
+        goldlight: "#F4D03F",
+        golddark: "#B8860B"
       },
       fontFamily: {
         display: ["Playfair Display", "serif"],
-        body: ["Inter", "system-ui", "sans-serif"]
+        body: ["Manrope", "system-ui", "sans-serif"]
+      },
+      backgroundImage: {
+        'gold-gradient': 'linear-gradient(to right, #D97706, #F59E0B, #EAB308, #F59E0B, #D97706)',
       }
     }
   },

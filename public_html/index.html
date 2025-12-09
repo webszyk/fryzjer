@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salonik u Agi – nowoczesny fryzjer we Wrocławiu</title>
+    <title>Salonik u Agi – Ultra-Premium Salon Fryzjerski | Wrocław</title>
     <meta name="description"
         content="Profesjonalne usługi fryzjerskie we Wrocławiu. Koloryzacje, strzyżenia damskie i męskie. Umów wizytę już dziś!">
 
@@ -26,71 +26,72 @@
     </script>
 </head>
 
-<body class="min-h-screen bg-ivory text-espresso font-body">
-    <!-- Logo Section - Centered at top -->
-    <div class="w-full text-center py-6">
-        <div class="text-4xl md:text-5xl font-display italic tracking-wide text-espresso">
-            Salonik u Agi
+<body class="min-h-screen bg-white text-deepblack font-body">
+    <!-- Header: Logo + Navigation -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100" x-data="{ 
+        mobileMenuOpen: false,
+        scrolled: false
+    }" @scroll.window="scrolled = window.scrollY > 50">
+        <!-- Logo Section - Centered -->
+        <div class="w-full text-center py-8">
+            <h1 class="text-4xl md:text-5xl font-display font-bold tracking-wide text-deepblack">
+                Salonik u Agi
+            </h1>
         </div>
-    </div>
 
-    <!-- Navigation - Sticky after hero -->
-    <header class="sticky top-0 z-40 bg-ivory/95 backdrop-blur transition-all duration-300" x-data="{ 
-            mobileMenuOpen: false
-        }">
-        <!-- Gold divider line -->
-        <div class="border-b border-gold/40"></div>
+        <!-- Gold Divider Line -->
+        <div class="w-full border-t border-gold/40"></div>
 
         <!-- Navigation -->
-        <nav class="w-full text-center py-4" aria-label="Główne menu nawigacyjne">
+        <nav class="w-full text-center py-5" aria-label="Główne menu nawigacyjne">
             <!-- Desktop Menu -->
             <ul
-                class="hidden md:inline-flex flex-wrap justify-center gap-6 lg:gap-8 text-[15px] tracking-wide font-light text-espresso/80">
+                class="hidden md:inline-flex flex-wrap justify-center gap-8 lg:gap-10 text-sm tracking-wider font-medium text-deepblack">
                 <li>
                     <a href="#o-nas"
-                        class="relative after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 hover:after:w-full after:bg-gold after:transition-all transition-colors">
+                        class="relative after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 hover:after:w-full after:bg-gold after:transition-all transition-colors duration-300">
                         O nas
                     </a>
                 </li>
                 <li>
                     <a href="#uslugi"
-                        class="relative after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 hover:after:w-full after:bg-gold after:transition-all transition-colors">
+                        class="relative after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 hover:after:w-full after:bg-gold after:transition-all transition-colors duration-300">
                         Usługi
                     </a>
                 </li>
                 <li>
                     <a href="#cennik"
-                        class="relative after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 hover:after:w-full after:bg-gold after:transition-all transition-colors">
+                        class="relative after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 hover:after:w-full after:bg-gold after:transition-all transition-colors duration-300">
                         Cennik
                     </a>
                 </li>
                 <li>
                     <a href="#galeria"
-                        class="relative after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 hover:after:w-full after:bg-gold after:transition-all transition-colors">
+                        class="relative after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 hover:after:w-full after:bg-gold after:transition-all transition-colors duration-300">
                         Galeria
                     </a>
                 </li>
                 <li>
                     <a href="#przed-po"
-                        class="relative after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 hover:after:w-full after:bg-gold after:transition-all transition-colors">
+                        class="relative after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 hover:after:w-full after:bg-gold after:transition-all transition-colors duration-300">
                         Przed i Po
                     </a>
                 </li>
                 <li>
                     <a href="#sklep"
-                        class="relative after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 hover:after:w-full after:bg-gold after:transition-all transition-colors">
+                        class="relative after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 hover:after:w-full after:bg-gold after:transition-all transition-colors duration-300">
                         Sklep
                     </a>
                 </li>
                 <li>
                     <a href="#voucher"
-                        class="relative after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 hover:after:w-full after:bg-gold after:transition-all transition-colors">
+                        class="relative after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 hover:after:w-full after:bg-gold after:transition-all transition-colors duration-300">
                         Voucher
                     </a>
                 </li>
                 <li>
                     <a href="#kontakt"
-                        class="relative after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 hover:after:w-full after:bg-gold after:transition-all transition-colors">
+                        class="relative after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 hover:after:w-full after:bg-gold after:transition-all transition-colors duration-300">
                         Kontakt
                     </a>
                 </li>
@@ -98,7 +99,7 @@
 
             <!-- Mobile Menu Button -->
             <button @click="mobileMenuOpen = !mobileMenuOpen"
-                class="md:hidden absolute right-6 top-4 text-espresso focus:outline-none"
+                class="md:hidden absolute right-6 top-8 text-deepblack focus:outline-none"
                 aria-label="Otwórz menu mobilne" aria-expanded="false" :aria-expanded="mobileMenuOpen">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -115,285 +116,191 @@
                 x-transition:leave="transition ease-in duration-150"
                 x-transition:leave-start="opacity-100 transform translate-y-0"
                 x-transition:leave-end="opacity-0 transform -translate-y-2"
-                class="md:hidden mt-4 pb-4 space-y-3 bg-ivory">
+                class="md:hidden mt-4 pb-4 space-y-3 bg-white">
                 <a href="#o-nas" @click="mobileMenuOpen = false"
-                    class="block hover:text-burgundy transition-colors text-center py-2">O nas</a>
+                    class="block hover:text-gold transition-colors text-center py-2">O nas</a>
                 <a href="#uslugi" @click="mobileMenuOpen = false"
-                    class="block hover:text-burgundy transition-colors text-center py-2">Usługi</a>
+                    class="block hover:text-gold transition-colors text-center py-2">Usługi</a>
                 <a href="#cennik" @click="mobileMenuOpen = false"
-                    class="block hover:text-burgundy transition-colors text-center py-2">Cennik</a>
+                    class="block hover:text-gold transition-colors text-center py-2">Cennik</a>
                 <a href="#galeria" @click="mobileMenuOpen = false"
-                    class="block hover:text-burgundy transition-colors text-center py-2">Galeria</a>
+                    class="block hover:text-gold transition-colors text-center py-2">Galeria</a>
                 <a href="#przed-po" @click="mobileMenuOpen = false"
-                    class="block hover:text-burgundy transition-colors text-center py-2">Przed i Po</a>
+                    class="block hover:text-gold transition-colors text-center py-2">Przed i Po</a>
                 <a href="#sklep" @click="mobileMenuOpen = false"
-                    class="block hover:text-burgundy transition-colors text-center py-2">Sklep</a>
+                    class="block hover:text-gold transition-colors text-center py-2">Sklep</a>
                 <a href="#voucher" @click="mobileMenuOpen = false"
-                    class="block hover:text-burgundy transition-colors text-center py-2">Voucher</a>
+                    class="block hover:text-gold transition-colors text-center py-2">Voucher</a>
                 <a href="#kontakt" @click="mobileMenuOpen = false"
-                    class="block hover:text-burgundy transition-colors text-center py-2">Kontakt</a>
+                    class="block hover:text-gold transition-colors text-center py-2">Kontakt</a>
             </div>
         </nav>
     </header>
 
     <main>
-        <!-- Hero Section - Premium Video Spotlight -->
-        <section id="hero" class="max-w-6xl mx-auto px-6 py-16 opacity-100">
-
-            <!-- Row 1: Centered Text -->
-            <div class="text-center space-y-6">
+        <!-- Hero Section - Ultra-Premium Cinematic -->
+        <section id="hero" class="max-w-7xl mx-auto px-6 py-20 md:py-32">
+            <!-- Centered Text Content -->
+            <div class="text-center space-y-8 mb-16">
                 <!-- Eyebrow Text -->
-                <p class="text-xs tracking-[0.25em] uppercase text-gold font-body">
+                <p class="text-xs tracking-[0.3em] uppercase text-gray-500 font-body font-medium">
                     nowoczesny salon fryzjerski we Wrocławiu
                 </p>
 
                 <!-- Main Headline -->
-                <h1 class="font-display text-5xl md:text-7xl lg:text-8xl text-espresso leading-tight">
+                <h2 class="font-display text-6xl md:text-8xl lg:text-9xl text-deepblack leading-[0.95] font-bold">
                     Twoje Włosy,<br>Nasza Pasja.
-                </h1>
+                </h2>
 
                 <!-- Subheadline -->
-                <p class="text-base md:text-lg text-neutral-700 max-w-xl mx-auto font-body">
+                <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto font-body font-light leading-relaxed">
                     Profesjonalna koloryzacja, strzyżenie i pielęgnacja – w sercu Wrocławia.
                 </p>
             </div>
 
-            <!-- Row 2: Video Spotlight Card -->
-            <div class="mt-10 relative max-w-4xl mx-auto">
-                <!-- Light Rail Effect - Ceiling Lamps -->
-                <div class="flex justify-center gap-4 mb-4">
-                    <div class="w-2 h-2 rounded-full bg-gold/60 animate-pulse"></div>
-                    <div class="w-2 h-2 rounded-full bg-gold/60 animate-pulse" style="animation-delay: 0.2s;"></div>
-                    <div class="w-2 h-2 rounded-full bg-gold/60 animate-pulse" style="animation-delay: 0.4s;"></div>
-                    <div class="w-2 h-2 rounded-full bg-gold/60 animate-pulse" style="animation-delay: 0.6s;"></div>
-                    <div class="w-2 h-2 rounded-full bg-gold/60 animate-pulse" style="animation-delay: 0.8s;"></div>
-                </div>
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+                <a href="#kontakt" class="btn-primary">
+                    Umów wizytę
+                </a>
+                <a href="https://m.me/salonikuagi" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                    Napisz na Messengerze
+                </a>
+            </div>
 
-                <!-- Video Frame -->
+            <!-- Cinematic Video Container -->
+            <div class="relative max-w-6xl mx-auto">
                 <div
-                    class="relative rounded-3xl overflow-hidden bg-black shadow-soft-gold group cursor-pointer transition-transform transition-shadow duration-300 hover:scale-[1.01] hover:shadow-soft-gold">
+                    class="relative rounded-2xl overflow-hidden bg-black shadow-luxury group cursor-pointer transition-all duration-500 hover:scale-[1.01]">
                     <div class="aspect-video relative">
                         <!-- Video/Image Background -->
                         <img src="./assets/img/lookbook/look1.jpg" alt="Salon lookbook"
-                            class="w-full h-full object-cover">
+                            class="w-full h-full object-cover" id="video-fallback">
                         <video autoplay muted loop playsinline class="w-full h-full object-cover hidden"
                             id="hero-video">
                             <source src="./assets/video/salon-lookbook.mp4" type="video/mp4">
                         </video>
 
                         <!-- Gradient Overlay -->
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent">
-                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
 
-                        <!-- Play Button -->
+                        <!-- Play Button with Gold Glow -->
                         <div class="absolute inset-0 flex items-center justify-center">
                             <div
-                                class="w-20 h-20 rounded-full border-2 border-gold bg-black/40 backdrop-blur-sm flex items-center justify-center group-hover:bg-black/60 transition">
+                                class="w-24 h-24 rounded-full border-2 border-gold bg-black/50 backdrop-blur-sm flex items-center justify-center group-hover:bg-black/70 group-hover:border-goldlight transition-all duration-300 shadow-soft-gold">
                                 <div
-                                    class="w-0 h-0 border-l-[12px] border-l-gold border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent ml-1">
+                                    class="w-0 h-0 border-l-[16px] border-l-gold border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent ml-1 group-hover:border-l-goldlight">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- CTA Row -->
-            <div class="mt-8 text-center space-y-4">
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#kontakt" class="btn-primary">
-                        Umów wizytę
-                    </a>
-                    <a href="https://m.me/salonikuagi" target="_blank" rel="noopener noreferrer"
-                        class="px-8 py-3 rounded-full border border-espresso/20 bg-white/70 backdrop-blur-md text-espresso font-semibold hover:bg-white transition">
-                        Napisz na Messengerze
-                    </a>
-                </div>
-                <p class="text-sm text-espresso/60 font-body">
-                    Bez długiego czekania. Po prostu zadzwoń lub napisz.
-                </p>
-            </div>
-
-            <!-- Gallery Carousel - 8 Images, 4 Columns Responsive -->
-            <div class="mt-16" x-data="{ currentIndex: 0, totalSlides: 2 }">
-                <h3 class="text-2xl font-display font-semibold text-center mb-8 text-espresso">
-                    Nasze Prace
-                </h3>
-
-                <!-- Carousel Container -->
-                <div class="relative max-w-6xl mx-auto">
-                    <!-- Images Grid (4 columns desktop, responsive) -->
-                    <div class="relative" style="min-height: 400px;">
-                        <!-- Slide 1 (Images 1-4) -->
-                        <div x-show="currentIndex === 0" x-transition:enter="transition ease-out duration-300"
-                            x-transition:enter-start="opacity-0 transform translate-x-4"
-                            x-transition:enter-end="opacity-100 transform translate-x-0"
-                            x-transition:leave="transition ease-in duration-300"
-                            x-transition:leave-start="opacity-100 transform translate-x-0"
-                            x-transition:leave-end="opacity-0 transform -translate-x-4"
-                            class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 w-full">
-                            <div
-                                class="aspect-square rounded-2xl overflow-hidden shadow-soft-panel group cursor-pointer hover:scale-105 transition-transform duration-300">
-                                <img src="./assets/img/gallery/g1.jpg" alt="Galeria 1"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <div
-                                class="aspect-square rounded-2xl overflow-hidden shadow-soft-panel group cursor-pointer hover:scale-105 transition-transform duration-300">
-                                <img src="./assets/img/gallery/g2.jpg" alt="Galeria 2"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <div
-                                class="aspect-square rounded-2xl overflow-hidden shadow-soft-panel group cursor-pointer hover:scale-105 transition-transform duration-300">
-                                <img src="./assets/img/gallery/g3.jpg" alt="Galeria 3"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <div
-                                class="aspect-square rounded-2xl overflow-hidden shadow-soft-panel group cursor-pointer hover:scale-105 transition-transform duration-300">
-                                <img src="./assets/img/gallery/g4.jpg" alt="Galeria 4"
-                                    class="w-full h-full object-cover">
-                            </div>
-                        </div>
-
-                        <!-- Slide 2 (Images 5-8) -->
-                        <div x-show="currentIndex === 1" x-transition:enter="transition ease-out duration-300"
-                            x-transition:enter-start="opacity-0 transform translate-x-4"
-                            x-transition:enter-end="opacity-100 transform translate-x-0"
-                            x-transition:leave="transition ease-in duration-300"
-                            x-transition:leave-start="opacity-100 transform translate-x-0"
-                            x-transition:leave-end="opacity-0 transform -translate-x-4"
-                            class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 w-full absolute top-0 left-0 right-0">
-                            <div
-                                class="aspect-square rounded-2xl overflow-hidden shadow-soft-panel group cursor-pointer hover:scale-105 transition-transform duration-300">
-                                <img src="./assets/img/gallery/g5.jpg" alt="Galeria 5"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <div
-                                class="aspect-square rounded-2xl overflow-hidden shadow-soft-panel group cursor-pointer hover:scale-105 transition-transform duration-300">
-                                <img src="./assets/img/gallery/g6.jpg" alt="Galeria 6"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <div
-                                class="aspect-square rounded-2xl overflow-hidden shadow-soft-panel group cursor-pointer hover:scale-105 transition-transform duration-300">
-                                <img src="./assets/img/gallery/g7.jpg" alt="Galeria 7"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <div
-                                class="aspect-square rounded-2xl overflow-hidden shadow-soft-panel group cursor-pointer hover:scale-105 transition-transform duration-300">
-                                <img src="./assets/img/gallery/g8.jpg" alt="Galeria 8"
-                                    class="w-full h-full object-cover">
-                            </div>
-                        </div>
+        <!-- Lookbook Strip - 3 Portrait Images -->
+        <section class="max-w-7xl mx-auto px-6 py-12 -mt-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                <!-- Portrait 1: Blonde -->
+                <div
+                    class="group relative overflow-hidden rounded-xl border border-gold/30 hover:border-gold transition-all duration-300 hover:scale-105">
+                    <div class="aspect-[3/4] relative">
+                        <img src="./assets/img/lookbook/look1.jpg" alt="Blonde lookbook"
+                            class="w-full h-full object-cover">
                     </div>
+                </div>
 
-                    <!-- Navigation Arrows - Full Width -->
-                    <div class="flex justify-between items-center mt-6 gap-4 w-full">
-                        <button @click="currentIndex = (currentIndex - 1 + totalSlides) % totalSlides"
-                            class="flex-1 py-4 px-8 rounded-full bg-white border border-gold/30 shadow-soft-panel flex items-center justify-center hover:bg-warmgray hover:border-gold transition z-10"
-                            aria-label="Poprzednie zdjęcia">
-                            <svg class="w-6 h-6 text-espresso mr-3" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M15 19l-7-7 7-7"></path>
-                            </svg>
-                            <span class="text-espresso font-body font-semibold text-lg">Poprzednie</span>
-                        </button>
+                <!-- Portrait 2: Brunette -->
+                <div
+                    class="group relative overflow-hidden rounded-xl border border-gold/30 hover:border-gold transition-all duration-300 hover:scale-105">
+                    <div class="aspect-[3/4] relative">
+                        <img src="./assets/img/lookbook/look2.jpg" alt="Brunette lookbook"
+                            class="w-full h-full object-cover">
+                    </div>
+                </div>
 
-                        <!-- Dots Indicator -->
-                        <div class="flex justify-center gap-2 flex-shrink-0 px-4">
-                            <button @click="currentIndex = 0"
-                                :class="currentIndex === 0 ? 'bg-gold w-8' : 'bg-gold/30 w-2'"
-                                class="h-2 rounded-full transition-all duration-300" aria-label="Slide 1"></button>
-                            <button @click="currentIndex = 1"
-                                :class="currentIndex === 1 ? 'bg-gold w-8' : 'bg-gold/30 w-2'"
-                                class="h-2 rounded-full transition-all duration-300" aria-label="Slide 2"></button>
-                        </div>
-
-                        <button @click="currentIndex = (currentIndex + 1) % totalSlides"
-                            class="flex-1 py-4 px-8 rounded-full bg-white border border-gold/30 shadow-soft-panel flex items-center justify-center hover:bg-warmgray hover:border-gold transition z-10"
-                            aria-label="Następne zdjęcia">
-                            <span class="text-espresso font-body font-semibold text-lg">Następne</span>
-                            <svg class="w-6 h-6 text-espresso ml-3" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
-                                </path>
-                            </svg>
-                        </button>
+                <!-- Portrait 3: Bob -->
+                <div
+                    class="group relative overflow-hidden rounded-xl border border-gold/30 hover:border-gold transition-all duration-300 hover:scale-105">
+                    <div class="aspect-[3/4] relative">
+                        <img src="./assets/img/lookbook/look3.jpg" alt="Bob cut lookbook"
+                            class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- O Nas Section - Story + Photo -->
-        <section id="o-nas" class="container mx-auto px-6 py-20">
-            <div class="grid md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] gap-10 mt-16">
-                <!-- Left: Portrait Photo -->
+        <!-- About Section (O Nas) - High-Contrast Editorial -->
+        <section id="o-nas" class="max-w-7xl mx-auto px-6 py-24 md:py-32">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <!-- Left: Large Editorial Photo -->
                 <div class="relative group">
                     <img src="./assets/img/hero/hero-salon.jpg" alt="Salon fryzjerski"
-                        class="rounded-2xl shadow-soft-panel w-full object-cover transition-transform duration-300 group-hover:-translate-y-1 group-hover:rotate-1">
+                        class="rounded-xl shadow-luxury w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]">
                 </div>
 
                 <!-- Right: Story Text -->
-                <div class="space-y-6">
-                    <h2 class="text-4xl md:text-5xl font-display font-bold tracking-tight text-espresso">
-                        O nas
-                    </h2>
-                    <div class="w-24 h-1 bg-gold mb-6"></div>
-                    <div class="space-y-4 font-body text-espresso/70 leading-relaxed">
+                <div class="space-y-8">
+                    <div>
+                        <h2 class="text-5xl md:text-6xl font-display font-bold tracking-tight text-gold mb-6">
+                            O nas
+                        </h2>
+                        <div class="w-20 h-1 bg-gold mb-8"></div>
+                    </div>
+
+                    <div class="space-y-6 font-body text-gray-700 leading-relaxed text-lg">
                         <p>
-                            Salonik u Agi to miejsce, gdzie <strong class="text-espresso font-semibold">pasja</strong>
-                            spotyka się z <strong class="text-espresso font-semibold">profesjonalizmem</strong>. Od
-                            lat
-                            tworzymy
-                            fryzury, które podkreślają indywidualność i dodają pewności siebie.
+                            Salonik u Agi to miejsce, gdzie <strong class="text-deepblack font-semibold">pasja</strong>
+                            spotyka się z <strong class="text-deepblack font-semibold">profesjonalizmem</strong>. Od lat
+                            tworzymy fryzury, które podkreślają indywidualność i dodają pewności siebie.
                         </p>
                         <p>
-                            Nasz zespół to <strong class="text-espresso font-semibold">doświadczeni
-                                stylisti</strong>,
-                            którzy nieustannie podnoszą swoje kwalifikacje,
-                            śledząc najnowsze trendy w branży fryzjerskiej. Każda wizyta to czas poświęcony
-                            wyłącznie
-                            Tobie.
+                            Nasz zespół to <strong class="text-deepblack font-semibold">doświadczeni stylisti</strong>,
+                            którzy nieustannie podnoszą swoje kwalifikacje, śledząc najnowsze trendy w branży
+                            fryzjerskiej. Każda wizyta to czas poświęcony wyłącznie Tobie.
                         </p>
                         <p>
-                            Wierzymy, że piękno zaczyna się od dobrego samopoczucia. Dlatego w naszym salonie
-                            stawiamy
-                            na <strong class="text-espresso font-semibold">komfort, relaks</strong> i indywidualne
+                            Wierzymy, że piękno zaczyna się od dobrego samopoczucia. Dlatego w naszym salonie stawiamy
+                            na <strong class="text-deepblack font-semibold">komfort, relaks</strong> i indywidualne
                             podejście do każdego klienta.
                         </p>
                     </div>
 
-                    <!-- Dlaczego warto - Icons List -->
-                    <div class="mt-8 space-y-4">
-                        <h3 class="text-xl font-display font-semibold text-espresso mb-4">Dlaczego warto</h3>
-                        <div class="space-y-3">
-                            <div class="flex items-start gap-3">
+                    <!-- Dlaczego warto - Gold Icons -->
+                    <div class="mt-12 space-y-6">
+                        <h3 class="text-2xl font-display font-semibold text-deepblack mb-6">Dlaczego warto</h3>
+                        <div class="space-y-5">
+                            <div class="flex items-start gap-4">
                                 <div
-                                    class="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <span class="text-gold text-lg">✂</span>
+                                    class="w-12 h-12 rounded-full border-2 border-gold flex items-center justify-center flex-shrink-0">
+                                    <span class="text-gold text-xl">✂</span>
                                 </div>
                                 <div>
-                                    <p class="font-body text-espresso/80 font-medium">Profesjonalne narzędzia</p>
-                                    <p class="text-sm text-espresso/60">Najwyższej jakości produkty i sprzęt</p>
+                                    <p class="font-body text-deepblack font-semibold text-lg mb-1">Profesjonalne
+                                        narzędzia</p>
+                                    <p class="text-sm text-gray-600">Najwyższej jakości produkty i sprzęt</p>
                                 </div>
                             </div>
-                            <div class="flex items-start gap-3">
+                            <div class="flex items-start gap-4">
                                 <div
-                                    class="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <span class="text-gold text-lg">🎨</span>
+                                    class="w-12 h-12 rounded-full border-2 border-gold flex items-center justify-center flex-shrink-0">
+                                    <span class="text-gold text-xl">🎨</span>
                                 </div>
                                 <div>
-                                    <p class="font-body text-espresso/80 font-medium">Indywidualne podejście</p>
-                                    <p class="text-sm text-espresso/60">Każda fryzura dopasowana do Ciebie</p>
+                                    <p class="font-body text-deepblack font-semibold text-lg mb-1">Indywidualne
+                                        podejście</p>
+                                    <p class="text-sm text-gray-600">Każda fryzura dopasowana do Ciebie</p>
                                 </div>
                             </div>
-                            <div class="flex items-start gap-3">
+                            <div class="flex items-start gap-4">
                                 <div
-                                    class="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <span class="text-gold text-lg">⏰</span>
+                                    class="w-12 h-12 rounded-full border-2 border-gold flex items-center justify-center flex-shrink-0">
+                                    <span class="text-gold text-xl">⏰</span>
                                 </div>
                                 <div>
-                                    <p class="font-body text-espresso/80 font-medium">Elastyczne terminy</p>
-                                    <p class="text-sm text-espresso/60">Dopasowujemy się do Twojego harmonogramu</p>
+                                    <p class="font-body text-deepblack font-semibold text-lg mb-1">Elastyczne terminy
+                                    </p>
+                                    <p class="text-sm text-gray-600">Dopasowujemy się do Twojego harmonogramu</p>
                                 </div>
                             </div>
                         </div>
@@ -402,262 +309,278 @@
             </div>
         </section>
 
-        <!-- Usługi Section - Card Strip -->
-        <section id="uslugi" class="container mx-auto px-6 py-20">
-            <h2 class="text-4xl md:text-5xl font-display font-bold tracking-tight text-center mb-16 text-espresso">
-                Usługi
-            </h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Services Section (Usługi) - Luxury Grid -->
+        <section id="uslugi" class="max-w-7xl mx-auto px-6 py-24 md:py-32 bg-white">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl md:text-6xl font-display font-bold tracking-tight text-deepblack mb-4">
+                    Nasze Usługi
+                </h2>
+                <div class="w-24 h-1 bg-gold mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Service Card 1: Strzyżenie Damskie -->
                 <div
-                    class="bg-warmgray rounded-2xl p-6 shadow-soft-panel transition-transform transition-shadow duration-300 hover:-translate-y-1 hover:shadow-soft-panel">
-                    <div class="w-16 h-16 rounded-full bg-gold flex items-center justify-center mb-4 mx-auto">
-                        <span class="text-2xl">✂</span>
+                    class="bg-white border border-gray-200 rounded-xl p-8 shadow-soft-panel transition-all duration-300 hover:-translate-y-2 hover:border-gold hover:shadow-luxury text-center">
+                    <div
+                        class="w-20 h-20 rounded-full border-2 border-gold flex items-center justify-center mb-6 mx-auto">
+                        <span class="text-3xl">✂</span>
                     </div>
-                    <h3 class="text-lg font-display font-bold mb-3 text-espresso text-center">Strzyżenie Damskie
-                    </h3>
-                    <ul class="text-sm font-body text-espresso/70 space-y-1 mb-4 text-center">
+                    <h3 class="text-xl font-display font-bold mb-4 text-deepblack">Strzyżenie Damskie</h3>
+                    <ul class="text-sm font-body text-gray-600 space-y-2 mb-6">
                         <li>• Krótkie, średnie, długie</li>
                         <li>• Nowoczesne kształty</li>
                     </ul>
-                    <p class="text-lg font-display font-semibold text-burgundy text-center">od 120 zł</p>
+                    <p class="text-2xl font-display font-bold text-gold">od 120 zł</p>
                 </div>
 
                 <!-- Service Card 2: Koloryzacja -->
                 <div
-                    class="bg-warmgray rounded-2xl p-6 shadow-soft-panel transition-transform transition-shadow duration-300 hover:-translate-y-1 hover:shadow-soft-panel">
-                    <div class="w-16 h-16 rounded-full bg-gold flex items-center justify-center mb-4 mx-auto">
-                        <span class="text-2xl">🎨</span>
+                    class="bg-white border border-gray-200 rounded-xl p-8 shadow-soft-panel transition-all duration-300 hover:-translate-y-2 hover:border-gold hover:shadow-luxury text-center">
+                    <div
+                        class="w-20 h-20 rounded-full border-2 border-gold flex items-center justify-center mb-6 mx-auto">
+                        <span class="text-3xl">🎨</span>
                     </div>
-                    <h3 class="text-lg font-display font-bold mb-3 text-espresso text-center">Koloryzacja</h3>
-                    <ul class="text-sm font-body text-espresso/70 space-y-1 mb-4 text-center">
+                    <h3 class="text-xl font-display font-bold mb-4 text-deepblack">Koloryzacja</h3>
+                    <ul class="text-sm font-body text-gray-600 space-y-2 mb-6">
                         <li>• Pełna koloryzacja</li>
                         <li>• Unikalne odcienie</li>
                     </ul>
-                    <p class="text-lg font-display font-semibold text-burgundy text-center">od 200 zł</p>
+                    <p class="text-2xl font-display font-bold text-gold">od 200 zł</p>
                 </div>
 
                 <!-- Service Card 3: Balayage/Ombre -->
                 <div
-                    class="bg-warmgray rounded-2xl p-6 shadow-soft-panel transition-transform transition-shadow duration-300 hover:-translate-y-1 hover:shadow-soft-panel">
-                    <div class="w-16 h-16 rounded-full bg-gold flex items-center justify-center mb-4 mx-auto">
-                        <span class="text-2xl">✨</span>
+                    class="bg-white border border-gray-200 rounded-xl p-8 shadow-soft-panel transition-all duration-300 hover:-translate-y-2 hover:border-gold hover:shadow-luxury text-center">
+                    <div
+                        class="w-20 h-20 rounded-full border-2 border-gold flex items-center justify-center mb-6 mx-auto">
+                        <span class="text-3xl">✨</span>
                     </div>
-                    <h3 class="text-lg font-display font-bold mb-3 text-espresso text-center">Balayage / Ombre</h3>
-                    <ul class="text-sm font-body text-espresso/70 space-y-1 mb-4 text-center">
+                    <h3 class="text-xl font-display font-bold mb-4 text-deepblack">Balayage / Ombre</h3>
+                    <ul class="text-sm font-body text-gray-600 space-y-2 mb-6">
                         <li>• Techniki koloryzacji</li>
                         <li>• Naturalne efekty</li>
                     </ul>
-                    <p class="text-lg font-display font-semibold text-burgundy text-center">od 250 zł</p>
+                    <p class="text-2xl font-display font-bold text-gold">od 250 zł</p>
                 </div>
 
                 <!-- Service Card 4: Stylizacja -->
                 <div
-                    class="bg-warmgray rounded-2xl p-6 shadow-soft-panel transition-transform transition-shadow duration-300 hover:-translate-y-1 hover:shadow-soft-panel">
-                    <div class="w-16 h-16 rounded-full bg-gold flex items-center justify-center mb-4 mx-auto">
-                        <span class="text-2xl">💇</span>
+                    class="bg-white border border-gray-200 rounded-xl p-8 shadow-soft-panel transition-all duration-300 hover:-translate-y-2 hover:border-gold hover:shadow-luxury text-center">
+                    <div
+                        class="w-20 h-20 rounded-full border-2 border-gold flex items-center justify-center mb-6 mx-auto">
+                        <span class="text-3xl">💇</span>
                     </div>
-                    <h3 class="text-lg font-display font-bold mb-3 text-espresso text-center">Stylizacja</h3>
-                    <ul class="text-sm font-body text-espresso/70 space-y-1 mb-4 text-center">
+                    <h3 class="text-xl font-display font-bold mb-4 text-deepblack">Stylizacja</h3>
+                    <ul class="text-sm font-body text-gray-600 space-y-2 mb-6">
                         <li>• Upięcia, loki</li>
                         <li>• Prostowanie</li>
                     </ul>
-                    <p class="text-lg font-display font-semibold text-burgundy text-center">od 100 zł</p>
+                    <p class="text-2xl font-display font-bold text-gold">od 100 zł</p>
                 </div>
             </div>
         </section>
 
-        <!-- Cennik Section - Elegant Panel -->
-        <section id="cennik" class="container mx-auto px-6 py-20">
-            <div class="max-w-3xl mx-auto mt-12">
-                <div class="bg-warmgray rounded-2xl shadow-soft-panel overflow-hidden">
-                    <!-- Price Row 1 -->
-                    <div class="flex items-center justify-between p-6 border-b border-gold/20">
-                        <div class="flex-1">
-                            <h3 class="text-lg font-display font-semibold text-espresso">Strzyżenie damskie</h3>
-                            <p class="text-sm font-body text-espresso/60">Krótkie, średnie, długie</p>
-                        </div>
-                        <p class="text-2xl font-display font-bold text-gold ml-4">120 zł</p>
-                    </div>
-                    <!-- Price Row 2 -->
-                    <div class="flex items-center justify-between p-6 border-b border-gold/20">
-                        <div class="flex-1">
-                            <h3 class="text-lg font-display font-semibold text-espresso">Strzyżenie męskie</h3>
-                            <p class="text-sm font-body text-espresso/60">Klasyczne i nowoczesne</p>
-                        </div>
-                        <p class="text-2xl font-display font-bold text-gold ml-4">80 zł</p>
-                    </div>
-                    <!-- Price Row 3 -->
-                    <div class="flex items-center justify-between p-6 border-b border-gold/20">
-                        <div class="flex-1">
-                            <h3 class="text-lg font-display font-semibold text-espresso">Koloryzacja</h3>
-                            <p class="text-sm font-body text-espresso/60">Pełna koloryzacja</p>
-                        </div>
-                        <p class="text-2xl font-display font-bold text-gold ml-4">od 200 zł</p>
-                    </div>
-                    <!-- Price Row 4 -->
-                    <div class="flex items-center justify-between p-6 border-b border-gold/20">
-                        <div class="flex-1">
-                            <h3 class="text-lg font-display font-semibold text-espresso">Balayage / Ombre</h3>
-                            <p class="text-sm font-body text-espresso/60">Techniki koloryzacji</p>
-                        </div>
-                        <p class="text-2xl font-display font-bold text-gold ml-4">od 250 zł</p>
-                    </div>
-                    <!-- Price Row 5 -->
-                    <div class="flex items-center justify-between p-6">
-                        <div class="flex-1">
-                            <h3 class="text-lg font-display font-semibold text-espresso">Stylizacja</h3>
-                            <p class="text-sm font-body text-espresso/60">Upięcia, loki, prostowanie</p>
-                        </div>
-                        <p class="text-2xl font-display font-bold text-gold ml-4">od 100 zł</p>
-                    </div>
-                </div>
+        <!-- Cennik Section - Elegant Table -->
+        <section id="cennik" class="max-w-4xl mx-auto px-6 py-24 md:py-32">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl md:text-6xl font-display font-bold tracking-tight text-deepblack mb-4">
+                    Cennik
+                </h2>
+                <div class="w-24 h-1 bg-gold mx-auto"></div>
+            </div>
 
-                <!-- CTA Link -->
-                <div class="text-center mt-6">
-                    <a href="#cennik"
-                        class="text-sm font-body text-burgundy hover:text-burgundy/80 transition-colors inline-flex items-center gap-1">
-                        Zobacz pełny cennik →
-                    </a>
+            <div class="bg-white border border-gray-200 rounded-2xl shadow-soft-panel overflow-hidden">
+                <!-- Price Row 1 -->
+                <div
+                    class="flex items-center justify-between p-8 border-b border-gray-100 hover:bg-gray-50/50 transition-colors">
+                    <div class="flex-1">
+                        <h3 class="text-xl font-display font-semibold text-deepblack">Strzyżenie damskie</h3>
+                        <p class="text-sm font-body text-gray-600 mt-1">Krótkie, średnie, długie</p>
+                    </div>
+                    <p class="text-3xl font-display font-bold text-gold ml-6">120 zł</p>
+                </div>
+                <!-- Price Row 2 -->
+                <div
+                    class="flex items-center justify-between p-8 border-b border-gray-100 hover:bg-gray-50/50 transition-colors">
+                    <div class="flex-1">
+                        <h3 class="text-xl font-display font-semibold text-deepblack">Strzyżenie męskie</h3>
+                        <p class="text-sm font-body text-gray-600 mt-1">Klasyczne i nowoczesne</p>
+                    </div>
+                    <p class="text-3xl font-display font-bold text-gold ml-6">80 zł</p>
+                </div>
+                <!-- Price Row 3 -->
+                <div
+                    class="flex items-center justify-between p-8 border-b border-gray-100 hover:bg-gray-50/50 transition-colors">
+                    <div class="flex-1">
+                        <h3 class="text-xl font-display font-semibold text-deepblack">Koloryzacja</h3>
+                        <p class="text-sm font-body text-gray-600 mt-1">Pełna koloryzacja</p>
+                    </div>
+                    <p class="text-3xl font-display font-bold text-gold ml-6">od 200 zł</p>
+                </div>
+                <!-- Price Row 4 -->
+                <div
+                    class="flex items-center justify-between p-8 border-b border-gray-100 hover:bg-gray-50/50 transition-colors">
+                    <div class="flex-1">
+                        <h3 class="text-xl font-display font-semibold text-deepblack">Balayage / Ombre</h3>
+                        <p class="text-sm font-body text-gray-600 mt-1">Techniki koloryzacji</p>
+                    </div>
+                    <p class="text-3xl font-display font-bold text-gold ml-6">od 250 zł</p>
+                </div>
+                <!-- Price Row 5 -->
+                <div class="flex items-center justify-between p-8 hover:bg-gray-50/50 transition-colors">
+                    <div class="flex-1">
+                        <h3 class="text-xl font-display font-semibold text-deepblack">Stylizacja</h3>
+                        <p class="text-sm font-body text-gray-600 mt-1">Upięcia, loki, prostowanie</p>
+                    </div>
+                    <p class="text-3xl font-display font-bold text-gold ml-6">od 100 zł</p>
                 </div>
             </div>
         </section>
 
-        <!-- Galeria Section - iPhone Look + Instagram Vibe -->
-        <section id="galeria" class="container mx-auto px-6 py-20">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl md:text-5xl font-display font-bold tracking-tight mb-4 text-espresso">
+        <!-- Gallery Section - iPhone/Instagram Aesthetic -->
+        <section id="galeria" class="max-w-7xl mx-auto px-6 py-24 md:py-32">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl md:text-6xl font-display font-bold tracking-tight text-deepblack mb-4">
                     Galeria
                 </h2>
-                <p class="text-sm text-espresso/60 font-body">
+                <p class="text-lg text-gray-600 font-body">
                     Realne stylizacje, które wyszły z naszego salonu
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-[1fr_1fr] gap-8 lg:gap-12 items-start">
-                <!-- Left: iPhone Mockup -->
-                <div class="order-2 md:order-1">
+            <!-- Masonry/Grid Layout -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Gallery Image 1 -->
+                <a href="#"
+                    class="group relative aspect-square rounded-xl overflow-hidden shadow-soft-panel transition-all duration-300 hover:scale-105">
+                    <img src="./assets/img/gallery/g1.jpg" alt="Blonde balayage" class="w-full h-full object-cover">
                     <div
-                        class="rounded-[3rem] border border-black/10 bg-black overflow-hidden shadow-soft-panel mx-auto max-w-[280px]">
-                        <!-- iPhone Status Bar -->
-                        <div class="bg-black px-4 py-2 flex items-center justify-between text-white text-[10px]">
-                            <span>9:41</span>
-                            <div class="flex gap-1">
-                                <div class="w-1 h-1 rounded-full bg-white"></div>
-                                <div class="w-1 h-1 rounded-full bg-white"></div>
-                                <div class="w-1 h-1 rounded-full bg-white"></div>
-                            </div>
-                        </div>
-                        <!-- Main Photo (9:19 aspect) -->
-                        <div class="aspect-[9/19] relative">
-                            <img src="./assets/img/lookbook/look1.jpg" alt="Lookbook style"
-                                class="w-full h-full object-cover">
-                        </div>
+                        class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
+                        <svg class="w-12 h-12 text-gold opacity-0 group-hover:opacity-100 transition-opacity"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
+                        </svg>
                     </div>
-                </div>
+                </a>
 
-                <!-- Right: 2x2 Grid Thumbnails -->
-                <div class="order-1 md:order-2 grid grid-cols-2 gap-4">
-                    <!-- Thumbnail 1 -->
-                    <a href="#"
-                        class="group relative aspect-square rounded-2xl overflow-hidden shadow-soft-panel transition-transform duration-300 hover:scale-[1.03]">
-                        <img src="./assets/img/gallery/g1.jpg" alt="Blonde balayage" class="w-full h-full object-cover">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                        </div>
-                        <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <div
-                                class="w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center">
-                                <svg class="w-5 h-5 text-espresso" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                                </svg>
-                            </div>
-                        </div>
-                        <p
-                            class="absolute bottom-3 left-3 right-3 text-white text-xs font-body opacity-0 group-hover:opacity-100 transition-opacity">
-                            Zobacz na Instagramie</p>
-                    </a>
+                <!-- Gallery Image 2 -->
+                <a href="#"
+                    class="group relative aspect-square rounded-xl overflow-hidden shadow-soft-panel transition-all duration-300 hover:scale-105">
+                    <img src="./assets/img/gallery/g2.jpg" alt="Brunette waves" class="w-full h-full object-cover">
+                    <div
+                        class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
+                        <svg class="w-12 h-12 text-gold opacity-0 group-hover:opacity-100 transition-opacity"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
+                        </svg>
+                    </div>
+                </a>
 
-                    <!-- Thumbnail 2 -->
-                    <a href="#"
-                        class="group relative aspect-square rounded-2xl overflow-hidden shadow-soft-panel transition-transform duration-300 hover:scale-[1.03]">
-                        <img src="./assets/img/gallery/g2.jpg" alt="Brunette waves" class="w-full h-full object-cover">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                        </div>
-                        <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <div
-                                class="w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center">
-                                <svg class="w-5 h-5 text-espresso" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                                </svg>
-                            </div>
-                        </div>
-                        <p
-                            class="absolute bottom-3 left-3 right-3 text-white text-xs font-body opacity-0 group-hover:opacity-100 transition-opacity">
-                            Zobacz na Instagramie</p>
-                    </a>
+                <!-- Gallery Image 3 -->
+                <a href="#"
+                    class="group relative aspect-square rounded-xl overflow-hidden shadow-soft-panel transition-all duration-300 hover:scale-105">
+                    <img src="./assets/img/gallery/g3.jpg" alt="Balayage highlights" class="w-full h-full object-cover">
+                    <div
+                        class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
+                        <svg class="w-12 h-12 text-gold opacity-0 group-hover:opacity-100 transition-opacity"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
+                        </svg>
+                    </div>
+                </a>
 
-                    <!-- Thumbnail 3 -->
-                    <a href="#"
-                        class="group relative aspect-square rounded-2xl overflow-hidden shadow-soft-panel transition-transform duration-300 hover:scale-[1.03]">
-                        <img src="./assets/img/gallery/g3.jpg" alt="Balayage highlights"
-                            class="w-full h-full object-cover">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                        </div>
-                        <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <div
-                                class="w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center">
-                                <svg class="w-5 h-5 text-espresso" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                                </svg>
-                            </div>
-                        </div>
-                        <p
-                            class="absolute bottom-3 left-3 right-3 text-white text-xs font-body opacity-0 group-hover:opacity-100 transition-opacity">
-                            Zobacz na Instagramie</p>
-                    </a>
+                <!-- Gallery Image 4 -->
+                <a href="#"
+                    class="group relative aspect-square rounded-xl overflow-hidden shadow-soft-panel transition-all duration-300 hover:scale-105">
+                    <img src="./assets/img/gallery/g4.jpg" alt="Bob cut" class="w-full h-full object-cover">
+                    <div
+                        class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
+                        <svg class="w-12 h-12 text-gold opacity-0 group-hover:opacity-100 transition-opacity"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
+                        </svg>
+                    </div>
+                </a>
 
-                    <!-- Thumbnail 4 -->
-                    <a href="#"
-                        class="group relative aspect-square rounded-2xl overflow-hidden shadow-soft-panel transition-transform duration-300 hover:scale-[1.03]">
-                        <img src="./assets/img/gallery/g4.jpg" alt="Bob cut" class="w-full h-full object-cover">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                        </div>
-                        <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <div
-                                class="w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center">
-                                <svg class="w-5 h-5 text-espresso" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                                </svg>
-                            </div>
-                        </div>
-                        <p
-                            class="absolute bottom-3 left-3 right-3 text-white text-xs font-body opacity-0 group-hover:opacity-100 transition-opacity">
-                            Zobacz na Instagramie</p>
-                    </a>
-                </div>
+                <!-- Gallery Image 5 -->
+                <a href="#"
+                    class="group relative aspect-square rounded-xl overflow-hidden shadow-soft-panel transition-all duration-300 hover:scale-105">
+                    <img src="./assets/img/gallery/g5.jpg" alt="Galeria 5" class="w-full h-full object-cover">
+                    <div
+                        class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
+                        <svg class="w-12 h-12 text-gold opacity-0 group-hover:opacity-100 transition-opacity"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Gallery Image 6 -->
+                <a href="#"
+                    class="group relative aspect-square rounded-xl overflow-hidden shadow-soft-panel transition-all duration-300 hover:scale-105">
+                    <img src="./assets/img/gallery/g6.jpg" alt="Galeria 6" class="w-full h-full object-cover">
+                    <div
+                        class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
+                        <svg class="w-12 h-12 text-gold opacity-0 group-hover:opacity-100 transition-opacity"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Gallery Image 7 -->
+                <a href="#"
+                    class="group relative aspect-square rounded-xl overflow-hidden shadow-soft-panel transition-all duration-300 hover:scale-105">
+                    <img src="./assets/img/gallery/g7.jpg" alt="Galeria 7" class="w-full h-full object-cover">
+                    <div
+                        class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
+                        <svg class="w-12 h-12 text-gold opacity-0 group-hover:opacity-100 transition-opacity"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Gallery Image 8 -->
+                <a href="#"
+                    class="group relative aspect-square rounded-xl overflow-hidden shadow-soft-panel transition-all duration-300 hover:scale-105">
+                    <img src="./assets/img/gallery/g8.jpg" alt="Galeria 8" class="w-full h-full object-cover">
+                    <div
+                        class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
+                        <svg class="w-12 h-12 text-gold opacity-0 group-hover:opacity-100 transition-opacity"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
+                        </svg>
+                    </div>
+                </a>
             </div>
         </section>
 
-        <!-- Before / After Section - Wyraźniej -->
-        <section id="przed-po" class="container mx-auto px-6 py-20">
-            <h2 class="text-4xl md:text-5xl font-display font-bold tracking-tight text-center mb-16 text-espresso">
-                Przed i Po
-            </h2>
-            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- Before / After Section -->
+        <section id="przed-po" class="max-w-6xl mx-auto px-6 py-24 md:py-32">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl md:text-6xl font-display font-bold tracking-tight text-deepblack mb-4">
+                    Przed i Po
+                </h2>
+                <div class="w-24 h-1 bg-gold mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
                 <!-- Before Card -->
                 <div
-                    class="bg-white rounded-2xl shadow-soft-panel overflow-hidden transition-transform transition-shadow duration-300 hover:-translate-y-1 hover:shadow-soft-panel">
+                    class="bg-white border border-gray-200 rounded-xl shadow-soft-panel overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-luxury">
                     <img src="./assets/img/before-after/before.jpg" alt="Przed" class="w-full h-96 object-cover">
                     <div class="p-6">
-                        <span class="inline-block bg-espresso text-ivory text-xs rounded-full px-3 py-1 font-semibold">
+                        <span class="inline-block bg-deepblack text-white text-sm rounded-full px-4 py-2 font-semibold">
                             Przed
                         </span>
                     </div>
@@ -665,10 +588,10 @@
 
                 <!-- After Card -->
                 <div
-                    class="bg-white rounded-2xl shadow-soft-panel overflow-hidden transition-transform transition-shadow duration-300 hover:-translate-y-1 hover:shadow-soft-panel">
+                    class="bg-white border border-gray-200 rounded-xl shadow-soft-panel overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-luxury">
                     <img src="./assets/img/before-after/after.jpg" alt="Po" class="w-full h-96 object-cover">
                     <div class="p-6">
-                        <span class="inline-block bg-espresso text-ivory text-xs rounded-full px-3 py-1 font-semibold">
+                        <span class="inline-block bg-deepblack text-white text-sm rounded-full px-4 py-2 font-semibold">
                             Po
                         </span>
                     </div>
@@ -676,71 +599,73 @@
             </div>
         </section>
 
-        <!-- Video Section - Premium, Wyrożnione -->
-        <section id="video" class="container mx-auto px-6 py-20">
-            <h2 class="text-4xl md:text-5xl font-display font-bold tracking-tight text-center mb-16 text-espresso">
-                Zobacz nas w akcji
-            </h2>
-            <div class="max-w-5xl mx-auto">
-                <div class="bg-black rounded-3xl shadow-soft-gold relative overflow-hidden group cursor-pointer">
-                    <div class="aspect-video relative">
-                        <img src="./assets/img/video/video-thumb.jpg" alt="Video salonu"
-                            class="w-full h-full object-cover">
+        <!-- Video Section -->
+        <section id="video" class="max-w-6xl mx-auto px-6 py-24 md:py-32">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl md:text-6xl font-display font-bold tracking-tight text-deepblack mb-4">
+                    Zobacz nas w akcji
+                </h2>
+                <div class="w-24 h-1 bg-gold mx-auto"></div>
+            </div>
+
+            <div class="bg-black rounded-2xl shadow-luxury relative overflow-hidden group cursor-pointer">
+                <div class="aspect-video relative">
+                    <img src="./assets/img/video/video-thumb.jpg" alt="Video salonu" class="w-full h-full object-cover">
+                    <div
+                        class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition">
                         <div
-                            class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition">
+                            class="w-28 h-28 bg-gold/90 rounded-full flex items-center justify-center group-hover:bg-gold transition shadow-soft-gold">
                             <div
-                                class="w-24 h-24 bg-gold/90 rounded-full flex items-center justify-center group-hover:bg-gold transition animate-pulse">
-                                <div
-                                    class="w-0 h-0 border-l-[16px] border-l-white border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent ml-1">
-                                </div>
+                                class="w-0 h-0 border-l-[20px] border-l-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent ml-1">
                             </div>
                         </div>
                     </div>
                 </div>
-                <p class="text-center text-sm text-espresso/60 font-body mt-4">
-                    Krótki film z salonu – zobacz atmosferę na żywo.
-                </p>
             </div>
+            <p class="text-center text-sm text-gray-600 font-body mt-6">
+                Krótki film z salonu – zobacz atmosferę na żywo.
+            </p>
         </section>
 
-        <!-- Sklep + Voucher Section - Dwie Oferty Specjalne -->
-        <section class="container mx-auto px-6 py-20">
-            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- Shop + Voucher Section - Two Luxury Cards -->
+        <section class="max-w-6xl mx-auto px-6 py-24 md:py-32">
+            <div class="grid md:grid-cols-2 gap-8">
                 <!-- Left: Sklep Online -->
                 <div id="sklep"
-                    class="bg-warmgray rounded-2xl shadow-soft-panel p-8 text-center transition-transform transition-shadow duration-300 hover:-translate-y-1 hover:shadow-soft-panel">
-                    <div class="w-16 h-16 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-4">
-                        <span class="text-3xl">🛍️</span>
+                    class="bg-white border-2 border-gold rounded-2xl shadow-soft-panel p-10 text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-luxury">
+                    <div
+                        class="w-20 h-20 rounded-full border-2 border-gold flex items-center justify-center mx-auto mb-6">
+                        <span class="text-4xl">🛍️</span>
                     </div>
-                    <div class="inline-block bg-gold/10 text-gold px-4 py-2 rounded-full text-xs font-semibold mb-4">
+                    <div class="inline-block bg-gold/10 text-gold px-4 py-2 rounded-full text-xs font-semibold mb-6">
                         Certyfikowany partner
                     </div>
-                    <h2 class="text-3xl font-display font-bold tracking-tight mb-4 text-espresso">
+                    <h2 class="text-4xl font-display font-bold tracking-tight mb-6 text-deepblack">
                         Sklep Online
                     </h2>
-                    <p class="text-sm font-body text-espresso/70 leading-relaxed mb-6">
+                    <p class="text-base font-body text-gray-600 leading-relaxed mb-8">
                         Odkryj naszą kolekcję profesjonalnych produktów do pielęgnacji włosów.
                     </p>
-                    <a href="#" class="btn-outline inline-block">
+                    <a href="#" class="btn-secondary inline-block">
                         Kup w Sklepie
                     </a>
                 </div>
 
                 <!-- Right: Voucher -->
                 <div id="voucher"
-                    class="bg-burgundy rounded-2xl shadow-soft-panel p-8 text-center transition-transform transition-shadow duration-300 hover:-translate-y-1 hover:shadow-soft-panel">
-                    <div class="w-16 h-16 rounded-full bg-gold/30 flex items-center justify-center mx-auto mb-4">
-                        <span class="text-3xl">🎁</span>
+                    class="bg-deepburgundy rounded-2xl shadow-luxury p-10 text-center transition-all duration-300 hover:-translate-y-2">
+                    <div
+                        class="w-20 h-20 rounded-full border-2 border-gold flex items-center justify-center mx-auto mb-6">
+                        <span class="text-4xl">🎁</span>
                     </div>
-                    <h2 class="text-3xl font-display font-bold tracking-tight mb-4 text-white">
+                    <h2 class="text-4xl font-display font-bold tracking-tight mb-6 text-white">
                         Voucher Podarunkowy
                     </h2>
-                    <p class="text-sm font-body text-white/90 leading-relaxed mb-6">
-                        Podaruj bliskiej osobie wizytę w naszym salonie. Voucher można wykorzystać na dowolną
-                        usługę.
+                    <p class="text-base font-body text-white/90 leading-relaxed mb-8">
+                        Podaruj bliskiej osobie wizytę w naszym salonie. Voucher można wykorzystać na dowolną usługę.
                     </p>
                     <a href="#"
-                        class="bg-gold text-espresso px-8 py-3 rounded-full font-semibold hover:bg-gold/90 transition inline-block">
+                        class="bg-gold text-deepblack px-10 py-4 rounded-full font-semibold hover:bg-goldlight transition inline-block">
                         Kup Voucher Online
                     </a>
                 </div>
@@ -748,15 +673,18 @@
         </section>
 
         <!-- Kontakt + Mapa Section -->
-        <section id="kontakt" class="container mx-auto px-6 py-20">
-            <h2 class="text-4xl md:text-5xl font-display font-bold tracking-tight text-center mb-16 text-espresso">
-                Kontakt
-            </h2>
-            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <section id="kontakt" class="max-w-6xl mx-auto px-6 py-24 md:py-32">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl md:text-6xl font-display font-bold tracking-tight text-deepblack mb-4">
+                    Kontakt
+                </h2>
+                <div class="w-24 h-1 bg-gold mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
                 <!-- Map -->
-                <div class="bg-warmgray rounded-2xl shadow-soft-panel overflow-hidden">
-                    <h3 class="text-lg font-display font-semibold text-espresso mb-4 p-6 pb-0">Tu nas znajdziesz
-                    </h3>
+                <div class="bg-white border border-gray-200 rounded-2xl shadow-soft-panel overflow-hidden">
+                    <h3 class="text-xl font-display font-semibold text-deepblack mb-4 p-6 pb-0">Tu nas znajdziesz</h3>
                     <div class="aspect-[4/3]">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2504.1234567890123!2d17.0385!3d51.1079!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDA2JzI4LjQiTiAxN8KwMDInMTguNiJF!5e0!3m2!1spl!2spl!4v1234567890123!5m2!1spl!2spl"
@@ -766,23 +694,25 @@
                 </div>
 
                 <!-- Contact Info -->
-                <div class="space-y-6">
+                <div class="space-y-8">
                     <div>
-                        <h3 class="text-xl font-display font-semibold text-espresso mb-2">Adres</h3>
-                        <p class="text-base font-body text-espresso/70">
+                        <h3 class="text-2xl font-display font-semibold text-deepblack mb-3">Adres</h3>
+                        <p class="text-lg font-body text-gray-700">
                             ul. Przykładowa 123<br>
                             50-000 Wrocław
                         </p>
                     </div>
                     <div>
-                        <h3 class="text-xl font-display font-semibold text-espresso mb-2">Telefon</h3>
-                        <p class="text-base font-body text-espresso/70">
-                            <a href="tel:+48123456789" class="text-gold hover:underline">+48 123 456 789</a>
+                        <h3 class="text-2xl font-display font-semibold text-deepblack mb-3">Telefon</h3>
+                        <p class="text-lg font-body text-gray-700">
+                            <a href="tel:+48123456789"
+                                class="text-gold hover:text-goldlight transition-colors font-semibold">+48 123 456
+                                789</a>
                         </p>
                     </div>
                     <div>
-                        <h3 class="text-xl font-display font-semibold text-espresso mb-2">Godziny otwarcia</h3>
-                        <p class="text-base font-body text-espresso/70">
+                        <h3 class="text-2xl font-display font-semibold text-deepblack mb-3">Godziny otwarcia</h3>
+                        <p class="text-lg font-body text-gray-700">
                             Poniedziałek - Piątek: 9:00 - 19:00<br>
                             Sobota: 9:00 - 17:00<br>
                             Niedziela: Zamknięte
@@ -792,7 +722,7 @@
             </div>
 
             <!-- CTA Button -->
-            <div class="text-center mt-8">
+            <div class="text-center mt-12">
                 <a href="tel:+48123456789" class="btn-primary">
                     Zadzwoń
                 </a>
@@ -800,36 +730,37 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-espresso text-ivory py-16">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-12 mb-8">
+    <!-- Footer - Black Background -->
+    <footer class="bg-deepblack text-white py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
                 <!-- Contact Column -->
                 <div>
-                    <h3 class="text-lg font-display font-semibold text-ivory mb-4">Kontakt</h3>
-                    <p class="text-sm font-body text-ivory/80 mb-2">
+                    <h3 class="text-xl font-display font-semibold text-gold mb-6">Kontakt</h3>
+                    <p class="text-sm font-body text-white/80 mb-2 leading-relaxed">
                         ul. Przykładowa 123<br>
                         50-000 Wrocław
                     </p>
-                    <p class="text-sm font-body text-ivory/80">
-                        <a href="tel:+48123456789" class="text-gold hover:underline">+48 123 456 789</a>
+                    <p class="text-sm font-body text-white/80">
+                        <a href="tel:+48123456789" class="text-gold hover:text-goldlight transition-colors">+48 123 456
+                            789</a>
                     </p>
                 </div>
 
                 <!-- Social Icons Column -->
                 <div>
-                    <h3 class="text-lg font-display font-semibold text-ivory mb-4">Śledź nas</h3>
-                    <div class="flex space-x-4">
+                    <h3 class="text-xl font-display font-semibold text-gold mb-6">Śledź nas</h3>
+                    <div class="flex space-x-6">
                         <a href="https://instagram.com/salonikuagi" target="_blank" rel="noopener noreferrer"
-                            class="text-gold hover:text-gold/80 transition" aria-label="Instagram">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            class="text-gold hover:text-goldlight transition-colors" aria-label="Instagram">
+                            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path
                                     d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                             </svg>
                         </a>
                         <a href="https://facebook.com/salonikuagi" target="_blank" rel="noopener noreferrer"
-                            class="text-gold hover:text-gold/80 transition" aria-label="Facebook">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            class="text-gold hover:text-goldlight transition-colors" aria-label="Facebook">
+                            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path
                                     d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                             </svg>
@@ -839,11 +770,11 @@
 
                 <!-- Copyright Column -->
                 <div>
-                    <h3 class="text-lg font-display font-semibold text-ivory mb-4">Informacje</h3>
-                    <p class="text-sm font-body text-ivory/80">
+                    <h3 class="text-xl font-display font-semibold text-gold mb-6">Informacje</h3>
+                    <p class="text-sm font-body text-white/80">
                         &copy; 2024 Salonik u Agi. Wszystkie prawa zastrzeżone.
                     </p>
-                    <p class="text-sm font-body text-ivory/80 mt-2">
+                    <p class="text-sm font-body text-white/80 mt-3">
                         Projekt Webszyk
                     </p>
                 </div>
