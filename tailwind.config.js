@@ -7,31 +7,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Premium Luxury Palette
         black: "#000000",
-        gold: "#D4A75C",
-        burgundy: "#7A1F2A"
+        "rich-gold": "#D8B46A",
+        burgundy: "#7C1F27",
+        "bright-white": "#FFFFFF",
+        "warm-cream": "#F8F5EF"
       },
       fontFamily: {
         display: ["Playfair Display", "serif"],
         body: ["Inter", "system-ui", "sans-serif"]
       },
       backgroundImage: {
-        'gold-burgundy-gradient': 'linear-gradient(135deg, #D4A75C 0%, #7A1F2A 100%)',
-      },
-      animation: {
-        'spotlight': 'spotlight 8s ease-in-out infinite',
-        'scroll-up': 'scroll-up 20s linear infinite',
-      },
-      keyframes: {
-        spotlight: {
-          '0%, 100%': { transform: 'translate(-50%, -50%) scale(1)', opacity: '0.3' },
-          '50%': { transform: 'translate(-50%, -50%) scale(1.2)', opacity: '0.5' },
-        },
-        'scroll-up': {
-          '0%': { transform: 'translateY(0)' },
-          '100%': { transform: 'translateY(-50%)' },
-        }
+        'parallax-hero': "url('/assets/img/hero/bg-salon-full.jpg')"
       }
     }
   },

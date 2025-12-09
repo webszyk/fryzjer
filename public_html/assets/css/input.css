@@ -9,129 +9,116 @@
   }
 
   body {
-    @apply bg-white text-black antialiased;
+    @apply bg-bright-white text-black antialiased;
+    line-height: 1.7;
   }
 
   h1, h2, h3, h4 {
     font-family: theme("fontFamily.display");
     @apply text-black font-light;
   }
+
+  p {
+    line-height: 1.8;
+  }
 }
 
 @tailwind components;
 
 @layer components {
-  .btn-primary {
-    @apply bg-burgundy text-white px-10 py-4 rounded-full font-bold shadow-sm hover:shadow-md hover:bg-[#6A1A25] transition-all duration-300;
+  .btn-burgundy {
+    @apply bg-burgundy text-white px-10 py-4 rounded-full font-bold transition-all duration-300 flex items-center gap-2 justify-center;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 20px rgba(216, 180, 106, 0.3), 0 0 0 2px rgba(216, 180, 106, 0.2);
+  }
+
+  .btn-burgundy:hover {
+    @apply bg-[#6B1A20];
+    box-shadow: 0 6px 25px rgba(216, 180, 106, 0.4), 0 0 0 2px rgba(216, 180, 106, 0.3);
+  }
+
+  .btn-gold-outline {
+    @apply bg-transparent border-2 border-rich-gold text-black px-10 py-4 rounded-full font-semibold hover:bg-rich-gold/5 hover:border-rich-gold/80 transition-all duration-300;
     letter-spacing: 0.05em;
   }
 
-  .btn-secondary {
-    @apply bg-white border border-gold text-black px-10 py-4 rounded-full font-semibold hover:bg-gold/5 hover:border-gold/80 transition-all duration-300;
-    letter-spacing: 0.05em;
+  .hero-bg-bright {
+    background: #FFFFFF;
+    background-image: 
+      radial-gradient(ellipse at center, rgba(216, 180, 106, 0.08) 0%, transparent 70%),
+      url('./assets/img/hero/salon-vignette.jpg');
+    background-size: cover, cover;
+    background-position: center, center;
+    background-blend-mode: normal, overlay;
+    position: relative;
   }
 
-  .btn-outline {
-    @apply border border-gray-200 text-black px-8 py-4 rounded-xl font-semibold hover:border-gold hover:shadow-sm transition-all duration-300;
+  .hero-bg-bright::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(255, 255, 255, 0.4) 100%);
+    pointer-events: none;
   }
 
-  .container {
-    @apply max-w-screen-xl mx-auto px-6;
+  .logo-handwritten {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    color: #D8B46A;
+    text-shadow: 0 2px 8px rgba(216, 180, 106, 0.2);
+    letter-spacing: 0.1em;
   }
 
-  .logo-glow {
-    filter: drop-shadow(0 2px 8px rgba(26, 26, 26, 0.15));
+  .gold-glow {
+    box-shadow: 0 0 30px rgba(216, 180, 106, 0.2);
   }
 
-  .fade-in {
-    animation: fadeIn 0.8s ease-out forwards;
+  .gold-glow-soft {
+    box-shadow: 0 4px 20px rgba(216, 180, 106, 0.15);
   }
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(1rem);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .video-iphone-frame {
+    border-radius: 24px;
+    border: 2px solid rgba(216, 180, 106, 0.3);
+    box-shadow: 0 8px 40px rgba(216, 180, 106, 0.25);
+    overflow: hidden;
   }
 
-  /* Logo glow effect */
-  .logo-glow {
-    filter: drop-shadow(0 2px 8px rgba(26, 26, 26, 0.15));
+  .service-card {
+    @apply bg-white border border-rich-gold/30 rounded-xl p-8 shadow-sm transition-all duration-300;
+  }
+
+  .service-card:hover {
+    @apply -translate-y-2 shadow-lg;
+    border-color: rgba(216, 180, 106, 0.5);
+  }
+
+  .lookbook-scroll {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .lookbook-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .lookbook-item {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+
+  .price-panel-gradient {
+    background: linear-gradient(180deg, #D8B46A 0%, #7C1F27 50%, #D8B46A 100%);
+    border-radius: 12px;
+    padding: 2px;
   }
 }
 
 @tailwind utilities;
-
-@layer utilities {
-  .shadow-soft-gold {
-    box-shadow: 0 4px 20px rgba(212, 167, 92, 0.15);
-  }
-
-  .shadow-soft-panel {
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  }
-
-  .shadow-luxury {
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-  }
-
-  .shadow-apple {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
-  }
-
-  /* Spotlight animation overlay */
-  .spotlight-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(212, 167, 92, 0.15) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-    animation: spotlight 8s ease-in-out infinite;
-    transform: translate(-50%, -50%);
-  }
-
-  /* Parallax background - only in hero section */
-  #hero .parallax-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    filter: blur(2px) brightness(1.1);
-    opacity: 0.25;
-  }
-
-  /* Auto-scroll lookbook */
-  .lookbook-scroll {
-    animation: scroll-up 20s linear infinite;
-  }
-
-  .lookbook-scroll:hover {
-    animation-play-state: paused;
-  }
-
-  .text-gold-gradient {
-    background: linear-gradient(135deg, #D97706 0%, #F59E0B 50%, #EAB308 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .border-gold-gradient {
-    border-image: linear-gradient(135deg, #D97706, #F59E0B, #EAB308) 1;
-  }
-}
 
 /* Alpine.js x-cloak - hide elements until Alpine is loaded */
 [x-cloak] {
