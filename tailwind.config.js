@@ -32,4 +32,7 @@ module.exports = {
     }
   },
   plugins: [],
+  safelist: [
+    'glass-hero-subtle'
+  ]
 }
