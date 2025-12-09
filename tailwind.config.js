@@ -12,7 +12,7 @@ module.exports = {
         "graphite": "#1A1A1A",
         "snowWhite": "#FFFFFF",
         "goldMuted": "#C8A96A",
-        "burgundPremium": "#7A1F29",
+        "burgundPremium": "rgb(159, 32, 46)",
         // Utility colors for glass morphism (dark sections)
         "glassBg": "rgba(255,255,255,0.08)",
         "glassBgStrong": "rgba(255,255,255,0.12)",

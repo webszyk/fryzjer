@@ -86,13 +86,13 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.10);
 }
 
-/* Glass Hero Card - Premium Glassmorphism */
-.glass-hero {
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.20);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+/* Glass Hero Card - Subtle Glassmorphism with Better Contrast */
+.glass-hero-subtle {
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
 }
 
 /* Scroll Reveal Animation - Transform Only */
@@ -104,4 +104,39 @@
 
 .fade-in-section.fade-in-visible {
   transform: translateY(0);
+}
+
+/* Fade In Animation Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Bounce Slow Animation for Scroll Cue */
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}
+
+/* Hero Animations */
+.hero-text-card {
+  animation: fadeIn 0.8s ease-out 0.1s forwards;
+}
+
+.hero-video {
+  animation: fadeIn 1.0s ease-out 0.2s forwards;
 }
