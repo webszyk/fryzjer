@@ -7,37 +7,27 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Fashion Dark - Wersja C
-        "softBlack": "#0E0E0E",
-        "charcoal": "#151515",
-        "glassWhite": "rgba(255,255,255,0.08)",
+        // Premium Black & White Palette - Berlin/Kopenhagen Style
+        "deepBlack": "#0A0A0A",
+        "graphite": "#1A1A1A",
+        "snowWhite": "#FFFFFF",
+        "goldMuted": "#C8A96A",
+        "burgundPremium": "#7A1F29",
+        // Utility colors for glass morphism (dark sections)
+        "glassBg": "rgba(255,255,255,0.08)",
+        "glassBgStrong": "rgba(255,255,255,0.12)",
         "glassBorder": "rgba(255,255,255,0.20)",
-        "burgundy": "#7A2E36",
-        "deepBurgundy": "#5A1E25",
-        "gold": "#C9A86A",
-        "softGold": "#D7C08A",
-        "ivory": "#F5F5F0",
-        "textMain": "#F5F5F5",
-        "textMuted": "#B3B3B3",
-        // Legacy support
-        "white": "#ffffff",
-        "black": "#0d0d0d",
-        "graphite": "#2a2a2a",
-        "soft-gray": "#f5f5f5"
+        // Text colors
+        "textMain": "#1A1A1A",
+        "textMuted": "rgba(26,26,26,0.7)"
       },
       fontFamily: {
         serif: ["Playfair Display", "Georgia", "serif"],
         sans: ["Inter", "system-ui", "-apple-system", "sans-serif"]
       },
-      borderWidth: {
-        'hairline': '1px'
-      },
       boxShadow: {
-        'soft': '0 4px 20px rgba(0,0,0,0.05)',
-        'gold-glow': '0 0 20px rgba(201, 168, 106, 0.3), 0 0 40px rgba(201, 168, 106, 0.15)'
-      },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))'
+        'soft': '0 4px 20px rgba(0,0,0,0.06)',
+        'glass': '0 4px 20px rgba(0,0,0,0.06)'
       }
     }
   },

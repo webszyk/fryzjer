@@ -8,6 +8,17 @@ document.addEventListener('alpine:init', () => {
     videoPlaying: true,
     videoModalOpen: false,
     activeSection: 'hero',
+    lightboxOpen: false,
+    currentImageIndex: 0,
+    galleryImages: [
+      './assets/img/gallery/g1.jpg',
+      './assets/img/gallery/g2.jpg',
+      './assets/img/gallery/g3.jpg',
+      './assets/img/gallery/g4.jpg',
+      './assets/img/gallery/g5.jpg',
+      './assets/img/gallery/g6.jpg'
+    ],
+    carouselIndex: 0,
 
     init() {
       // Smooth scroll for anchor links
@@ -65,6 +76,41 @@ document.addEventListener('alpine:init', () => {
         }
         this.videoPlaying = !this.videoPlaying;
       }
+    },
+
+    openLightbox(index) {
+      this.currentImageIndex = index;
+      this.lightboxOpen = true;
+      document.body.style.overflow = 'hidden'; // Prevent background scroll
+    },
+
+    closeLightbox() {
+      this.lightboxOpen = false;
+      document.body.style.overflow = ''; // Restore scroll
+    },
+
+    nextImage() {
+      if (this.currentImageIndex < this.galleryImages.length - 1) {
+        this.currentImageIndex++;
+      } else {
+        this.currentImageIndex = 0; // Loop to first
+      }
+    },
+
+    prevImage() {
+      if (this.currentImageIndex > 0) {
+        this.currentImageIndex--;
+      } else {
+        this.currentImageIndex = this.galleryImages.length - 1; // Loop to last
+      }
+    },
+
+    nextCarousel() {
+      this.carouselIndex = (this.carouselIndex + 1) % this.galleryImages.length;
+    },
+
+    prevCarousel() {
+      this.carouselIndex = (this.carouselIndex - 1 + this.galleryImages.length) % this.galleryImages.length;
     }
   }));
 });

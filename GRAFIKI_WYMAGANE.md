@@ -128,7 +128,21 @@ public_html/
    - Opis: Slow-motion video pokazujące pracę w salonie, stylizację włosów
    - Używany w: Modal video w sekcji hero
 
-**Uwaga:** Jeśli nie masz video, modal nie będzie działał, ale strona będzie działać normalnie.
+2. **damskie.mp4** ⭐ NOWE
+   - Format: MP4
+   - Rozmiar: max. 15MB (dla szybkiego ładowania)
+   - Długość: 30-60 sekund
+   - Opis: Video pokazujące usługi damskie - koloryzacje, strzyżenia, stylizacje dla kobiet
+   - Używany w: Sekcja "Dla Niej i Dla Niego" (lewa strona)
+
+3. **meskie.mp4** ⭐ NOWE
+   - Format: MP4
+   - Rozmiar: max. 15MB (dla szybkiego ładowania)
+   - Długość: 30-60 sekund
+   - Opis: Video pokazujące usługi męskie - strzyżenia i stylizacje dla mężczyzn
+   - Używany w: Sekcja "Dla Niej i Dla Niego" (prawa strona)
+
+**Uwaga:** Jeśli nie masz video, odtwarzacze będą puste, ale strona będzie działać normalnie.
 
 ---
 
