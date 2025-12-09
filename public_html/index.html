@@ -33,23 +33,23 @@
         scrolled: false
     }" @scroll.window="scrolled = window.scrollY > 50">
         <!-- Logo Section - Centered -->
-        <div class="w-full text-center py-8">
-            <h1 class="text-4xl md:text-5xl font-display font-bold tracking-wide text-deepblack">
+        <div class="w-full text-center py-12">
+            <h1 class="text-4xl md:text-5xl font-display font-light tracking-wide text-[#0A0A0A]">
                 Salonik u Agi
             </h1>
         </div>
 
         <!-- Gold Divider Line -->
-        <div class="w-full border-t border-gold/40"></div>
+        <div class="w-full border-t border-yellow-600/40"></div>
 
         <!-- Navigation -->
-        <nav class="w-full text-center py-5" aria-label="Główne menu nawigacyjne">
+        <nav class="w-full text-center py-8" aria-label="Główne menu nawigacyjne">
             <!-- Desktop Menu -->
             <ul
-                class="hidden md:inline-flex flex-wrap justify-center gap-8 lg:gap-10 text-sm tracking-wider font-medium text-deepblack">
+                class="hidden md:inline-flex flex-wrap justify-center gap-10 lg:gap-12 text-xs uppercase tracking-widest font-medium text-[#0A0A0A]">
                 <li>
                     <a href="#o-nas"
-                        class="relative after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 hover:after:w-full after:bg-gold after:transition-all transition-colors duration-300">
+                        class="relative after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 hover:after:w-full after:bg-yellow-600 after:transition-all transition-colors duration-300 hover:text-yellow-600">
                         O nas
                     </a>
                 </li>
@@ -139,7 +139,7 @@
 
     <main>
         <!-- Hero Section - Ultra-Premium Cinematic -->
-        <section id="hero" class="max-w-7xl mx-auto px-6 py-20 md:py-32">
+        <section id="hero" class="max-w-7xl mx-auto px-6 py-24 md:py-40">
             <!-- Centered Text Content -->
             <div class="text-center space-y-8 mb-16">
                 <!-- Eyebrow Text -->
@@ -148,7 +148,8 @@
                 </p>
 
                 <!-- Main Headline -->
-                <h2 class="font-display text-6xl md:text-8xl lg:text-9xl text-deepblack leading-[0.95] font-bold">
+                <h2
+                    class="font-display text-6xl md:text-8xl lg:text-9xl text-[#0A0A0A] leading-[0.95] font-light tracking-tight">
                     Twoje Włosy,<br>Nasza Pasja.
                 </h2>
 
@@ -171,7 +172,7 @@
             <!-- Cinematic Video Container -->
             <div class="relative max-w-6xl mx-auto">
                 <div
-                    class="relative rounded-2xl overflow-hidden bg-black shadow-luxury group cursor-pointer transition-all duration-500 hover:scale-[1.01]">
+                    class="relative rounded-xl overflow-hidden bg-black border border-[#0A0A0A] shadow-luxury group cursor-pointer transition-all duration-500 hover:scale-[1.01]">
                     <div class="aspect-video relative">
                         <!-- Video/Image Background -->
                         <img src="./assets/img/lookbook/look1.jpg" alt="Salon lookbook"
@@ -199,11 +200,11 @@
         </section>
 
         <!-- Lookbook Strip - 3 Portrait Images -->
-        <section class="max-w-7xl mx-auto px-6 py-12 -mt-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <section class="max-w-7xl mx-auto px-6 py-16 -mt-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
                 <!-- Portrait 1: Blonde -->
                 <div
-                    class="group relative overflow-hidden rounded-xl border border-gold/30 hover:border-gold transition-all duration-300 hover:scale-105">
+                    class="group relative overflow-hidden rounded-lg border border-yellow-600/30 hover:border-yellow-600 transition-all duration-300 hover:scale-105">
                     <div class="aspect-[3/4] relative">
                         <img src="./assets/img/lookbook/look1.jpg" alt="Blonde lookbook"
                             class="w-full h-full object-cover">
@@ -212,7 +213,7 @@
 
                 <!-- Portrait 2: Brunette -->
                 <div
-                    class="group relative overflow-hidden rounded-xl border border-gold/30 hover:border-gold transition-all duration-300 hover:scale-105">
+                    class="group relative overflow-hidden rounded-lg border border-yellow-600/30 hover:border-yellow-600 transition-all duration-300 hover:scale-105">
                     <div class="aspect-[3/4] relative">
                         <img src="./assets/img/lookbook/look2.jpg" alt="Brunette lookbook"
                             class="w-full h-full object-cover">
@@ -221,7 +222,7 @@
 
                 <!-- Portrait 3: Bob -->
                 <div
-                    class="group relative overflow-hidden rounded-xl border border-gold/30 hover:border-gold transition-all duration-300 hover:scale-105">
+                    class="group relative overflow-hidden rounded-lg border border-yellow-600/30 hover:border-yellow-600 transition-all duration-300 hover:scale-105">
                     <div class="aspect-[3/4] relative">
                         <img src="./assets/img/lookbook/look3.jpg" alt="Bob cut lookbook"
                             class="w-full h-full object-cover">
@@ -231,7 +232,7 @@
         </section>
 
         <!-- About Section (O Nas) - High-Contrast Editorial -->
-        <section id="o-nas" class="max-w-7xl mx-auto px-6 py-24 md:py-32">
+        <section id="o-nas" class="max-w-7xl mx-auto px-6 py-32 md:py-40">
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <!-- Left: Large Editorial Photo -->
                 <div class="relative group">
@@ -242,13 +243,13 @@
                 <!-- Right: Story Text -->
                 <div class="space-y-8">
                     <div>
-                        <h2 class="text-5xl md:text-6xl font-display font-bold tracking-tight text-gold mb-6">
+                        <h2 class="text-5xl md:text-6xl font-display font-light tracking-tight text-yellow-600 mb-6">
                             O nas
                         </h2>
-                        <div class="w-20 h-1 bg-gold mb-8"></div>
+                        <div class="w-20 h-[1px] bg-yellow-600 mb-10"></div>
                     </div>
 
-                    <div class="space-y-6 font-body text-gray-700 leading-relaxed text-lg">
+                    <div class="space-y-8 font-body text-[#333] leading-relaxed text-lg">
                         <p>
                             Salonik u Agi to miejsce, gdzie <strong class="text-deepblack font-semibold">pasja</strong>
                             spotyka się z <strong class="text-deepblack font-semibold">profesjonalizmem</strong>. Od lat
@@ -268,39 +269,39 @@
 
                     <!-- Dlaczego warto - Gold Icons -->
                     <div class="mt-12 space-y-6">
-                        <h3 class="text-2xl font-display font-semibold text-deepblack mb-6">Dlaczego warto</h3>
-                        <div class="space-y-5">
-                            <div class="flex items-start gap-4">
+                        <h3 class="text-2xl font-display font-light text-[#0A0A0A] mb-8">Dlaczego warto</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-5">
                                 <div
-                                    class="w-12 h-12 rounded-full border-2 border-gold flex items-center justify-center flex-shrink-0">
-                                    <span class="text-gold text-xl">✂</span>
+                                    class="w-12 h-12 rounded-full border border-yellow-600 flex items-center justify-center flex-shrink-0">
+                                    <span class="text-yellow-600 text-xl">✂</span>
                                 </div>
                                 <div>
-                                    <p class="font-body text-deepblack font-semibold text-lg mb-1">Profesjonalne
+                                    <p class="font-body text-[#0A0A0A] font-semibold text-lg mb-2">Profesjonalne
                                         narzędzia</p>
-                                    <p class="text-sm text-gray-600">Najwyższej jakości produkty i sprzęt</p>
+                                    <p class="text-sm text-[#333]">Najwyższej jakości produkty i sprzęt</p>
                                 </div>
                             </div>
-                            <div class="flex items-start gap-4">
+                            <div class="flex items-start gap-5">
                                 <div
-                                    class="w-12 h-12 rounded-full border-2 border-gold flex items-center justify-center flex-shrink-0">
-                                    <span class="text-gold text-xl">🎨</span>
+                                    class="w-12 h-12 rounded-full border border-yellow-600 flex items-center justify-center flex-shrink-0">
+                                    <span class="text-yellow-600 text-xl">🎨</span>
                                 </div>
                                 <div>
-                                    <p class="font-body text-deepblack font-semibold text-lg mb-1">Indywidualne
+                                    <p class="font-body text-[#0A0A0A] font-semibold text-lg mb-2">Indywidualne
                                         podejście</p>
-                                    <p class="text-sm text-gray-600">Każda fryzura dopasowana do Ciebie</p>
+                                    <p class="text-sm text-[#333]">Każda fryzura dopasowana do Ciebie</p>
                                 </div>
                             </div>
-                            <div class="flex items-start gap-4">
+                            <div class="flex items-start gap-5">
                                 <div
-                                    class="w-12 h-12 rounded-full border-2 border-gold flex items-center justify-center flex-shrink-0">
-                                    <span class="text-gold text-xl">⏰</span>
+                                    class="w-12 h-12 rounded-full border border-yellow-600 flex items-center justify-center flex-shrink-0">
+                                    <span class="text-yellow-600 text-xl">⏰</span>
                                 </div>
                                 <div>
-                                    <p class="font-body text-deepblack font-semibold text-lg mb-1">Elastyczne terminy
+                                    <p class="font-body text-[#0A0A0A] font-semibold text-lg mb-2">Elastyczne terminy
                                     </p>
-                                    <p class="text-sm text-gray-600">Dopasowujemy się do Twojego harmonogramu</p>
+                                    <p class="text-sm text-[#333]">Dopasowujemy się do Twojego harmonogramu</p>
                                 </div>
                             </div>
                         </div>
@@ -310,28 +311,28 @@
         </section>
 
         <!-- Services Section (Usługi) - Luxury Grid -->
-        <section id="uslugi" class="max-w-7xl mx-auto px-6 py-24 md:py-32 bg-white">
-            <div class="text-center mb-20">
-                <h2 class="text-5xl md:text-6xl font-display font-bold tracking-tight text-deepblack mb-4">
+        <section id="uslugi" class="max-w-7xl mx-auto px-6 py-32 md:py-40 bg-white">
+            <div class="text-center mb-24">
+                <h2 class="text-5xl md:text-6xl font-display font-light tracking-tight text-[#0A0A0A] mb-6">
                     Nasze Usługi
                 </h2>
-                <div class="w-24 h-1 bg-gold mx-auto"></div>
+                <div class="w-24 h-[1px] bg-yellow-600 mx-auto"></div>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
                 <!-- Service Card 1: Strzyżenie Damskie -->
                 <div
-                    class="bg-white border border-gray-200 rounded-xl p-8 shadow-soft-panel transition-all duration-300 hover:-translate-y-2 hover:border-gold hover:shadow-luxury text-center">
+                    class="bg-white border border-gray-200 rounded-lg p-10 shadow-soft-panel transition-all duration-300 hover:-translate-y-2 hover:border-yellow-600 hover:shadow-luxury text-center">
                     <div
-                        class="w-20 h-20 rounded-full border-2 border-gold flex items-center justify-center mb-6 mx-auto">
-                        <span class="text-3xl">✂</span>
+                        class="w-16 h-16 rounded-full border border-yellow-600 flex items-center justify-center mb-8 mx-auto">
+                        <span class="text-2xl text-yellow-600">✂</span>
                     </div>
-                    <h3 class="text-xl font-display font-bold mb-4 text-deepblack">Strzyżenie Damskie</h3>
-                    <ul class="text-sm font-body text-gray-600 space-y-2 mb-6">
+                    <h3 class="text-xl font-display font-light mb-6 text-[#0A0A0A]">Strzyżenie Damskie</h3>
+                    <ul class="text-sm font-body text-[#333] space-y-2 mb-8">
                         <li>• Krótkie, średnie, długie</li>
                         <li>• Nowoczesne kształty</li>
                     </ul>
-                    <p class="text-2xl font-display font-bold text-gold">od 120 zł</p>
+                    <p class="text-2xl font-display font-light text-yellow-600">od 120 zł</p>
                 </div>
 
                 <!-- Service Card 2: Koloryzacja -->
@@ -382,69 +383,69 @@
         </section>
 
         <!-- Cennik Section - Elegant Table -->
-        <section id="cennik" class="max-w-4xl mx-auto px-6 py-24 md:py-32">
-            <div class="text-center mb-16">
-                <h2 class="text-5xl md:text-6xl font-display font-bold tracking-tight text-deepblack mb-4">
+        <section id="cennik" class="max-w-4xl mx-auto px-6 py-32 md:py-40">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl md:text-6xl font-display font-light tracking-tight text-[#0A0A0A] mb-6">
                     Cennik
                 </h2>
-                <div class="w-24 h-1 bg-gold mx-auto"></div>
+                <div class="w-24 h-[1px] bg-yellow-600 mx-auto"></div>
             </div>
 
-            <div class="bg-white border border-gray-200 rounded-2xl shadow-soft-panel overflow-hidden">
+            <div class="bg-white border border-gray-200 rounded-lg shadow-soft-panel overflow-hidden">
                 <!-- Price Row 1 -->
                 <div
-                    class="flex items-center justify-between p-8 border-b border-gray-100 hover:bg-gray-50/50 transition-colors">
+                    class="flex items-center justify-between p-10 border-b border-yellow-600/30 hover:bg-gray-50/30 transition-colors">
                     <div class="flex-1">
-                        <h3 class="text-xl font-display font-semibold text-deepblack">Strzyżenie damskie</h3>
-                        <p class="text-sm font-body text-gray-600 mt-1">Krótkie, średnie, długie</p>
+                        <h3 class="text-xl font-display font-light text-[#0A0A0A]">Strzyżenie damskie</h3>
+                        <p class="text-sm font-body text-[#333] mt-2">Krótkie, średnie, długie</p>
                     </div>
-                    <p class="text-3xl font-display font-bold text-gold ml-6">120 zł</p>
+                    <p class="text-3xl font-display font-light text-yellow-600 ml-8">120 zł</p>
                 </div>
                 <!-- Price Row 2 -->
                 <div
-                    class="flex items-center justify-between p-8 border-b border-gray-100 hover:bg-gray-50/50 transition-colors">
+                    class="flex items-center justify-between p-10 border-b border-yellow-600/30 hover:bg-gray-50/30 transition-colors">
                     <div class="flex-1">
-                        <h3 class="text-xl font-display font-semibold text-deepblack">Strzyżenie męskie</h3>
-                        <p class="text-sm font-body text-gray-600 mt-1">Klasyczne i nowoczesne</p>
+                        <h3 class="text-xl font-display font-light text-[#0A0A0A]">Strzyżenie męskie</h3>
+                        <p class="text-sm font-body text-[#333] mt-2">Klasyczne i nowoczesne</p>
                     </div>
-                    <p class="text-3xl font-display font-bold text-gold ml-6">80 zł</p>
+                    <p class="text-3xl font-display font-light text-yellow-600 ml-8">80 zł</p>
                 </div>
                 <!-- Price Row 3 -->
                 <div
-                    class="flex items-center justify-between p-8 border-b border-gray-100 hover:bg-gray-50/50 transition-colors">
+                    class="flex items-center justify-between p-10 border-b border-yellow-600/30 hover:bg-gray-50/30 transition-colors">
                     <div class="flex-1">
-                        <h3 class="text-xl font-display font-semibold text-deepblack">Koloryzacja</h3>
-                        <p class="text-sm font-body text-gray-600 mt-1">Pełna koloryzacja</p>
+                        <h3 class="text-xl font-display font-light text-[#0A0A0A]">Koloryzacja</h3>
+                        <p class="text-sm font-body text-[#333] mt-2">Pełna koloryzacja</p>
                     </div>
-                    <p class="text-3xl font-display font-bold text-gold ml-6">od 200 zł</p>
+                    <p class="text-3xl font-display font-light text-yellow-600 ml-8">od 200 zł</p>
                 </div>
                 <!-- Price Row 4 -->
                 <div
-                    class="flex items-center justify-between p-8 border-b border-gray-100 hover:bg-gray-50/50 transition-colors">
+                    class="flex items-center justify-between p-10 border-b border-yellow-600/30 hover:bg-gray-50/30 transition-colors">
                     <div class="flex-1">
-                        <h3 class="text-xl font-display font-semibold text-deepblack">Balayage / Ombre</h3>
-                        <p class="text-sm font-body text-gray-600 mt-1">Techniki koloryzacji</p>
+                        <h3 class="text-xl font-display font-light text-[#0A0A0A]">Balayage / Ombre</h3>
+                        <p class="text-sm font-body text-[#333] mt-2">Techniki koloryzacji</p>
                     </div>
-                    <p class="text-3xl font-display font-bold text-gold ml-6">od 250 zł</p>
+                    <p class="text-3xl font-display font-light text-yellow-600 ml-8">od 250 zł</p>
                 </div>
                 <!-- Price Row 5 -->
-                <div class="flex items-center justify-between p-8 hover:bg-gray-50/50 transition-colors">
+                <div class="flex items-center justify-between p-10 hover:bg-gray-50/30 transition-colors">
                     <div class="flex-1">
-                        <h3 class="text-xl font-display font-semibold text-deepblack">Stylizacja</h3>
-                        <p class="text-sm font-body text-gray-600 mt-1">Upięcia, loki, prostowanie</p>
+                        <h3 class="text-xl font-display font-light text-[#0A0A0A]">Stylizacja</h3>
+                        <p class="text-sm font-body text-[#333] mt-2">Upięcia, loki, prostowanie</p>
                     </div>
-                    <p class="text-3xl font-display font-bold text-gold ml-6">od 100 zł</p>
+                    <p class="text-3xl font-display font-light text-yellow-600 ml-8">od 100 zł</p>
                 </div>
             </div>
         </section>
 
         <!-- Gallery Section - iPhone/Instagram Aesthetic -->
-        <section id="galeria" class="max-w-7xl mx-auto px-6 py-24 md:py-32">
-            <div class="text-center mb-16">
-                <h2 class="text-5xl md:text-6xl font-display font-bold tracking-tight text-deepblack mb-4">
+        <section id="galeria" class="max-w-7xl mx-auto px-6 py-32 md:py-40">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl md:text-6xl font-display font-light tracking-tight text-[#0A0A0A] mb-6">
                     Galeria
                 </h2>
-                <p class="text-lg text-gray-600 font-body">
+                <p class="text-lg text-[#333] font-body font-light">
                     Realne stylizacje, które wyszły z naszego salonu
                 </p>
             </div>
@@ -457,7 +458,7 @@
                     <img src="./assets/img/gallery/g1.jpg" alt="Blonde balayage" class="w-full h-full object-cover">
                     <div
                         class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                        <svg class="w-12 h-12 text-gold opacity-0 group-hover:opacity-100 transition-opacity"
+                        <svg class="w-12 h-12 text-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity"
                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
@@ -471,7 +472,7 @@
                     <img src="./assets/img/gallery/g2.jpg" alt="Brunette waves" class="w-full h-full object-cover">
                     <div
                         class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                        <svg class="w-12 h-12 text-gold opacity-0 group-hover:opacity-100 transition-opacity"
+                        <svg class="w-12 h-12 text-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity"
                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
@@ -485,7 +486,7 @@
                     <img src="./assets/img/gallery/g3.jpg" alt="Balayage highlights" class="w-full h-full object-cover">
                     <div
                         class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                        <svg class="w-12 h-12 text-gold opacity-0 group-hover:opacity-100 transition-opacity"
+                        <svg class="w-12 h-12 text-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity"
                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
@@ -499,7 +500,7 @@
                     <img src="./assets/img/gallery/g4.jpg" alt="Bob cut" class="w-full h-full object-cover">
                     <div
                         class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                        <svg class="w-12 h-12 text-gold opacity-0 group-hover:opacity-100 transition-opacity"
+                        <svg class="w-12 h-12 text-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity"
                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
@@ -513,7 +514,7 @@
                     <img src="./assets/img/gallery/g5.jpg" alt="Galeria 5" class="w-full h-full object-cover">
                     <div
                         class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                        <svg class="w-12 h-12 text-gold opacity-0 group-hover:opacity-100 transition-opacity"
+                        <svg class="w-12 h-12 text-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity"
                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
@@ -527,7 +528,7 @@
                     <img src="./assets/img/gallery/g6.jpg" alt="Galeria 6" class="w-full h-full object-cover">
                     <div
                         class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                        <svg class="w-12 h-12 text-gold opacity-0 group-hover:opacity-100 transition-opacity"
+                        <svg class="w-12 h-12 text-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity"
                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
@@ -541,7 +542,7 @@
                     <img src="./assets/img/gallery/g7.jpg" alt="Galeria 7" class="w-full h-full object-cover">
                     <div
                         class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                        <svg class="w-12 h-12 text-gold opacity-0 group-hover:opacity-100 transition-opacity"
+                        <svg class="w-12 h-12 text-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity"
                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
@@ -555,7 +556,7 @@
                     <img src="./assets/img/gallery/g8.jpg" alt="Galeria 8" class="w-full h-full object-cover">
                     <div
                         class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                        <svg class="w-12 h-12 text-gold opacity-0 group-hover:opacity-100 transition-opacity"
+                        <svg class="w-12 h-12 text-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity"
                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
@@ -566,21 +567,22 @@
         </section>
 
         <!-- Before / After Section -->
-        <section id="przed-po" class="max-w-6xl mx-auto px-6 py-24 md:py-32">
-            <div class="text-center mb-16">
-                <h2 class="text-5xl md:text-6xl font-display font-bold tracking-tight text-deepblack mb-4">
+        <section id="przed-po" class="max-w-6xl mx-auto px-6 py-32 md:py-40">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl md:text-6xl font-display font-light tracking-tight text-[#0A0A0A] mb-6">
                     Przed i Po
                 </h2>
-                <div class="w-24 h-1 bg-gold mx-auto"></div>
+                <div class="w-24 h-[1px] bg-yellow-600 mx-auto"></div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="grid md:grid-cols-2 gap-10">
                 <!-- Before Card -->
                 <div
-                    class="bg-white border border-gray-200 rounded-xl shadow-soft-panel overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-luxury">
+                    class="bg-white border border-gray-200 rounded-lg shadow-soft-panel overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-luxury">
                     <img src="./assets/img/before-after/before.jpg" alt="Przed" class="w-full h-96 object-cover">
-                    <div class="p-6">
-                        <span class="inline-block bg-deepblack text-white text-sm rounded-full px-4 py-2 font-semibold">
+                    <div class="p-8">
+                        <span
+                            class="inline-block bg-[#0A0A0A] text-white text-sm rounded-full px-5 py-2.5 font-semibold">
                             Przed
                         </span>
                     </div>
@@ -588,10 +590,11 @@
 
                 <!-- After Card -->
                 <div
-                    class="bg-white border border-gray-200 rounded-xl shadow-soft-panel overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-luxury">
+                    class="bg-white border border-gray-200 rounded-lg shadow-soft-panel overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-luxury">
                     <img src="./assets/img/before-after/after.jpg" alt="Po" class="w-full h-96 object-cover">
-                    <div class="p-6">
-                        <span class="inline-block bg-deepblack text-white text-sm rounded-full px-4 py-2 font-semibold">
+                    <div class="p-8">
+                        <span
+                            class="inline-block bg-[#0A0A0A] text-white text-sm rounded-full px-5 py-2.5 font-semibold">
                             Po
                         </span>
                     </div>
@@ -600,21 +603,22 @@
         </section>
 
         <!-- Video Section -->
-        <section id="video" class="max-w-6xl mx-auto px-6 py-24 md:py-32">
-            <div class="text-center mb-16">
-                <h2 class="text-5xl md:text-6xl font-display font-bold tracking-tight text-deepblack mb-4">
+        <section id="video" class="max-w-6xl mx-auto px-6 py-32 md:py-40">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl md:text-6xl font-display font-light tracking-tight text-[#0A0A0A] mb-6">
                     Zobacz nas w akcji
                 </h2>
-                <div class="w-24 h-1 bg-gold mx-auto"></div>
+                <div class="w-24 h-[1px] bg-yellow-600 mx-auto"></div>
             </div>
 
-            <div class="bg-black rounded-2xl shadow-luxury relative overflow-hidden group cursor-pointer">
+            <div
+                class="bg-black rounded-xl border border-[#0A0A0A] shadow-luxury relative overflow-hidden group cursor-pointer">
                 <div class="aspect-video relative">
                     <img src="./assets/img/video/video-thumb.jpg" alt="Video salonu" class="w-full h-full object-cover">
                     <div
                         class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition">
                         <div
-                            class="w-28 h-28 bg-gold/90 rounded-full flex items-center justify-center group-hover:bg-gold transition shadow-soft-gold">
+                            class="w-28 h-28 bg-yellow-600/90 rounded-full flex items-center justify-center group-hover:bg-yellow-600 transition shadow-soft-gold">
                             <div
                                 class="w-0 h-0 border-l-[20px] border-l-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent ml-1">
                             </div>
@@ -622,28 +626,29 @@
                     </div>
                 </div>
             </div>
-            <p class="text-center text-sm text-gray-600 font-body mt-6">
+            <p class="text-center text-sm text-[#333] font-body font-light mt-8">
                 Krótki film z salonu – zobacz atmosferę na żywo.
             </p>
         </section>
 
         <!-- Shop + Voucher Section - Two Luxury Cards -->
-        <section class="max-w-6xl mx-auto px-6 py-24 md:py-32">
-            <div class="grid md:grid-cols-2 gap-8">
+        <section class="max-w-6xl mx-auto px-6 py-32 md:py-40">
+            <div class="grid md:grid-cols-2 gap-10">
                 <!-- Left: Sklep Online -->
                 <div id="sklep"
-                    class="bg-white border-2 border-gold rounded-2xl shadow-soft-panel p-10 text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-luxury">
+                    class="bg-white border border-yellow-600 rounded-lg shadow-soft-panel p-12 text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-luxury">
                     <div
-                        class="w-20 h-20 rounded-full border-2 border-gold flex items-center justify-center mx-auto mb-6">
+                        class="w-20 h-20 rounded-full border border-yellow-600 flex items-center justify-center mx-auto mb-8">
                         <span class="text-4xl">🛍️</span>
                     </div>
-                    <div class="inline-block bg-gold/10 text-gold px-4 py-2 rounded-full text-xs font-semibold mb-6">
+                    <div
+                        class="inline-block bg-yellow-600/10 text-yellow-600 px-4 py-2 rounded-full text-xs font-semibold mb-8">
                         Certyfikowany partner
                     </div>
-                    <h2 class="text-4xl font-display font-bold tracking-tight mb-6 text-deepblack">
+                    <h2 class="text-4xl font-display font-light tracking-tight mb-8 text-[#0A0A0A]">
                         Sklep Online
                     </h2>
-                    <p class="text-base font-body text-gray-600 leading-relaxed mb-8">
+                    <p class="text-base font-body text-[#333] leading-relaxed mb-10">
                         Odkryj naszą kolekcję profesjonalnych produktów do pielęgnacji włosów.
                     </p>
                     <a href="#" class="btn-secondary inline-block">
@@ -653,19 +658,19 @@
 
                 <!-- Right: Voucher -->
                 <div id="voucher"
-                    class="bg-deepburgundy rounded-2xl shadow-luxury p-10 text-center transition-all duration-300 hover:-translate-y-2">
+                    class="bg-[#5D001E] rounded-lg shadow-luxury p-12 text-center transition-all duration-300 hover:-translate-y-2">
                     <div
-                        class="w-20 h-20 rounded-full border-2 border-gold flex items-center justify-center mx-auto mb-6">
-                        <span class="text-4xl">🎁</span>
+                        class="w-20 h-20 rounded-full border border-yellow-600 flex items-center justify-center mx-auto mb-8">
+                        <span class="text-4xl text-yellow-600">🎁</span>
                     </div>
-                    <h2 class="text-4xl font-display font-bold tracking-tight mb-6 text-white">
+                    <h2 class="text-4xl font-display font-light tracking-tight mb-8 text-white">
                         Voucher Podarunkowy
                     </h2>
-                    <p class="text-base font-body text-white/90 leading-relaxed mb-8">
+                    <p class="text-base font-body text-white/90 leading-relaxed mb-10">
                         Podaruj bliskiej osobie wizytę w naszym salonie. Voucher można wykorzystać na dowolną usługę.
                     </p>
                     <a href="#"
-                        class="bg-gold text-deepblack px-10 py-4 rounded-full font-semibold hover:bg-goldlight transition inline-block">
+                        class="bg-yellow-600 text-[#0A0A0A] px-10 py-4 rounded-full font-semibold hover:bg-yellow-500 transition inline-block">
                         Kup Voucher Online
                     </a>
                 </div>
@@ -673,18 +678,18 @@
         </section>
 
         <!-- Kontakt + Mapa Section -->
-        <section id="kontakt" class="max-w-6xl mx-auto px-6 py-24 md:py-32">
-            <div class="text-center mb-16">
-                <h2 class="text-5xl md:text-6xl font-display font-bold tracking-tight text-deepblack mb-4">
+        <section id="kontakt" class="max-w-6xl mx-auto px-6 py-32 md:py-40">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl md:text-6xl font-display font-light tracking-tight text-[#0A0A0A] mb-6">
                     Kontakt
                 </h2>
-                <div class="w-24 h-1 bg-gold mx-auto"></div>
+                <div class="w-24 h-[1px] bg-yellow-600 mx-auto"></div>
             </div>
 
             <div class="grid md:grid-cols-2 gap-12">
                 <!-- Map -->
-                <div class="bg-white border border-gray-200 rounded-2xl shadow-soft-panel overflow-hidden">
-                    <h3 class="text-xl font-display font-semibold text-deepblack mb-4 p-6 pb-0">Tu nas znajdziesz</h3>
+                <div class="bg-white border border-gray-200 rounded-lg shadow-soft-panel overflow-hidden">
+                    <h3 class="text-xl font-display font-light text-[#0A0A0A] mb-6 p-8 pb-0">Tu nas znajdziesz</h3>
                     <div class="aspect-[4/3]">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2504.1234567890123!2d17.0385!3d51.1079!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDA2JzI4LjQiTiAxN8KwMDInMTguNiJF!5e0!3m2!1spl!2spl!4v1234567890123!5m2!1spl!2spl"
@@ -694,25 +699,26 @@
                 </div>
 
                 <!-- Contact Info -->
-                <div class="space-y-8">
+                <div class="space-y-10">
                     <div>
-                        <h3 class="text-2xl font-display font-semibold text-deepblack mb-3">Adres</h3>
-                        <p class="text-lg font-body text-gray-700">
+                        <h3 class="text-2xl font-display font-light text-[#0A0A0A] mb-4">Adres</h3>
+                        <p class="text-lg font-body text-[#333]">
                             ul. Przykładowa 123<br>
                             50-000 Wrocław
                         </p>
                     </div>
                     <div>
-                        <h3 class="text-2xl font-display font-semibold text-deepblack mb-3">Telefon</h3>
-                        <p class="text-lg font-body text-gray-700">
+                        <h3 class="text-2xl font-display font-light text-[#0A0A0A] mb-4">Telefon</h3>
+                        <p class="text-lg font-body text-[#333]">
                             <a href="tel:+48123456789"
-                                class="text-gold hover:text-goldlight transition-colors font-semibold">+48 123 456
+                                class="text-yellow-600 hover:text-yellow-500 transition-colors font-semibold">+48 123
+                                456
                                 789</a>
                         </p>
                     </div>
                     <div>
-                        <h3 class="text-2xl font-display font-semibold text-deepblack mb-3">Godziny otwarcia</h3>
-                        <p class="text-lg font-body text-gray-700">
+                        <h3 class="text-2xl font-display font-light text-[#0A0A0A] mb-4">Godziny otwarcia</h3>
+                        <p class="text-lg font-body text-[#333]">
                             Poniedziałek - Piątek: 9:00 - 19:00<br>
                             Sobota: 9:00 - 17:00<br>
                             Niedziela: Zamknięte
@@ -730,36 +736,37 @@
         </section>
     </main>
 
-    <!-- Footer - Black Background -->
-    <footer class="bg-deepblack text-white py-20">
+    <!-- Footer - Deep Black Background -->
+    <footer class="bg-[#000000] text-white py-24">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-12 mb-12">
+            <div class="grid md:grid-cols-3 gap-16 mb-12">
                 <!-- Contact Column -->
                 <div>
-                    <h3 class="text-xl font-display font-semibold text-gold mb-6">Kontakt</h3>
-                    <p class="text-sm font-body text-white/80 mb-2 leading-relaxed">
+                    <h3 class="text-xl font-display font-light text-yellow-600 mb-8">Kontakt</h3>
+                    <p class="text-sm font-body text-white/70 mb-3 leading-relaxed">
                         ul. Przykładowa 123<br>
                         50-000 Wrocław
                     </p>
-                    <p class="text-sm font-body text-white/80">
-                        <a href="tel:+48123456789" class="text-gold hover:text-goldlight transition-colors">+48 123 456
+                    <p class="text-sm font-body text-white/70">
+                        <a href="tel:+48123456789" class="text-yellow-600 hover:text-yellow-500 transition-colors">+48
+                            123 456
                             789</a>
                     </p>
                 </div>
 
                 <!-- Social Icons Column -->
                 <div>
-                    <h3 class="text-xl font-display font-semibold text-gold mb-6">Śledź nas</h3>
+                    <h3 class="text-xl font-display font-light text-yellow-600 mb-8">Śledź nas</h3>
                     <div class="flex space-x-6">
                         <a href="https://instagram.com/salonikuagi" target="_blank" rel="noopener noreferrer"
-                            class="text-gold hover:text-goldlight transition-colors" aria-label="Instagram">
+                            class="text-yellow-600 hover:text-yellow-500 transition-colors" aria-label="Instagram">
                             <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path
                                     d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                             </svg>
                         </a>
                         <a href="https://facebook.com/salonikuagi" target="_blank" rel="noopener noreferrer"
-                            class="text-gold hover:text-goldlight transition-colors" aria-label="Facebook">
+                            class="text-yellow-600 hover:text-yellow-500 transition-colors" aria-label="Facebook">
                             <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path
                                     d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
@@ -770,11 +777,11 @@
 
                 <!-- Copyright Column -->
                 <div>
-                    <h3 class="text-xl font-display font-semibold text-gold mb-6">Informacje</h3>
-                    <p class="text-sm font-body text-white/80">
+                    <h3 class="text-xl font-display font-light text-yellow-600 mb-8">Informacje</h3>
+                    <p class="text-sm font-body text-white/70">
                         &copy; 2024 Salonik u Agi. Wszystkie prawa zastrzeżone.
                     </p>
-                    <p class="text-sm font-body text-white/80 mt-3">
+                    <p class="text-sm font-body text-white/70 mt-4">
                         Projekt Webszyk
                     </p>
                 </div>
