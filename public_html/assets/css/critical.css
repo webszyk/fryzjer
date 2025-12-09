@@ -9,8 +9,8 @@
   body {
     margin: 0;
     padding: 0;
-    background-color: #ffffff;
-    color: #2a2a2a;
+    background-color: #0E0E0E;
+    color: #F5F5F5;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -20,7 +20,7 @@
     font-family: "Playfair Display", Georgia, serif;
     font-weight: 400;
     line-height: 1.2;
-    color: #0d0d0d;
+    color: #F5F5F5;
     margin: 0;
   }
 }
@@ -28,25 +28,25 @@
 @layer components {
   /* Primary Button - Burgundy */
   .btn-primary {
-    @apply bg-burgundy text-white px-8 py-4 rounded-full font-semibold transition-all duration-300;
+    @apply bg-burgundy text-textMain px-8 py-4 rounded-full font-semibold transition-all duration-300;
     letter-spacing: 0.05em;
-    box-shadow: 0 4px 12px rgba(122, 31, 41, 0.25);
+    box-shadow: 0 4px 12px rgba(122, 46, 54, 0.25);
   }
 
   .btn-primary:hover {
-    box-shadow: 0 6px 20px rgba(122, 31, 41, 0.35);
+    box-shadow: 0 6px 20px rgba(122, 46, 54, 0.35), 0 0 20px rgba(201, 168, 106, 0.3);
     transform: translateY(-2px);
   }
 
   /* Secondary Button - Gold Outline */
   .btn-secondary {
-    @apply bg-transparent border-2 border-gold text-black px-8 py-4 rounded-full font-semibold transition-all duration-300;
+    @apply bg-transparent border-2 border-gold text-textMain px-8 py-4 rounded-full font-semibold transition-all duration-300;
     letter-spacing: 0.05em;
   }
 
   .btn-secondary:hover {
-    @apply bg-gold text-black;
-    box-shadow: 0 0 20px rgba(200, 164, 93, 0.3);
+    @apply bg-gold text-softBlack;
+    box-shadow: 0 0 20px rgba(201, 168, 106, 0.3);
   }
 
   /* Premium Card */
@@ -61,7 +61,7 @@
 
   /* Section Title */
   .section-title {
-    @apply text-4xl md:text-5xl font-serif font-normal text-black mb-6;
+    @apply text-4xl md:text-5xl font-serif font-normal text-textMain mb-6;
   }
 
   /* Gold Hairline */

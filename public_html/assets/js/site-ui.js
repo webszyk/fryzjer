@@ -6,6 +6,8 @@ document.addEventListener('alpine:init', () => {
     mobileMenuOpen: false,
     scrolled: false,
     videoPlaying: true,
+    videoModalOpen: false,
+    activeSection: 'hero',
 
     init() {
       // Smooth scroll for anchor links
@@ -36,6 +38,20 @@ document.addEventListener('alpine:init', () => {
 
       document.querySelectorAll('.fade-in-section').forEach(el => {
         observer.observe(el);
+      });
+
+      // Track active section for nav underline
+      const sections = document.querySelectorAll('section[id]');
+      const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            this.activeSection = entry.target.id;
+          }
+        });
+      }, { threshold: 0.3, rootMargin: '-100px 0px -50% 0px' });
+
+      sections.forEach(section => {
+        navObserver.observe(section);
       });
     },
 
