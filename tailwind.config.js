@@ -7,11 +7,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        black: "#000000",
-        "rich-gold": "#D8B46A",
-        burgundy: "#7C1F27",
-        "bright-white": "#FFFFFF",
-        "warm-cream": "#F8F5EF"
+        "warm-white": "#faf9f7",
+        "wood": "#8b7355",
+        "wood-light": "#a68b6f",
+        "accent-gold": "#c8a46d",
+        "accent-burgundy": "#7A1E21",
+        "text-dark": "#2c2c2c"
       },
       fontFamily: {
         display: ["Playfair Display", "serif"],
