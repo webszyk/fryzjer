@@ -30,7 +30,8 @@
     @click.away="mobileMenuOpen = false" @keydown.escape.window="lightboxOpen = false">
 
     <!-- Navigation - White Premium -->
-    <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+    <header class="fixed top-0 left-0 w-full z-50"
+        style="background: #f9f9f9; border-bottom: 1px solid rgba(0,0,0,0.05);">
         <nav class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <a href="#hero" class="text-2xl md:text-3xl font-serif font-normal text-neutral-900">
@@ -165,20 +166,19 @@
             style="background-image: url('./assets/img/hero/hero-salon.jpg');">
 
             <!-- Subtle Gradient Overlay -->
-            <div class="absolute inset-0 bg-gradient-to-r from-black/10 via-white/5 to-white/5 z-[1]"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/45 to-black/50 z-[1]"></div>
 
             <!-- Subtle Glass Overlay -->
-            <div class="absolute inset-0 bg-white/10 backdrop-blur-md z-[2]"></div>
+            <div class="absolute inset-0 backdrop-blur-[8px] z-[2]"></div>
 
             <div class="max-w-7xl mx-auto px-6 w-full relative z-10">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <!-- Left: Glass Card with Content -->
                     <div class="hero-text-card order-2 md:order-1">
-                        <div class="glass-hero-subtle max-w-xl rounded-xl py-10 px-10"
-                            style="background: rgba(0, 0, 0, 0.55); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.25); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);">
+                        <div class="glass-hero-unified max-w-xl rounded-xl py-10 px-10">
                             <h1
-                                class="text-4xl md:text-5xl lg:text-[60px] font-serif font-normal text-white leading-tight mb-6">
-                                Twoje włosy.<br>Twoja chwila dla siebie.
+                                class="text-4xl md:text-5xl lg:text-[60px] font-serif font-normal text-white leading-snug tracking-wide max-w-xl mb-6">
+                                Twoje włosy<br>Twoja chwila
                             </h1>
 
                             <p class="text-lg md:text-xl font-sans text-white/80 leading-relaxed mb-8">
@@ -216,13 +216,12 @@
                             </ul>
 
                             <!-- CTA Buttons -->
-                            <div class="flex flex-col sm:flex-row gap-4">
-                                <a href="tel:+48123456789"
-                                    class="bg-burgundPremium hover:bg-burgundPremium/90 text-white text-center px-8 py-4 rounded-full font-medium transition-all duration-300 shadow-lg">
+                            <div class="flex flex-col sm:flex-row gap-4 items-center relative">
+                                <a href="tel:+48123456789" class="btn-primary-burgund">
                                     Zadzwoń
                                 </a>
                                 <a href="https://m.me/salonikuagi" target="_blank" rel="noopener noreferrer"
-                                    class="glass-button border border-white/30 text-white text-center px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2">
+                                    class="btn-secondary-glass flex items-center justify-center gap-2">
                                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                         <path
                                             d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.5 1.32 5.07L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C22.95 6.45 18.5 2 12.04 2zm0 17.96c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.82-1.31-1.26-2.83-1.26-4.38 0-4.54 3.7-8.24 8.24-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.54-3.7 8.24-8.24 8.24z" />
@@ -231,15 +230,31 @@
                                     </svg>
                                     Messenger
                                 </a>
+
+                                <!-- Subtle Hair Accent -->
+                                <div
+                                    class="absolute -bottom-2 left-0 right-0 flex items-center justify-center gap-2 opacity-[0.15] pointer-events-none">
+                                    <div class="h-px w-12 bg-goldMuted"></div>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-goldMuted">
+                                        <path
+                                            d="M5.5 8.6c0-4.6 4.6-8.5 10-7.4 2.2.5 4.1 2.1 5.4 4.2l-3.4 3.4c-1.5-1-3.2-1.4-4.8-.8-2.4.9-4.6 3.1-5.5 5.5-.6 1.6-.2 3.3.8 4.8l-3.4 3.4c-2.1-1.3-3.7-3.2-4.2-5.4-1.1-5.4 2.8-10 7.4-10z" />
+                                        <path
+                                            d="M18.5 15.4c0 4.6-4.6 8.5-10 7.4-2.2-.5-4.1-2.1-5.4-4.2l3.4-3.4c1.5 1 3.2 1.4 4.8.8 2.4-.9 4.6-3.1 5.5-5.5.6-1.6.2-3.3-.8-4.8l3.4-3.4c2.1 1.3 3.7 3.2 4.2 5.4 1.1 5.4-2.8 10-7.4 10z" />
+                                    </svg>
+                                    <div class="h-px w-12 bg-goldMuted"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Right: Video Container - Reduced by 30-35% -->
+                    <!-- Right: Video Container - Unified Glass Style -->
                     <div class="hero-video order-1 md:order-2 flex justify-center md:justify-end">
-                        <div
-                            class="relative max-w-[380px] w-full rounded-3xl overflow-hidden shadow-xl bg-black/20 backdrop-blur-md">
-                            <video class="w-full h-auto" autoplay muted loop playsinline>
+                        <div class="glass-hero-unified relative max-w-[320px] w-full rounded-xl overflow-hidden">
+                            <div
+                                class="bg-gradient-to-b from-white/10 via-white/5 to-white/10 absolute inset-0 pointer-events-none z-10">
+                            </div>
+                            <video class="w-full h-full object-cover rounded-xl" autoplay muted loop playsinline>
                                 <source src="./assets/video/hero-loop.mp4" type="video/mp4">
                                 Twoja przeglądarka nie obsługuje odtwarzania video.
                             </video>

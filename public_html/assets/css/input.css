@@ -86,13 +86,67 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.10);
 }
 
-/* Glass Hero Card - Subtle Glassmorphism with Better Contrast */
-.glass-hero-subtle {
-  background: rgba(0, 0, 0, 0.55);
+/* Unified Glass Hero Cards - Left & Right */
+.glass-hero-unified {
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-hero-unified::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.10));
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glass-hero-unified > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Premium Burgund CTA Button */
+.btn-primary-burgund {
+  background: #7A1F29;
+  color: white;
+  text-align: center;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: all 200ms ease-out;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2),
+              0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.btn-primary-burgund:hover {
+  background: #8c2531;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.25),
+              0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+/* Glass Light Secondary Button */
+.btn-secondary-glass {
+  background: rgba(255, 255, 255, 0.10);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  color: white;
+  text-align: center;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: all 200ms ease-out;
+}
+
+.btn-secondary-glass:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.30);
 }
 
 /* Scroll Reveal Animation - Transform Only */
