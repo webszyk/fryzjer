@@ -162,99 +162,80 @@
     <main class="relative z-10">
         <!-- HERO - Fullscreen Background with Subtle Glassmorphism -->
         <section id="hero"
-            class="min-h-screen flex items-center py-20 md:py-32 relative bg-cover bg-center bg-no-repeat"
+            class="min-h-screen flex items-center py-20 md:py-28 relative bg-cover bg-center bg-no-repeat"
             style="background-image: url('./assets/img/hero/hero-salon.jpg');">
 
-            <!-- Subtle Gradient Overlay -->
-            <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/45 to-black/50 z-[1]"></div>
+            <!-- Soft Blur Overlay -->
+            <div class="absolute inset-0 bg-black/5 backdrop-blur-sm z-[2]"></div>
 
-            <!-- Subtle Glass Overlay -->
-            <div class="absolute inset-0 backdrop-blur-[8px] z-[2]"></div>
+            <div class="max-w-7xl mx-auto px-6 w-full relative z-10 flex justify-center items-center">
+                <div
+                    class="flex flex-col md:flex-row gap-0 items-center bg-white/10 backdrop-blur-md border border-white/20 shadow-xl rounded-3xl overflow-hidden max-w-[1100px] mx-auto w-full">
+                    <!-- Left: Text Panel -->
+                    <div
+                        class="hero-text-card basis-[60%] bg-transparent p-10 md:p-12 lg:p-14 flex flex-col justify-center">
+                        <h1
+                            class="font-serif font-light text-white/95 tracking-tight leading-[1.15] text-[46px] md:text-[58px] lg:text-[68px] mb-6">
+                            Twoje włosy<br>Twoja chwila
+                        </h1>
 
-            <div class="max-w-7xl mx-auto px-6 w-full relative z-10">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <!-- Left: Glass Card with Content -->
-                    <div class="hero-text-card order-2 md:order-1">
-                        <div class="glass-hero-unified max-w-xl rounded-xl py-10 px-10">
-                            <h1
-                                class="text-4xl md:text-5xl lg:text-[60px] font-serif font-normal text-white leading-snug tracking-wide max-w-xl mb-6">
-                                Twoje włosy<br>Twoja chwila
-                            </h1>
+                        <p class="font-sans text-white/95 text-base md:text-lg leading-relaxed mb-8 max-w-[90%]">
+                            Ekskluzywne koloryzacje i strzyżenia w sercu Wrocławia. Tworzymy fryzury, które
+                            podkreślają
+                            Twoją indywidualność.
+                        </p>
 
-                            <p class="text-lg md:text-xl font-sans text-white/80 leading-relaxed mb-8">
-                                Ekskluzywne koloryzacje i strzyżenia w sercu Wrocławia. Tworzymy fryzury, które
-                                podkreślają
-                                Twoją indywidualność.
-                            </p>
+                        <ul class="space-y-3 mb-8">
+                            <li
+                                class="font-sans text-white/95 flex items-start leading-relaxed before:content-['—'] before:mr-2 before:text-white/60">
+                                Profesjonalne produkty premium
+                            </li>
+                            <li
+                                class="font-sans text-white/95 flex items-start leading-relaxed before:content-['—'] before:mr-2 before:text-white/60">
+                                Indywidualne podejście do każdego klienta
+                            </li>
+                            <li
+                                class="font-sans text-white/95 flex items-start leading-relaxed before:content-['—'] before:mr-2 before:text-white/60">
+                                Relaksująca atmosfera w centrum miasta
+                            </li>
+                        </ul>
 
-                            <!-- Bullet Points -->
-                            <ul class="space-y-3 mb-8">
-                                <li class="flex items-start gap-3">
-                                    <svg class="w-6 h-6 text-[#d8b46e] flex-shrink-0 mt-1" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    <span class="text-white/90">Profesjonalne produkty premium</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <svg class="w-6 h-6 text-[#d8b46e] flex-shrink-0 mt-1" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    <span class="text-white/90">Indywidualne podejście do każdego klienta</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <svg class="w-6 h-6 text-[#d8b46e] flex-shrink-0 mt-1" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    <span class="text-white/90">Relaksująca atmosfera w centrum miasta</span>
-                                </li>
-                            </ul>
+                        <div class="flex flex-col sm:flex-row gap-4 items-center relative">
+                            <a href="tel:+48123456789"
+                                class="btn-primary-burgund font-sans tracking-wide uppercase font-medium">
+                                Zadzwoń
+                            </a>
+                            <a href="https://m.me/salonikuagi" target="_blank" rel="noopener noreferrer"
+                                class="btn-secondary-glass flex items-center justify-center gap-2 font-sans tracking-wide uppercase font-medium">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.5 1.32 5.07L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C22.95 6.45 18.5 2 12.04 2zm0 17.96c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.82-1.31-1.26-2.83-1.26-4.38 0-4.54 3.7-8.24 8.24-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.54-3.7 8.24-8.24 8.24z" />
+                                    <path
+                                        d="M16.93 13.11c-.25-.13-1.47-.73-1.7-.81-.23-.08-.4-.12-.57.12-.17.25-.66.81-.81.98-.15.17-.3.19-.56.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.42-.06-.1-.57-1.38-.78-1.89-.21-.51-.42-.44-.57-.45-.15-.01-.32-.01-.49-.01s-.45.07-.69.33c-.24.26-.93.91-.93 2.22 0 1.31.95 2.58 1.08 2.76.13.17 1.86 2.84 4.51 3.97.63.27 1.12.43 1.5.55.63.2 1.2.17 1.65.1.5-.08 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.3z" />
+                                </svg>
+                                Messenger
+                            </a>
 
-                            <!-- CTA Buttons -->
-                            <div class="flex flex-col sm:flex-row gap-4 items-center relative">
-                                <a href="tel:+48123456789" class="btn-primary-burgund">
-                                    Zadzwoń
-                                </a>
-                                <a href="https://m.me/salonikuagi" target="_blank" rel="noopener noreferrer"
-                                    class="btn-secondary-glass flex items-center justify-center gap-2">
-                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.5 1.32 5.07L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C22.95 6.45 18.5 2 12.04 2zm0 17.96c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.82-1.31-1.26-2.83-1.26-4.38 0-4.54 3.7-8.24 8.24-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.54-3.7 8.24-8.24 8.24z" />
-                                        <path
-                                            d="M16.93 13.11c-.25-.13-1.47-.73-1.7-.81-.23-.08-.4-.12-.57.12-.17.25-.66.81-.81.98-.15.17-.3.19-.56.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.42-.06-.1-.57-1.38-.78-1.89-.21-.51-.42-.44-.57-.45-.15-.01-.32-.01-.49-.01s-.45.07-.69.33c-.24.26-.93.91-.93 2.22 0 1.31.95 2.58 1.08 2.76.13.17 1.86 2.84 4.51 3.97.63.27 1.12.43 1.5.55.63.2 1.2.17 1.65.1.5-.08 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.3z" />
-                                    </svg>
-                                    Messenger
-                                </a>
-
-                                <!-- Subtle Hair Accent -->
-                                <div
-                                    class="absolute -bottom-2 left-0 right-0 flex items-center justify-center gap-2 opacity-[0.15] pointer-events-none">
-                                    <div class="h-px w-12 bg-goldMuted"></div>
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                        stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-goldMuted">
-                                        <path
-                                            d="M5.5 8.6c0-4.6 4.6-8.5 10-7.4 2.2.5 4.1 2.1 5.4 4.2l-3.4 3.4c-1.5-1-3.2-1.4-4.8-.8-2.4.9-4.6 3.1-5.5 5.5-.6 1.6-.2 3.3.8 4.8l-3.4 3.4c-2.1-1.3-3.7-3.2-4.2-5.4-1.1-5.4 2.8-10 7.4-10z" />
-                                        <path
-                                            d="M18.5 15.4c0 4.6-4.6 8.5-10 7.4-2.2-.5-4.1-2.1-5.4-4.2l3.4-3.4c1.5 1 3.2 1.4 4.8.8 2.4-.9 4.6-3.1 5.5-5.5.6-1.6.2-3.3-.8-4.8l3.4-3.4c2.1 1.3 3.7 3.2 4.2 5.4 1.1 5.4-2.8 10-7.4 10z" />
-                                    </svg>
-                                    <div class="h-px w-12 bg-goldMuted"></div>
-                                </div>
+                            <!-- Subtle Hair Accent -->
+                            <div
+                                class="absolute -bottom-2 left-0 right-0 flex items-center justify-center gap-2 opacity-[0.15] pointer-events-none">
+                                <div class="h-px w-12 bg-goldMuted"></div>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-goldMuted">
+                                    <path
+                                        d="M5.5 8.6c0-4.6 4.6-8.5 10-7.4 2.2.5 4.1 2.1 5.4 4.2l-3.4 3.4c-1.5-1-3.2-1.4-4.8-.8-2.4.9-4.6 3.1-5.5 5.5-.6 1.6-.2 3.3.8 4.8l-3.4 3.4c-2.1-1.3-3.7-3.2-4.2-5.4-1.1-5.4 2.8-10 7.4-10z" />
+                                    <path
+                                        d="M18.5 15.4c0 4.6-4.6 8.5-10 7.4-2.2-.5-4.1-2.1-5.4-4.2l3.4-3.4c1.5 1 3.2 1.4 4.8.8 2.4-.9 4.6-3.1 5.5-5.5.6-1.6.2-3.3-.8-4.8l3.4-3.4c2.1 1.3 3.7 3.2 4.2 5.4 1.1 5.4-2.8 10-7.4 10z" />
+                                </svg>
+                                <div class="h-px w-12 bg-goldMuted"></div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Right: Video Container - Unified Glass Style -->
-                    <div class="hero-video order-1 md:order-2 flex justify-center md:justify-end">
-                        <div class="glass-hero-unified relative max-w-[320px] w-full rounded-xl overflow-hidden">
-                            <div
-                                class="bg-gradient-to-b from-white/10 via-white/5 to-white/10 absolute inset-0 pointer-events-none z-10">
-                            </div>
-                            <video class="w-full h-full object-cover rounded-xl" autoplay muted loop playsinline>
+                    <!-- Right: Video Panel -->
+                    <div class="hero-video basis-[40%] flex items-center justify-center">
+                        <div class="aspect-[9/16] max-w-[360px] w-full overflow-hidden rounded-none">
+                            <video class="w-full h-full object-cover" autoplay muted loop playsinline>
                                 <source src="./assets/video/hero-loop.mp4" type="video/mp4">
                                 Twoja przeglądarka nie obsługuje odtwarzania video.
                             </video>
