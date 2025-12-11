@@ -28,12 +28,13 @@
     @keydown.escape.window="lightboxOpen = false">
 
     <!-- Sticky Navigation Bar -->
-    <header x-data="{ scrolled: false, mobileMenuOpen: false }"
-        x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 40 })"
-        class="fixed top-0 left-0 w-full z-50 transition-all duration-300" :class="{
+    <header x-data="{ scrolled: false, mobileMenuOpen: false }" x-init="
+            window.addEventListener('scroll', () => { scrolled = window.scrollY > 40 });
+            $watch('mobileMenuOpen', value => { document.body.style.overflow = value ? 'hidden' : ''; });
+        " class="fixed top-0 left-0 w-full z-40 transition-all duration-300" :class="{
             'bg-white/95 backdrop-blur-xl border border-white/30 shadow-lg': scrolled,
             'bg-white/10 backdrop-blur-md border border-white/20 shadow-soft': !scrolled
-        }" @click.away="mobileMenuOpen = false">
+        }">
         <div class="max-w-screen-xl mx-auto w-full px-6">
             <div class="flex items-center justify-between py-3">
                 <!-- Logo -->
@@ -104,7 +105,7 @@
 
                     <!-- Mobile Hamburger -->
                     <button @click="mobileMenuOpen = !mobileMenuOpen"
-                        class="md:hidden flex items-center justify-center w-10 h-10 transition-colors"
+                        class="md:hidden flex items-center justify-center w-10 h-10 transition-colors relative z-50"
                         :class="scrolled ? 'text-textMain hover:text-burgundPremium' : 'text-white hover:text-white/80'"
                         aria-label="Menu" :aria-expanded="mobileMenuOpen">
                         <svg x-show="!mobileMenuOpen" x-transition:enter="transition ease-out duration-200"
@@ -132,57 +133,127 @@
                 </div>
             </div>
         </div>
+    </header>
 
-        <!-- Mobile Menu - Full Screen Overlay -->
-        <div x-show="mobileMenuOpen" x-cloak x-transition:enter="transition ease-in-out duration-300"
+    <!-- Mobile Menu - Full Screen Overlay (outside header for proper z-index stacking) -->
+    <div class="md:hidden" x-data="{ 
+            get mobileMenuOpen() { 
+                const header = document.querySelector('header');
+                return header ? Alpine.$data(header).mobileMenuOpen : false;
+            },
+            closeMenu() {
+                const header = document.querySelector('header');
+                if (header) Alpine.$data(header).mobileMenuOpen = false;
+            }
+        }">
+        <!-- Close button -->
+        <button x-show="mobileMenuOpen" @click="closeMenu()"
+            class="fixed top-6 right-6 z-[101] w-10 h-10 flex items-center justify-center text-textMain hover:text-burgundPremium transition-colors bg-white/20 backdrop-blur-md rounded-full border border-white/30"
+            aria-label="Zamknij menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+                <line x1="6" y1="18" x2="18" y2="6"></line>
+            </svg>
+        </button>
+
+        <div x-show="mobileMenuOpen" x-cloak @click.away="closeMenu()" @keydown.escape.window="closeMenu()"
+            x-transition:enter="transition ease-in-out duration-300"
             x-transition:enter-start="opacity-0 translate-x-full" x-transition:enter-end="opacity-100 translate-x-0"
             x-transition:leave="transition ease-in-out duration-300"
             x-transition:leave-start="opacity-100 translate-x-0" x-transition:leave-end="opacity-0 translate-x-full"
-            class="md:hidden fixed inset-0 bg-white/95 backdrop-blur-xl z-50 flex flex-col items-center justify-center shadow-lg">
+            class="fixed inset-0 bg-white/10 backdrop-blur-2xl z-[100] flex flex-col items-center justify-center shadow-lg border border-white/20">
             <div class="flex flex-col items-center px-6">
-                <a href="#o-nas" @click="mobileMenuOpen = false"
-                    class="text-textMain text-3xl font-light mb-6 transition-colors hover:text-burgundPremium">
-                    O nas
+                <a href="#o-nas" @click="closeMenu()"
+                    class="group text-textMain text-3xl font-light mb-6 transition-all hover:text-burgundPremium flex items-center gap-3">
+                    <svg class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:scale-110"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2">
+                        </path>
+                        <path d="M6 14h12"></path>
+                    </svg>
+                    <span>O nas</span>
                 </a>
-                <a href="#uslugi" @click="mobileMenuOpen = false"
-                    class="text-textMain text-3xl font-light mb-6 transition-colors hover:text-burgundPremium">
-                    Usługi
+                <a href="#uslugi" @click="closeMenu()"
+                    class="group text-textMain text-3xl font-light mb-6 transition-all hover:text-burgundPremium flex items-center gap-3">
+                    <svg class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:scale-110"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2">
+                        </path>
+                        <path d="M6 14h12"></path>
+                    </svg>
+                    <span>Usługi</span>
                 </a>
-                <a href="#lookbook" @click="mobileMenuOpen = false"
-                    class="text-textMain text-3xl font-light mb-6 transition-colors hover:text-burgundPremium">
-                    Lookbook
+                <a href="#lookbook" @click="closeMenu()"
+                    class="group text-textMain text-3xl font-light mb-6 transition-all hover:text-burgundPremium flex items-center gap-3">
+                    <svg class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:scale-110"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2">
+                        </path>
+                        <path d="M6 14h12"></path>
+                    </svg>
+                    <span>Lookbook</span>
                 </a>
-                <a href="#przed-po" @click="mobileMenuOpen = false"
-                    class="text-textMain text-3xl font-light mb-6 transition-colors hover:text-burgundPremium">
-                    Przed i Po
+                <a href="#przed-po" @click="closeMenu()"
+                    class="group text-textMain text-3xl font-light mb-6 transition-all hover:text-burgundPremium flex items-center gap-3">
+                    <svg class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:scale-110"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2">
+                        </path>
+                        <path d="M6 14h12"></path>
+                    </svg>
+                    <span>Przed i Po</span>
                 </a>
-                <a href="#sklep" @click="mobileMenuOpen = false"
-                    class="text-textMain text-3xl font-light mb-6 transition-colors hover:text-burgundPremium">
-                    Sklep
+                <a href="#sklep" @click="closeMenu()"
+                    class="group text-textMain text-3xl font-light mb-6 transition-all hover:text-burgundPremium flex items-center gap-3">
+                    <svg class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:scale-110"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2">
+                        </path>
+                        <path d="M6 14h12"></path>
+                    </svg>
+                    <span>Sklep</span>
                 </a>
-                <a href="#cennik" @click="mobileMenuOpen = false"
-                    class="text-textMain text-3xl font-light mb-6 transition-colors hover:text-burgundPremium">
-                    Cennik
+                <a href="#cennik" @click="closeMenu()"
+                    class="group text-textMain text-3xl font-light mb-6 transition-all hover:text-burgundPremium flex items-center gap-3">
+                    <svg class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:scale-110"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2">
+                        </path>
+                        <path d="M6 14h12"></path>
+                    </svg>
+                    <span>Cennik</span>
                 </a>
-                <a href="#kontakt" @click="mobileMenuOpen = false"
-                    class="text-textMain text-3xl font-light mb-6 transition-colors hover:text-burgundPremium">
-                    Kontakt
+                <a href="#kontakt" @click="closeMenu()"
+                    class="group text-textMain text-3xl font-light mb-6 transition-all hover:text-burgundPremium flex items-center gap-3">
+                    <svg class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:scale-110"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2">
+                        </path>
+                        <path d="M6 14h12"></path>
+                    </svg>
+                    <span>Kontakt</span>
                 </a>
                 <!-- Mobile CTA at bottom -->
                 <div class="flex flex-col gap-4 mt-8">
-                    <a href="tel:+48123456789" @click="mobileMenuOpen = false"
+                    <a href="tel:+48123456789" @click="closeMenu()"
                         class="bg-burgundPremium text-white px-8 py-3 rounded-full transition-colors hover:bg-[#751820] text-center">
                         Zadzwoń
                     </a>
-                    <a href="https://m.me/salonikuagi" target="_blank" rel="noopener noreferrer"
-                        @click="mobileMenuOpen = false"
+                    <a href="https://m.me/salonikuagi" target="_blank" rel="noopener noreferrer" @click="closeMenu()"
                         class="text-textMain border border-textMain/20 px-8 py-3 rounded-full transition-colors hover:bg-textMain/5 text-center">
                         Messenger
                     </a>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
 
     <main class="relative z-10">
         <!-- HERO - Fullscreen Background with Subtle Glassmorphism -->
@@ -243,7 +314,7 @@
         </section>
 
         <!-- O NAS - White Section with Strong Glass -->
-        <section id="o-nas" class="py-20 md:py-32 bg-snowWhite fade-in-section">
+        <section id="o-nas" class="py-20 md:py-32 bg-snowWhite fade-in-section scroll-mt-20 md:scroll-mt-24">
             <div class="max-w-6xl mx-auto px-6">
                 <div class="text-center mb-12">
                     <div class="w-24 h-[1px] bg-goldMuted mx-auto mb-6"></div>
@@ -404,7 +475,7 @@
         </section>
 
         <!-- USŁUGI - Black Section with Glass Cards -->
-        <section id="uslugi" class="py-20 md:py-32 bg-deepBlack fade-in-section">
+        <section id="uslugi" class="py-20 md:py-32 bg-deepBlack fade-in-section scroll-mt-20 md:scroll-mt-24">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="text-center mb-16">
                     <h2 class="text-4xl md:text-5xl font-serif font-normal text-snowWhite mb-4">Nasze Usługi</h2>
@@ -630,7 +701,7 @@
         </section>
 
         <!-- PRZED I PO - Black Section with Glass Container -->
-        <section id="przed-po" class="py-20 md:py-32 bg-deepBlack fade-in-section">
+        <section id="przed-po" class="py-20 md:py-32 bg-deepBlack fade-in-section scroll-mt-20 md:scroll-mt-24">
             <div class="max-w-6xl mx-auto px-6">
                 <div class="text-center mb-16">
                     <h2 class="text-4xl md:text-5xl font-serif font-normal text-snowWhite mb-4">Przed i Po</h2>
@@ -755,7 +826,7 @@
         </section>
 
         <!-- SKLEP ONLINE + VOUCHER - White Section -->
-        <section id="sklep" class="py-20 md:py-32 bg-snowWhite fade-in-section">
+        <section id="sklep" class="py-20 md:py-32 bg-snowWhite fade-in-section scroll-mt-20 md:scroll-mt-24">
             <div class="max-w-6xl mx-auto px-6">
                 <div class="text-center mb-16">
                     <div class="w-24 h-[1px] bg-goldMuted mx-auto mb-6"></div>
@@ -840,7 +911,7 @@
         </section>
 
         <!-- CENNIK - Black Section with Glass Card -->
-        <section id="cennik" class="py-20 md:py-32 bg-deepBlack fade-in-section">
+        <section id="cennik" class="py-20 md:py-32 bg-deepBlack fade-in-section scroll-mt-20 md:scroll-mt-24">
             <div class="max-w-5xl mx-auto px-6">
                 <div class="text-center mb-16">
                     <h2 class="text-4xl md:text-5xl font-serif font-normal text-snowWhite mb-4">Cennik</h2>
@@ -912,7 +983,7 @@
         </section>
 
         <!-- KONTAKT + MAPA - White Section -->
-        <section id="kontakt" class="py-20 md:py-32 bg-snowWhite fade-in-section">
+        <section id="kontakt" class="py-20 md:py-32 bg-snowWhite fade-in-section scroll-mt-20 md:scroll-mt-24">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="text-center mb-16">
                     <div class="w-24 h-[1px] bg-goldMuted mx-auto mb-6"></div>

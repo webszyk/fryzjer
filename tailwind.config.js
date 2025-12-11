@@ -61,6 +61,12 @@ module.exports = {
     { pattern: /^duration-\d+$/ },
     { pattern: /^ease-(linear|in|out|in-out)$/ },
     
+    // Z-index (including arbitrary values)
+    { pattern: /^z-(\d+|\[60\])$/ },
+    
+    // Scroll margin
+    { pattern: /^(md:)?scroll-mt-\d+$/ },
+    
     // JS dynamic class
     'fade-in-visible'
   ]
