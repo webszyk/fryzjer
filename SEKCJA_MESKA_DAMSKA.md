@@ -113,3 +113,4 @@ public_html/assets/video/
 - Jeśli video nie załaduje się, użytkownik zobaczy komunikat błędu
 - Poster (miniaturka) jest wyświetlany przed odtworzeniem video
 
+

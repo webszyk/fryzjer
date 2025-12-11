@@ -21,6 +21,7 @@ document.addEventListener('alpine:init', () => {
     carouselIndex: 0,
 
     init() {
+
       // Smooth scroll for anchor links
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -115,9 +116,4 @@ document.addEventListener('alpine:init', () => {
   }));
 });
 
-// Scroll handler for sticky nav
-window.addEventListener('scroll', () => {
-  const scrolled = window.scrollY > 50;
-  const event = new CustomEvent('scroll-update', { detail: { scrolled } });
-  window.dispatchEvent(event);
-});
+// Scroll handler removed - navigation has its own x-data scroll handler
