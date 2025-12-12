@@ -30,7 +30,19 @@
     <!-- Sticky Navigation Bar -->
     <header x-data="{ scrolled: false, mobileMenuOpen: false }" x-init="
             window.addEventListener('scroll', () => { scrolled = window.scrollY > 40 });
-            $watch('mobileMenuOpen', value => { document.body.style.overflow = value ? 'hidden' : ''; });
+            $watch('mobileMenuOpen', value => { 
+                document.body.style.overflow = value ? 'hidden' : '';
+                const main = document.querySelector('main');
+                if (main) {
+                    if (value) {
+                        main.style.filter = 'blur(4px)';
+                        main.style.transition = 'filter 0.3s ease';
+                    } else {
+                        main.style.filter = '';
+                        main.style.transition = 'none';
+                    }
+                }
+            });
         " class="fixed top-0 left-0 w-full z-40 transition-all duration-300" :class="{
             'bg-white/95 backdrop-blur-xl border border-white/30 shadow-lg': scrolled,
             'bg-white/10 backdrop-blur-md border border-white/20 shadow-soft': !scrolled
@@ -38,10 +50,10 @@
         <div class="max-w-screen-xl mx-auto w-full px-6">
             <div class="flex items-center justify-between py-3">
                 <!-- Logo -->
-                <a href="#hero" class="flex items-center flex-shrink-0">
+                <a href="/" class="flex items-center flex-shrink-0">
                     <img src="./assets/img/logo/salonik_logo_white.svg" alt="Salonik u Agi"
-                        class="h-10 w-auto object-contain transition-all duration-300"
-                        :style="scrolled ? 'filter: brightness(0);' : 'filter: brightness(0) invert(1);'">
+                        class="h-12 w-auto object-contain transition-all duration-300"
+                        :style="scrolled ? 'filter: brightness(0);' : 'filter: brightness(0);'">
                 </a>
 
                 <!-- Desktop Menu Links -->
@@ -74,12 +86,6 @@
                         <a href="#sklep" class="text-base transition-colors"
                             :class="scrolled ? 'text-textMain hover:text-burgundPremium' : 'text-white hover:text-white/80'">
                             Sklep
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#cennik" class="text-base transition-colors"
-                            :class="scrolled ? 'text-textMain hover:text-burgundPremium' : 'text-white hover:text-white/80'">
-                            Cennik
                         </a>
                     </li>
                     <li>
@@ -161,95 +167,94 @@
             x-transition:enter-start="opacity-0 translate-x-full" x-transition:enter-end="opacity-100 translate-x-0"
             x-transition:leave="transition ease-in-out duration-300"
             x-transition:leave-start="opacity-100 translate-x-0" x-transition:leave-end="opacity-0 translate-x-full"
-            class="fixed inset-0 bg-white/10 backdrop-blur-2xl z-[100] flex flex-col items-center justify-center shadow-lg border border-white/20">
-            <div class="flex flex-col items-center px-6">
-                <a href="#o-nas" @click="closeMenu()"
-                    class="group text-textMain text-3xl font-light mb-6 transition-all hover:text-burgundPremium flex items-center gap-3">
-                    <svg class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:scale-110"
-                        fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2">
-                        </path>
-                        <path d="M6 14h12"></path>
-                    </svg>
-                    <span>O nas</span>
-                </a>
-                <a href="#uslugi" @click="closeMenu()"
-                    class="group text-textMain text-3xl font-light mb-6 transition-all hover:text-burgundPremium flex items-center gap-3">
-                    <svg class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:scale-110"
-                        fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2">
-                        </path>
-                        <path d="M6 14h12"></path>
-                    </svg>
-                    <span>Usługi</span>
-                </a>
-                <a href="#lookbook" @click="closeMenu()"
-                    class="group text-textMain text-3xl font-light mb-6 transition-all hover:text-burgundPremium flex items-center gap-3">
-                    <svg class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:scale-110"
-                        fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2">
-                        </path>
-                        <path d="M6 14h12"></path>
-                    </svg>
-                    <span>Lookbook</span>
-                </a>
-                <a href="#przed-po" @click="closeMenu()"
-                    class="group text-textMain text-3xl font-light mb-6 transition-all hover:text-burgundPremium flex items-center gap-3">
-                    <svg class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:scale-110"
-                        fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2">
-                        </path>
-                        <path d="M6 14h12"></path>
-                    </svg>
-                    <span>Przed i Po</span>
-                </a>
-                <a href="#sklep" @click="closeMenu()"
-                    class="group text-textMain text-3xl font-light mb-6 transition-all hover:text-burgundPremium flex items-center gap-3">
-                    <svg class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:scale-110"
-                        fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2">
-                        </path>
-                        <path d="M6 14h12"></path>
-                    </svg>
-                    <span>Sklep</span>
-                </a>
-                <a href="#cennik" @click="closeMenu()"
-                    class="group text-textMain text-3xl font-light mb-6 transition-all hover:text-burgundPremium flex items-center gap-3">
-                    <svg class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:scale-110"
-                        fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2">
-                        </path>
-                        <path d="M6 14h12"></path>
-                    </svg>
-                    <span>Cennik</span>
-                </a>
-                <a href="#kontakt" @click="closeMenu()"
-                    class="group text-textMain text-3xl font-light mb-6 transition-all hover:text-burgundPremium flex items-center gap-3">
-                    <svg class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:scale-110"
-                        fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2">
-                        </path>
-                        <path d="M6 14h12"></path>
-                    </svg>
-                    <span>Kontakt</span>
-                </a>
-                <!-- Mobile CTA at bottom -->
-                <div class="flex flex-col gap-4 mt-8">
-                    <a href="tel:+48123456789" @click="closeMenu()"
-                        class="bg-burgundPremium text-white px-8 py-3 rounded-full transition-colors hover:bg-[#751820] text-center">
-                        Zadzwoń
+            class="fixed top-0 right-0 h-full w-[90%] z-[100] flex flex-col bg-white/10 backdrop-blur-xl border-l border-white/20 shadow-2xl">
+            <!-- Menu Content - Scrollable -->
+            <div class="flex-1 overflow-y-auto overflow-x-hidden px-6 py-8 pt-16"
+                style="-webkit-overflow-scrolling: touch;">
+                <!-- Navigation Links -->
+                <nav class="space-y-1 mb-8">
+                    <a href="#o-nas" @click="closeMenu()"
+                        class="block text-textMain text-xl font-sans py-3 transition-colors hover:text-burgundPremium border-b border-textMain/10">
+                        O nas
                     </a>
-                    <a href="https://m.me/salonikuagi" target="_blank" rel="noopener noreferrer" @click="closeMenu()"
-                        class="text-textMain border border-textMain/20 px-8 py-3 rounded-full transition-colors hover:bg-textMain/5 text-center">
-                        Messenger
+                    <a href="#uslugi" @click="closeMenu()"
+                        class="block text-textMain text-xl font-sans py-3 transition-colors hover:text-burgundPremium border-b border-textMain/10">
+                        Usługi
                     </a>
+                    <a href="#lookbook" @click="closeMenu()"
+                        class="block text-textMain text-xl font-sans py-3 transition-colors hover:text-burgundPremium border-b border-textMain/10">
+                        Lookbook
+                    </a>
+                    <a href="#przed-po" @click="closeMenu()"
+                        class="block text-textMain text-xl font-sans py-3 transition-colors hover:text-burgundPremium border-b border-textMain/10">
+                        Przed i Po
+                    </a>
+                    <a href="#sklep" @click="closeMenu()"
+                        class="block text-textMain text-xl font-sans py-3 transition-colors hover:text-burgundPremium border-b border-textMain/10">
+                        Sklep
+                    </a>
+                    <a href="#kontakt" @click="closeMenu()"
+                        class="block text-textMain text-xl font-sans py-3 transition-colors hover:text-burgundPremium border-b border-textMain/10">
+                        Kontakt
+                    </a>
+                </nav>
+
+                <!-- Umawianie wizyt -->
+                <div class="mb-8 pb-6 border-b border-textMain/20">
+                    <p class="text-sm font-sans text-textMuted mb-3">Umawianie wizyt:</p>
+                    <div class="flex items-center gap-3">
+                        <a href="tel:+48123456789" @click="closeMenu()"
+                            class="text-lg font-semibold text-textMain hover:text-burgundPremium transition-colors">
+                            +48 123 456 789
+                        </a>
+                        <a href="tel:+48123456789" @click="closeMenu()"
+                            class="bg-burgundPremium text-white px-5 py-2 rounded-full transition-colors hover:bg-[#751820] text-sm font-medium whitespace-nowrap">
+                            Zadzwoń
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Kontakt - Sprawdź trasę dojazdu -->
+                <div class="mb-8 pb-6 border-b border-textMain/20">
+                    <a href="#kontakt" @click="closeMenu()"
+                        class="flex items-center gap-3 text-textMain hover:text-burgundPremium transition-colors group">
+                        <svg class="w-5 h-5 text-burgundPremium" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                            </path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        <span class="text-lg font-sans">Sprawdź trasę dojazdu</span>
+                        <svg class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Social Media -->
+                <div class="mb-8 pb-8">
+                    <p class="text-base font-sans text-textMain mb-4 font-semibold">Śledź nas:</p>
+                    <div class="flex items-center gap-4">
+                        <a href="https://instagram.com/salonikuagi" target="_blank" rel="noopener noreferrer"
+                            @click="closeMenu()"
+                            class="w-16 h-16 rounded-full border-2 border-textMain/60 bg-white/40 backdrop-blur-md text-textMain flex items-center justify-center hover:bg-burgundPremium hover:border-burgundPremium hover:text-white transition-all shadow-xl">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <a href="https://facebook.com/salonikuagi" target="_blank" rel="noopener noreferrer"
+                            @click="closeMenu()"
+                            class="w-16 h-16 rounded-full border-2 border-textMain/60 bg-white/40 backdrop-blur-md text-textMain flex items-center justify-center hover:bg-burgundPremium hover:border-burgundPremium hover:text-white transition-all shadow-xl">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -269,33 +274,52 @@
             <div class="relative z-10 w-full max-w-[960px] px-4 md:px-8">
                 <!-- GLASS BOX -->
                 <div
-                    class="w-full max-w-[960px] mx-auto bg-white/10 backdrop-blur-lg border border-white/20 shadow-2xl rounded-2xl md:rounded-3xl flex flex-col md:flex-row items-center md:items-stretch overflow-hidden">
+                    class="w-full max-w-[960px] mx-auto mt-20 md:mt-0 bg-white/10 backdrop-blur-lg border border-white/20 shadow-2xl rounded-2xl md:rounded-3xl flex flex-col md:flex-row items-center md:items-stretch overflow-hidden">
                     <!-- LEWA KOLUMNA: TEKST -->
                     <div class="flex-1 p-6 md:p-8 lg:p-10">
-                        <h1 class="text-white font-serif text-3xl sm:text-4xl md:text-6xl leading-tight mb-4 md:mb-6">
-                            Twoje włosy<br>Twoja chwila
-                        </h1>
+                        <!-- H1 z ikoną nożyczek -->
+                        <div class="flex items-center gap-3 mb-4">
+                            <img src="./assets/img/icons/nozyczki-fryzjerskie.png" alt=""
+                                class="w-7 h-7 md:w-9 md:h-9 flex-shrink-0"
+                                style="filter: brightness(0); transform: rotate(45deg) scale(1.15);">
+                            <h1
+                                class="text-[#8C1D24] font-serif text-xl sm:text-2xl md:text-3xl font-light tracking-wide uppercase">
+                                Salon fryzjerski
+                            </h1>
+                        </div>
 
-                        <p class="text-white/90 text-sm sm:text-base md:text-lg leading-relaxed mb-4 md:mb-6">
-                            Ekskluzywne koloryzacje i strzyżenia w sercu Wrocławia. Tworzymy fryzury,
-                            które podkreślają Twoją indywidualność.
+                        <h2 class="text-white font-serif text-3xl sm:text-4xl md:text-6xl leading-tight mb-12">
+                            Ty decydujesz, jak chcesz wyglądać
+                        </h2>
+
+                        <p class="text-white/90 text-sm sm:text-base md:text-lg leading-relaxed mb-3 md:mb-4">
+                            Salon fryzjerski we Wrocławiu, w którym każda wizyta to czas tylko dla Ciebie.
                         </p>
 
-                        <ul class="text-white/85 space-y-1.5 md:space-y-2 mb-6 md:mb-8 text-sm md:text-base">
-                            <li>— Profesjonalne produkty premium</li>
-                            <li>— Indywidualne podejście do każdego klienta</li>
-                            <li>— Relaksująca atmosfera w centrum miasta</li>
-                        </ul>
+                        <p class="text-white/90 text-sm sm:text-base md:text-lg leading-relaxed mb-4 md:mb-6">
+                            Dla kobiet i mężczyzn, którzy cenią spokój i jakość.
+                        </p>
+
+                        <!-- Mikro-element: Kobiety / Mężczyźni -->
+                        <div class="flex items-center gap-4 md:gap-6 mb-6 md:mb-8 text-white/85 text-xs sm:text-sm">
+                            <div class="flex items-center gap-2">
+                                <span>Koloryzacje & pielęgnacja</span>
+                            </div>
+                            <div class="w-px h-4 bg-goldMuted/30"></div>
+                            <div class="flex items-center gap-2">
+                                <span>Komfortowe strzyżenia</span>
+                            </div>
+                        </div>
 
                         <div class="flex flex-col sm:flex-row gap-3 md:gap-4 mt-4 md:mt-6">
                             <a href="tel:+48123456789"
                                 class="bg-[#8C1D24] text-white px-6 py-3 rounded-full hover:bg-[#751820] transition text-center">
-                                ZADZWOŃ
+                                Umów wizytę
                             </a>
 
-                            <a href="https://m.me/salonikuagi" target="_blank" rel="noopener noreferrer"
+                            <a href="#lookbook"
                                 class="border border-white/30 bg-white/10 text-white px-6 py-3 rounded-full hover:bg-white/20 transition text-center">
-                                MESSENGER
+                                Zobacz naszą pracę
                             </a>
                         </div>
                     </div>
@@ -904,78 +928,6 @@
                                 class="bg-goldMuted text-textMain hover:bg-goldMuted/80 px-6 py-3 rounded-full transition-colors">
                                 Napisz
                             </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CENNIK - Black Section with Glass Card -->
-        <section id="cennik" class="py-20 md:py-32 bg-deepBlack fade-in-section scroll-mt-20 md:scroll-mt-24">
-            <div class="max-w-5xl mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-5xl font-serif font-normal text-snowWhite mb-4">Cennik</h2>
-                    <div class="w-24 h-[1px] bg-goldMuted mx-auto"></div>
-                </div>
-
-                <!-- Glass Card - 80% width -->
-                <div class="glass-strong rounded-2xl p-8 mx-auto" style="width: 80%;">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between py-4 border-b border-snowWhite/20">
-                            <div>
-                                <h3 class="text-lg font-serif font-normal text-snowWhite">Koloryzacja pełna</h3>
-                                <p class="text-sm font-sans text-snowWhite/60 mt-1">Farby profesjonalne</p>
-                            </div>
-                            <p class="text-xl font-serif font-semibold text-burgundPremium">od 290 zł</p>
-                        </div>
-                        <div class="flex items-center justify-between py-4 border-b border-snowWhite/20">
-                            <div>
-                                <h3 class="text-lg font-serif font-normal text-snowWhite">Balayage</h3>
-                                <p class="text-sm font-sans text-snowWhite/60 mt-1">Technika ręczna</p>
-                            </div>
-                            <p class="text-xl font-serif font-semibold text-burgundPremium">od 350 zł</p>
-                        </div>
-                        <div class="flex items-center justify-between py-4 border-b border-snowWhite/20">
-                            <div>
-                                <h3 class="text-lg font-serif font-normal text-snowWhite">Strzyżenie damskie</h3>
-                                <p class="text-sm font-sans text-snowWhite/60 mt-1">Krótkie, średnie, długie</p>
-                            </div>
-                            <p class="text-xl font-serif font-semibold text-burgundPremium">od 120 zł</p>
-                        </div>
-                        <div class="flex items-center justify-between py-4 border-b border-snowWhite/20">
-                            <div>
-                                <h3 class="text-lg font-serif font-normal text-snowWhite">Strzyżenie męskie</h3>
-                                <p class="text-sm font-sans text-snowWhite/60 mt-1">Klasyczne i nowoczesne</p>
-                            </div>
-                            <p class="text-xl font-serif font-semibold text-burgundPremium">od 80 zł</p>
-                        </div>
-                        <div class="flex items-center justify-between py-4 border-b border-snowWhite/20">
-                            <div>
-                                <h3 class="text-lg font-serif font-normal text-snowWhite">Modelowanie</h3>
-                                <p class="text-sm font-sans text-snowWhite/60 mt-1">Upięcia, loki</p>
-                            </div>
-                            <p class="text-xl font-serif font-semibold text-burgundPremium">od 100 zł</p>
-                        </div>
-                        <div class="flex items-center justify-between py-4 border-b border-snowWhite/20">
-                            <div>
-                                <h3 class="text-lg font-serif font-normal text-snowWhite">Pielęgnacja włosów</h3>
-                                <p class="text-sm font-sans text-snowWhite/60 mt-1">Zabiegi regenerujące</p>
-                            </div>
-                            <p class="text-xl font-serif font-semibold text-burgundPremium">od 150 zł</p>
-                        </div>
-                        <div class="flex items-center justify-between py-4 border-b border-snowWhite/20">
-                            <div>
-                                <h3 class="text-lg font-serif font-normal text-snowWhite">Tonowanie</h3>
-                                <p class="text-sm font-sans text-snowWhite/60 mt-1">Neutralizacja odcieni</p>
-                            </div>
-                            <p class="text-xl font-serif font-semibold text-burgundPremium">od 100 zł</p>
-                        </div>
-                        <div class="flex items-center justify-between py-4">
-                            <div>
-                                <h3 class="text-lg font-serif font-normal text-snowWhite">Konsultacja</h3>
-                                <p class="text-sm font-sans text-snowWhite/60 mt-1">Omówienie stylizacji</p>
-                            </div>
-                            <p class="text-xl font-serif font-semibold text-goldMuted">bezpłatna</p>
                         </div>
                     </div>
                 </div>

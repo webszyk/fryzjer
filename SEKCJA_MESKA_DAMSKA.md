@@ -114,3 +114,4 @@ public_html/assets/video/
 - Poster (miniaturka) jest wyświetlany przed odtworzeniem video
 
 
+
