@@ -11,6 +11,7 @@ module.exports = {
         "graphite": "#1A1A1A",
         "snowWhite": "#FFFFFF",
         "goldMuted": "#C8A96A",
+        "darkAntiqueGold": "#B08A3C",
         "burgundPremium": "rgb(183, 33, 42)",
         // Text colors
         "textMain": "#1A1A1A",
