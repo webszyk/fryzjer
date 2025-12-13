@@ -36,8 +36,8 @@ module.exports = {
     { pattern: /^bg-(white|black|textMain|goldMuted|snowWhite|deepBlack|burgundPremium|gold|softblack)$/ },
     
     // Text colors with opacity (dynamic Alpine.js :class)
-    { pattern: /^text-(white|textMain|burgundPremium|goldMuted|gold|softblack|snowWhite|deepBlack)\/\d+$/ },
-    { pattern: /^text-(white|textMain|burgundPremium|goldMuted|gold|softblack|snowWhite|deepBlack)$/ },
+    { pattern: /^text-(white|textMain|burgundPremium|goldMuted|gold|softblack|snowWhite|deepBlack|darkAntiqueGold)\/\d+$/ },
+    { pattern: /^text-(white|textMain|burgundPremium|goldMuted|gold|softblack|snowWhite|deepBlack|darkAntiqueGold)$/ },
     
     // Borders with opacity (dynamic Alpine.js :class)
     { pattern: /^border(-[btlrxy])?-(white|textMain|goldMuted|gold|snowWhite|deepBlack|burgundPremium)\/\d+$/ },
